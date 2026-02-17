@@ -8,37 +8,117 @@
         {
           "number": "1.1",
           "title": "Spielfeldabmessungen",
-          "description": "Das Spielfeld muss 60 Meter lang und 26-30 Meter breit sein. Die Ecken sind mit einem Radius von 7-8,5 Metern abgerundet.",
+          "description": "Das Spielfeld muss rechteckig sein mit abgerundeten Ecken. Die Standardmaße betragen 60 Meter Länge und 26-30 Meter Breite.",
           "details": "International üblich: 60m x 30m",
-          "category": "spielfeld"
+          "category": "spielfeld",
+          "detailedExplanation": "Die Eisfläche bildet die Grundlage des Eishockeyspiels. Die IIHF-Standardmaße sind 60m x 30m, während in Nordamerika oft 61m x 26m (200 x 85 Fuß) verwendet wird. Die Ecken müssen mit einem Radius von 7-8,5 Metern abgerundet sein, um den Spielfluss zu fördern und Kollisionen zu minimieren.",
+          "examples": [
+            "Olympiastadien verwenden 60m x 30m",
+            "NHL-Rinks sind kleiner: 61m x 26m",
+            "Trainingshallen können kleinere Maße haben, solange sie proportional sind"
+          ],
+          "exceptions": "Bei kleineren Hallen für Jugendspiele können die Maße angepasst werden, müssen aber proportional bleiben.",
+          "relatedRules": [
+            "1.2",
+            "1.3",
+            "1.4"
+          ]
         },
         {
           "number": "1.2",
-          "title": "Tore",
-          "description": "Die Tore müssen 1,83 Meter breit und 1,22 Meter hoch sein. Die Torpfosten sind rot gestrichen.",
+          "title": "Tore und Torpfosten",
+          "description": "Die Tore müssen exakt 1,83 Meter breit und 1,22 Meter hoch sein. Die Torpfosten und Querlatte sind rot gestrichen.",
           "details": "Tortiefe: 0,6 - 1,12 Meter",
-          "category": "spielfeld"
+          "category": "spielfeld",
+          "detailedExplanation": "Die Tormaße sind weltweit standardisiert. Die Torpfosten müssen fest im Eis verankert sein, aber bei starkem Kontakt nachgeben können, um Verletzungen zu vermeiden. Die Tortiefe beträgt zwischen 0,6 und 1,12 Meter. Das Tornetz muss aus weißem Nylon bestehen und eine Maschenweite von maximal 4 cm haben.",
+          "examples": [
+            "Die roten Torpfosten müssen auch aus dem Tor deutlich sichtbar sein",
+            "Bei Video-Reviews ist die Lage des Pucks relativ zum Tor entscheidend",
+            "Torpfosten haben einen Durchmesser von 5 cm"
+          ],
+          "whatToWatchFor": [
+            "Puck muss vollständig die Torlinie überqueren",
+            "Tor zählt auch, wenn Pfosten verschoben wurde",
+            "Bei absichtlicher Verschiebung: Penalty Shot"
+          ],
+          "relatedRules": [
+            "1.3",
+            "7.1",
+            "24.1"
+          ]
         },
         {
           "number": "1.3",
           "title": "Torlinien und Torraum",
-          "description": "Die Torlinien sind 5 cm breit und rot gefärbt. Der Torraum ist blau und hat einen Radius von 1,83 Metern vor jedem Tor.",
-          "category": "spielfeld"
+          "description": "Die Torlinien sind 5 cm breit und rot gefärbt. Der Torraum (Crease) ist halbkreisförmig blau markiert mit einem Radius von 1,83 Metern vor jedem Tor.",
+          "category": "spielfeld",
+          "detailedExplanation": "Die Torlinie verläuft zwischen den Innenkanten der Torpfosten und erstreckt sich über die gesamte Breite des Spielfelds. Der Torraum ist eine besonders geschützte Zone, in der der Torhüter agieren kann. Feldspieler dürfen den Torraum betreten, aber nicht den Torhüter bei der Ausführung seiner Aufgaben behindern. Die blaue Farbe des Torraums ist international standardisiert.",
+          "examples": [
+            "Ein Tor zählt nur, wenn der Puck die Torlinie vollständig überquert",
+            "Spieler im Torraum bei Torerzielung führt zur Annullierung",
+            "Torhüter darf im Torraum nicht gecheckt werden"
+          ],
+          "whatToWatchFor": [
+            "Spieler dürfen sich nicht im Torraum aufhalten, wenn ein Tor erzielt wird",
+            "Kontakt mit dem Torhüter im Torraum führt zu Strafen",
+            "Puck im Torraum darf vom Torhüter mit der Hand gespielt werden"
+          ],
+          "exceptions": "Spieler dürfen den Torraum durchqueren, solange sie den Torhüter nicht behindern. Nach Torerzielung wird überprüft, ob ein Spieler im Torraum war.",
+          "relatedRules": [
+            "1.2",
+            "69.1",
+            "69.2",
+            "7.1"
+          ]
         },
         {
           "number": "1.4",
-          "title": "Mittellinie",
-          "description": "Die Mittellinie teilt das Spielfeld in zwei gleiche Hälften. Sie ist rot und 30 cm breit.",
-          "category": "spielfeld"
+          "title": "Mittellinie und Zoneneinteilung",
+          "description": "Die rote Mittellinie teilt das Spielfeld in zwei gleiche Hälften. Sie ist 30 cm breit und verläuft parallel zu den Torlinien.",
+          "category": "spielfeld",
+          "detailedExplanation": "Die Mittellinie ist für mehrere wichtige Regeln entscheidend: Sie definiert die Grenze für Icing (unerlaubter Weitschuss), teilt das Feld in Angriffs- und Verteidigungszonen und ist der Punkt für Spielbeginn und Tor-Bullys. Zusätzlich gibt es zwei blaue Linien, die die neutrale Zone von den Endzonen trennen. Diese blauen Linien sind 25 cm breit und befinden sich 17,23 Meter von jeder Torlinie entfernt.",
+          "examples": [
+            "Icing wird gepfiffen, wenn der Puck von hinter der Mittellinie über die gegnerische Torlinie geschossen wird",
+            "Nach einem Tor findet das Bully in der Spielfeldmitte statt",
+            "Die Mittellinie ist wichtig für Zwei-Linien-Pass-Regel (in einigen Ligen)"
+          ],
+          "whatToWatchFor": [
+            "Puck muss komplett die Linie überqueren",
+            "Für Abseits sind die blauen Linien entscheidend",
+            "Icing-Regelung bezieht sich auf die Mittellinie"
+          ],
+          "relatedRules": [
+            "81.1",
+            "83.1",
+            "5.1"
+          ]
         },
         {
           "number": "1.5",
-          "title": "Bully-Punkte",
-          "description": "Es gibt neun Bully-Punkte auf dem Spielfeld: einen in der Mitte und je vier in den beiden Endzonen.",
+          "title": "Bully-Punkte und Anspielpunkte",
+          "description": "Es gibt neun Bully-Punkte auf dem Spielfeld: einen roten Mittelpunkt (30 cm Durchmesser) und je vier rote Punkte (60 cm Durchmesser) in beiden Endzonen.",
           "details": "Mittelpunkt: 30 cm Durchmesser, andere: 60 cm Durchmesser",
-          "category": "spielfeld"
+          "category": "spielfeld",
+          "detailedExplanation": "Die Bully-Punkte markieren die Positionen, an denen das Spiel nach Unterbrechungen fortgesetzt wird. Der zentrale Mittelpunkt wird für Spielbeginn, nach Toren und in bestimmten anderen Situationen verwendet. Die vier Punkte in jeder Endzone befinden sich jeweils in den Bullyzirkeln mit einem Radius von 4,5 Metern. Jeder Punkt ist mit detaillierten Markierungen umgeben, die die Positionen der Spieler während des Bullys definieren.",
+          "examples": [
+            "Spiel beginnt mit Bully am Mittelpunkt",
+            "Nach jedem Tor: Bully am Mittelpunkt",
+            "Nach Icing: Bully in der Verteidigungszone des verursachenden Teams",
+            "Bei Strafen wird oft in der neutralen Zone angestoßen"
+          ],
+          "whatToWatchFor": [
+            "Spieler müssen korrekt positioniert sein beim Bully",
+            "Nur die beiden Spieler am Bully-Punkt dürfen im Kreis stehen",
+            "Bei regelwidrigem Bully wird der beteiligte Spieler ausgewechselt"
+          ],
+          "procedureDetails": "Beim Bully stehen sich zwei Spieler gegenüber, Schläger müssen auf dem Eis sein. Der Linienrichter lässt den Puck fallen. Spieler dürfen erst nach dem Fallen des Pucks zuschlagen.",
+          "relatedRules": [
+            "76.1",
+            "76.2"
+          ]
         }
-      ]
+      ],
+      "description": "Alle Regeln zur Spielfläche, Toren, Banden, Linien und Markierungen sowie der erforderlichen Ausrüstung für Spieler und Torhüter."
     },
     {
       "id": "spieler",
@@ -47,37 +127,124 @@
       "rules": [
         {
           "number": "2.1",
-          "title": "Mannschaftsstärke",
-          "description": "Eine Mannschaft besteht aus maximal 22 Spielern (20 Feldspieler und 2 Torhüter). Auf dem Eis befinden sich gleichzeitig maximal 6 Spieler pro Team.",
+          "title": "Mannschaftsstärke und Aufstellung",
+          "description": "Eine Mannschaft besteht aus maximal 22 Spielern (20 Feldspieler und 2 Torhüter). Auf dem Eis befinden sich gleichzeitig maximal 6 Spieler pro Team (1 Torhüter + 5 Feldspieler).",
           "details": "Minimum: 1 Torhüter + 5 Feldspieler",
-          "category": "spieler"
+          "category": "spieler",
+          "detailedExplanation": "Das Team muss vor Spielbeginn seine Aufstellung bekannt geben. Während des Spiels dürfen maximal 6 Spieler gleichzeitig auf dem Eis sein, wobei mindestens 1 Torhüter dabei sein muss (außer in den letzten Minuten bei Rückstand). Bei Strafen reduziert sich die Spieleranzahl entsprechend (Powerplay/Unterzahl). Die Mindestanzahl beträgt 1 Torhüter plus 5 Feldspieler. Bei zu wenigen Spielern wird das Spiel abgebrochen.",
+          "examples": [
+            "Standardaufstellung: 1 TW, 2 Verteidiger, 3 Stürmer",
+            "Bei kleiner Strafe: 5 gegen 6 (Powerplay)",
+            "Bei zwei Strafen: 4 gegen 6 (5 gegen 3 möglich)",
+            "Torhüter kann für zusätzlichen Feldspieler rausgenommen werden"
+          ],
+          "whatToWatchFor": [
+            "Zu viele Spieler auf dem Eis = 2 Minuten Bankstrafe",
+            "Illegaler Spielerwechsel = 2 Minuten",
+            "Bei schweren Verletzungen muss Ersatz gestellt werden"
+          ],
+          "relatedRules": [
+            "2.4",
+            "74.1",
+            "68.1"
+          ]
         },
         {
           "number": "2.2",
-          "title": "Spielerpositionen",
-          "description": "Typische Aufstellung: 1 Torhüter, 2 Verteidiger, 3 Stürmer (Center, Links- und Rechtsaußen).",
-          "category": "spieler"
+          "title": "Spielerpositionen und Rollen",
+          "description": "Typische Aufstellung besteht aus 1 Torhüter, 2 Verteidigern (Defense) und 3 Stürmern (Center, Links- und Rechtsaußen/Wings).",
+          "category": "spieler",
+          "detailedExplanation": "Jede Position hat spezifische Aufgaben: Der Torhüter verteidigt das Tor und darf den Puck in bestimmten Bereichen mit der Hand spielen. Verteidiger sind primär für die Defensive zuständig, unterstützen aber auch Angriffe. Der Center ist oft für Bullys und zentrale Spielzüge verantwortlich. Die Flügelspieler (Wings) konzentrieren sich auf Angriff und Forechecking. Die Aufstellung kann taktisch variiert werden (z.B. 4 Stürmer bei Überzahl, 4 Verteidiger in Unterzahl).",
+          "examples": [
+            "Power-Forward: Physisch starker Center",
+            "Defensive Defenseman: Konzentriert auf Verteidigung",
+            "Playmaker: Stürmer mit vielen Assists",
+            "Enforcer: Spieler für körperliche Spielweise"
+          ],
+          "tacticalNotes": "Moderne Systeme setzen auf schnelle Positionswechsel. Verteidiger beteiligen sich aktiv am Angriff. Rollen sind fließend und situationsabhängig.",
+          "relatedRules": [
+            "2.1",
+            "6.1"
+          ]
         },
         {
           "number": "2.3",
-          "title": "Ausrüstung",
-          "description": "Alle Spieler müssen einen Helm mit Gesichtsschutz, Handschuhe, Ellenbogenschützer, Schulterpolster, Schienbeinschützer und einen Tiefschutz tragen.",
+          "title": "Spielerausrüstung - Pflicht und Sicherheit",
+          "description": "Alle Spieler müssen vorgeschriebene Schutzausrüstung tragen: Helm mit Gesichtsschutz, Handschuhe, Ellenbogen-, Schulter- und Schienbeinschützer sowie Tiefschutz.",
           "details": "Torhüter haben zusätzlich spezielle Ausrüstung",
-          "category": "spieler"
+          "category": "spieler",
+          "detailedExplanation": "Die Sicherheitsausrüstung ist zwingend vorgeschrieben und muss den IIHF-Standards entsprechen. Der Helm muss ein CE-Zertifikat haben und mit einem Kinnriemen gesichert sein. Der Gesichtsschutz (Visier oder Gitter) ist für alle Jugendspieler und bei IIHF-Turnieren Pflicht. Feldspieler tragen zusätzlich Schulterpolster, Ellenbogenschützer, Handschuhe mit verstärktem Handgelenk, Hose mit integrierten Schutzpolstern, Schienbeinschützer und Schlittschuhe. Der Tiefschutz (Suspensorium) ist Pflicht für alle männlichen Spieler. Alle Ausrüstungsteile müssen unbeschädigt und ordnungsgemäß angelegt sein.",
+          "examples": [
+            "Helm ohne Kinnriemen = sofortige Spielunterbrechung",
+            "Beschädigte Ausrüstung muss ersetzt werden",
+            "Zusätzliche Schutzausrüstung ist nach ärztlicher Empfehlung erlaubt",
+            "Helmpflicht gilt auch beim Aufwärmen"
+          ],
+          "whatToWatchFor": [
+            "Verlust des Helms während des Spiels = Spieler muss sofort Bank aufsuchen",
+            "Spielen ohne vorgeschriebene Ausrüstung = 2 Minuten Strafe",
+            "Ausrüstung darf keine Gefahr für andere darstellen"
+          ],
+          "relatedRules": [
+            "9.1",
+            "10.1",
+            "11.1",
+            "12.1"
+          ]
         },
         {
           "number": "2.4",
-          "title": "Spielerwechsel",
-          "description": "Spielerwechsel können jederzeit während des Spiels vorgenommen werden ('fliegender Wechsel'), solange max. 6 Spieler auf dem Eis sind.",
-          "category": "spieler"
+          "title": "Spielerwechsel - Fliegender Wechsel",
+          "description": "Spielerwechsel können jederzeit während des laufenden Spiels vorgenommen werden ('fliegender Wechsel'), solange maximal 6 Spieler auf dem Eis sind.",
+          "category": "spieler",
+          "detailedExplanation": "Der 'fliegende Wechsel' ist eine Besonderheit des Eishockeys. Spieler können während des laufenden Spiels gewechselt werden, ohne dass das Spiel unterbrochen wird. Der ausgewechselte Spieler muss die Spielfläche verlassen haben, bevor der neue Spieler das Eis betritt. Der Wechsel muss über die eigene Spielerbank erfolgen und darf maximal 1,5 Meter in die neutrale Zone reichen. Bei Strafen oder Unterbrechungen können Wechsel nur bei Spielunterbrechungen vorgenommen werden. Torhüterwechsel müssen dem Schiedsrichter angezeigt werden.",
+          "examples": [
+            "Schneller Wechsel während Gegenangriff",
+            "Ermüdete Spieler wechseln nach ca. 45 Sekunden",
+            "Wechsel bei Icing ist für das verursachende Team verboten",
+            "Strategischer Wechsel für letzte Sekunde"
+          ],
+          "whatToWatchFor": [
+            "Zu viele Spieler auf dem Eis = 2 Min. Bankstrafe",
+            "Wechsel über falsche Tür = 2 Min. Bankstrafe",
+            "Bei Icing darf verursachendes Team nicht wechseln",
+            "Zu früher Wechsel nach Strafe = 2 Min."
+          ],
+          "procedureDetails": "Der Wechsel sollte schnell erfolgen. Neue Spieler dürfen erst aufs Eis, wenn die abgelösten Spieler innerhalb 1,5m der Bank sind. Bei verzögertem Wechsel kann Strafe verhängt werden.",
+          "relatedRules": [
+            "68.1",
+            "74.1",
+            "82.1",
+            "71.1"
+          ]
         },
         {
           "number": "2.5",
-          "title": "Kapitän und Assistenten",
+          "title": "Kapitän und Assistenten - Führungsrollen",
           "description": "Jede Mannschaft bestimmt einen Kapitän (C) und maximal zwei Assistenten (A). Nur diese dürfen mit den Schiedsrichtern über Regelauslegungen sprechen.",
-          "category": "spieler"
+          "category": "spieler",
+          "detailedExplanation": "Der Kapitän ist der offizielle Vertreter des Teams auf dem Eis und trägt ein 'C' auf dem Trikot. Die Assistenten tragen ein 'A'. Diese Spieler haben das Privileg und die Verantwortung, mit den Schiedsrichtern zu kommunizieren und Fragen zur Regelauslegung zu stellen. Sie dürfen jedoch keine Strafen anzweifeln oder Entscheidungen in Frage stellen. Bei respektlosem Verhalten können auch sie bestraft werden. Der Kapitän muss beim Spielbeginn dem Schiedsrichter vorgestellt werden. Wenn kein Kapitän auf dem Eis ist, übernimmt ein Assistent diese Rolle.",
+          "examples": [
+            "Kapitän fragt nach Erklärung einer Strafen-Entscheidung",
+            "Bei Unklarheiten über Regelauslegung kontaktiert der Kapitän den Schiedsrichter",
+            "Assistenten können bei Abwesenheit des Kapitäns dessen Rolle übernehmen",
+            "Respektloses Verhalten führt auch bei Kapitän zu Strafen"
+          ],
+          "whatToWatchFor": [
+            "Nur Kapitän und Assistenten dürfen mit Schiedsrichtern sprechen",
+            "Andere Spieler, die protestieren = 2 Min. unsportliches Verhalten",
+            "Übermäßiges Protestieren = weitere Strafen möglich",
+            "Kapitän muss auf dem Eis sein, um diese Rolle auszuüben"
+          ],
+          "leadership": "Diese Spieler sind auch Vorbilder und Führungspersönlichkeiten, die das Team auf und neben dem Eis anführen.",
+          "relatedRules": [
+            "6.1",
+            "75.1",
+            "39.1"
+          ]
         }
-      ]
+      ],
+      "description": "Regeln zur Mannschaftszusammensetzung, Spieleranzahl, Ausrüstung, Wechseln und Rollen im Team."
     },
     {
       "id": "spielablauf",
@@ -88,33 +255,116 @@
           "number": "3.1",
           "title": "Spielzeit",
           "description": "Ein Spiel besteht aus drei Dritteln zu je 20 Minuten (effektive Spielzeit). Zwischen den Dritteln gibt es 15-minütige Pausen.",
-          "category": "spielablauf"
+          "category": "spielablauf",
+          "detailedExplanation": "Ein Eishockeyspiel ist in drei Perioden (Drittel) von je 20 Minuten effektiver Spielzeit unterteilt. Die Uhr wird bei jeder Spielunterbrechung angehalten. Zwischen den Dritteln gibt es Pausen von 15 Minuten, in denen die Eisfläche geglättet wird (Eismaschine). Die Mannschaften wechseln nach jedem Drittel die Seiten, um faire Bedingungen zu gewährleisten.",
+          "examples": [
+            "Echte Spielzeit: 60 Minuten, tatsächliche Dauer oft 2,5 Stunden",
+            "Bei Strafen läuft die Uhr weiter, Spielzeit nicht",
+            "In Playoffs kann es mehrere Verlängerungen geben",
+            "Zeitnehmer ist verantwortlich für exakte Zeitnahme"
+          ],
+          "whatToWatchFor": [
+            "Uhr stoppt bei Pfiff automatisch",
+            "Letzte Minute jedes Drittels ist besonders intensiv",
+            "Eismaschinenpausen sind genau 15 Minuten",
+            "Mannschaften tauschen Seiten nach jedem Drittel"
+          ],
+          "relatedRules": [
+            "3.2",
+            "3.3",
+            "3.4"
+          ]
         },
         {
           "number": "3.2",
           "title": "Spielbeginn",
           "description": "Das Spiel beginnt mit einem Bully in der Spielfeldmitte. Nach jedem Tor wird ebenfalls ein Bully in der Mitte durchgeführt.",
-          "category": "spielablauf"
+          "category": "spielablauf",
+          "detailedExplanation": "Jedes Spiel und jedes Drittel beginnt mit einem Bully am Mittelpunkt. Nach jedem regulären Tor wird ebenfalls am Mittelpunkt angestoßen. Der Schiedsrichter gibt beide Teams an ihre Position und lässt dann den Puck fallen. Beide Teams starten von neutralen Positionen.",
+          "examples": [
+            "Zu Beginn: Bully am Mittelpunkt",
+            "Nach 1:0 Führung: Bully am Mittelpunkt",
+            "Neues Drittel: Wieder am Mittelpunkt",
+            "Nach Video-Review eines Tors: Bully am Mittelpunkt"
+          ],
+          "procedureDetails": "Teams stellen sich auf ihren Seiten auf. Center kommen zum Mittelpunkt. Linienrichter prüft korrekte Positionierung. Nach Signal lässt er den Puck fallen.",
+          "relatedRules": [
+            "76.1",
+            "3.1"
+          ]
         },
         {
           "number": "3.3",
           "title": "Unterbrechungen",
           "description": "Das Spiel wird unterbrochen bei Tor, Strafen, Puck außerhalb des Spielfelds, Torhüterwechsel oder anderen Regelverstößen.",
-          "category": "spielablauf"
+          "category": "spielablauf",
+          "detailedExplanation": "Das Spiel wird aus verschiedenen Gründen unterbrochen: Tor, Strafen, Puck verlässt das Spielfeld, Torhüterwechsel, Abseits, Icing, Hand Pass oder andere Regelverstöße. Bei jeder Unterbrechung stoppt die Uhr automatisch. Das Spiel wird mit einem Bully am entsprechenden Anspielpunkt fortgesetzt.",
+          "examples": [
+            "Tor erzielt = Unterbrechung, Bully am Mittelpunkt",
+            "Puck über Bande = Unterbrechung, Bully am nächsten Punkt",
+            "Icing = Unterbrechung, Bully in Verteidigungszone",
+            "Strafe = Unterbrechung, bestrafter Spieler zur Strafbank"
+          ],
+          "whatToWatchFor": [
+            "Schiedsrichter pfeift bei jeder Unterbrechung",
+            "Spieler dürfen Puck nicht mehr spielen nach Pfiff",
+            "Position des Bullys richtet sich nach Art der Unterbrechung",
+            "Torhüterwechsel nur bei Unterbrechung erlaubt"
+          ],
+          "relatedRules": [
+            "76.1",
+            "81.1",
+            "83.1"
+          ]
         },
         {
           "number": "3.4",
           "title": "Verlängerung",
           "description": "Bei Unentschieden nach regulärer Spielzeit kann eine Verlängerung (Overtime) gespielt werden. Format variiert je nach Wettbewerb.",
           "details": "Oft 3 gegen 3 für 5 Minuten in der regulären Saison",
-          "category": "spielablauf"
+          "category": "spielablauf",
+          "detailedExplanation": "Steht es nach 60 Minuten regulärer Spielzeit unentschieden, wird eine Verlängerung (Overtime) gespielt. Das Format variiert je nach Wettbewerb: In der regulären Saison oft 5 Minuten mit 3-gegen-3 Spielern plus Torhüter. In Playoffs wird bis zum entscheidenden Tor gespielt (Sudden Death Overtime) mit voller Besetzung (5-gegen-5). Das erste Tor in der Overtime beendet das Spiel sofort.",
+          "examples": [
+            "Reguläre Saison: 3-gegen-3 für 5 Minuten",
+            "Olympische Spiele: 4-gegen-4 für 20 Minuten",
+            "Playoffs: 5-gegen-5 bis zum Golden Goal",
+            "Bei Unentschieden nach OT: Penalty-Schießen"
+          ],
+          "whatToWatchFor": [
+            "Reduzierte Spieleranzahl macht Spiel schneller",
+            "Mehr Raum auf dem Eis = mehr Chancen",
+            "Erstes Tor beendet Spiel sofort",
+            "Strategische Bedeutung von Ballbesitz"
+          ],
+          "relatedRules": [
+            "3.5",
+            "84.1"
+          ]
         },
         {
           "number": "3.5",
           "title": "Penalty-Schießen",
           "description": "Wenn nach der Verlängerung kein Sieger feststeht, wird ein Penalty-Schießen durchgeführt. Jedes Team nominiert 3 Schützen.",
           "details": "Bei weiterem Unentschieden: Sudden Death",
-          "category": "spielablauf"
+          "category": "spielablauf",
+          "detailedExplanation": "Wenn auch nach der Verlängerung kein Sieger feststeht, wird ein Penalty-Schießen durchgeführt. Jedes Team nominiert 3 Schützen, die abwechselnd gegen den Torhüter antreten. Bei weiterem Unentschieden geht es in Sudden Death: Team für Team schießt, bis ein Unterschied besteht. Jeder Spieler darf nur einmal schießen, bis alle zum Einsatz kamen.",
+          "examples": [
+            "Erste Runde: Jedes Team 3 Schützen",
+            "Bei 2:2 nach 3 Schützen: Sudden Death",
+            "Jeder Schütze einmal, dann neue Spieler",
+            "Torhüter darf gewechselt werden zwischen Schüssen"
+          ],
+          "procedureDetails": "Schütze startet von Mittellinie, fährt allein auf Torhüter zu. Ein Versuch pro Schütze. Ball darf nicht rückwärts bewegt werden. Schuss muss innerhalb der Angriffszone bleiben.",
+          "whatToWatchFor": [
+            "Schützenauswahl ist taktisch wichtig",
+            "Torhüter unter enormem Druck",
+            "Publikum erlebt hochdramatische Momente",
+            "Jeder Schuss kann entscheidend sein"
+          ],
+          "relatedRules": [
+            "24.1",
+            "3.4"
+          ]
         }
       ]
     },
@@ -148,19 +398,71 @@
           "number": "4.4",
           "title": "Haken (Hooking)",
           "description": "Mit dem Schläger den Gegner behindern oder aufhalten. Führt zu einer 2-Minuten-Strafe.",
-          "category": "strafen"
+          "category": "strafen",
+          "detailedExplanation": "Haken (Hooking) tritt auf, wenn ein Spieler seinen Schläger verwendet, um einen Gegner zu behindern oder aufzuhalten, indem er ihn am Körper, an den Armen oder am Stock 'hakt'. Dies ist eine der häufigsten Strafen im Eishockey. Der Spieler verwendet die gebogene Klinge seines Schlägers, um den Gegner zurückzuziehen oder seine Bewegung einzuschränken.",
+          "examples": [
+            "Angreifer wird von hinten gehakt beim Durchbruch",
+            "Verteidiger hakt den Arm des Stürmers",
+            "Spieler hakt den Schläger des Gegners um Passversuch zu verhindern",
+            "Verzweifeltes Haken im eigenen Drittel"
+          ],
+          "whatToWatchFor": [
+            "Schläger des Verteidigers um Körper/Arme des Angreifers",
+            "Behinderte Bewegung oder verlangsamter Spieler",
+            "Oft in Eins-gegen-Eins-Situationen",
+            "Häufig wenn Verteidiger überspielt wird"
+          ],
+          "relatedRules": [
+            "54.1",
+            "56.1",
+            "57.1"
+          ]
         },
         {
           "number": "4.5",
           "title": "Beinstellen (Tripping)",
           "description": "Den Gegner mit Schläger, Knie, Fuß oder Bein zu Fall bringen. 2-Minuten-Strafe.",
-          "category": "strafen"
+          "category": "strafen",
+          "detailedExplanation": "Beinstellen (Tripping) liegt vor, wenn ein Spieler einen Gegner mit dem Schläger, dem Knie, dem Fuß, dem Arm, der Hand oder dem Ellbogen zu Fall bringt oder versucht, ihn zu Fall zu bringen. Dies ist besonders gefährlich, da fallende Spieler sich schwer verletzen können.",
+          "examples": [
+            "Schläger zwischen die Beine des Gegners stecken",
+            "Bein vorstrecken, sodass Gegner darüber stolpert",
+            "Knie einsetzen um Spieler zu Fall zu bringen",
+            "Gegner die Füße wegziehen"
+          ],
+          "whatToWatchFor": [
+            "Absichtliches Zubodenbringen ist klar erkennbar",
+            "Auch unabsichtliches Tripping wird bestraft",
+            "Besonders gefährlich bei hoher Geschwindigkeit",
+            "Verletzungsgefahr ist sehr hoch"
+          ],
+          "relatedRules": [
+            "57.1",
+            "52.1"
+          ]
         },
         {
           "number": "4.6",
           "title": "Hoher Stock (High-Sticking)",
           "description": "Den Schläger über Schulterhöhe führen und dabei einen Gegner treffen. Mindestens 2 Minuten, bei Verletzung 4 Minuten.",
-          "category": "strafen"
+          "category": "strafen",
+          "detailedExplanation": "Hoher Stock (High-Sticking) liegt vor, wenn ein Spieler seinen Schläger über Schulterhöhe eines beliebigen Spielers schwingt und damit einen Gegner trifft. Bei Verletzungen (besonders Gesicht/Kopf) wird eine doppelte kleine Strafe (4 Minuten) verhängt. Die Schulterhöhe des getroffenen Spielers ist maßgeblich, nicht die des Spielers mit dem Schläger.",
+          "examples": [
+            "Schläger trifft Gegner im Gesicht beim Schussversuch",
+            "Unkontrollierter Schwung trifft Gegner am Kopf",
+            "Verletzung mit Blutung = 4 Minuten",
+            "Nur Berührung ohne Verletzung = 2 Minuten"
+          ],
+          "whatToWatchFor": [
+            "Schulterhöhe des Opfers ist Referenz, nicht des Täters",
+            "Blutende Wunde = automatisch 4 Minuten",
+            "Absicht spielt keine Rolle bei Regelverstoß",
+            "Extrem gefährlich für Gesicht und Augen"
+          ],
+          "relatedRules": [
+            "60.1",
+            "61.1"
+          ]
         },
         {
           "number": "4.7",
@@ -205,7 +507,25 @@
           "title": "Verzögertes Abseits",
           "description": "Wenn ein angreifender Spieler im Abseits ist, aber der verteidigende Spieler in Puckbesitz kommt, wird das Abseits verzögert angezeigt.",
           "details": "Spiel läuft weiter bis Angreifer Zone verlassen",
-          "category": "abseits"
+          "category": "abseits",
+          "detailedExplanation": "Verzögertes Abseits tritt auf, wenn ein angreifender Spieler im Abseits steht, aber ein verteidigender Spieler den Puck kontrolliert. Der Linienrichter hebt den Arm, pfeift aber nicht sofort. Das Spiel läuft weiter, bis entweder: (1) ein verteidigender Spieler den Puck über die blaue Linie bringt, (2) alle angreifenden Spieler die Angriffszone verlassen (Tag-up), oder (3) ein angreifender Spieler den Puck berührt.",
+          "examples": [
+            "Stürmer im Abseits, Verteidiger hat Puck",
+            "Arm hoch = verzögertes Abseits signalisiert",
+            "Angreifer verlassen Zone = Abseits aufgehoben",
+            "Verteidiger schießt Puck raus = Abseits aufgehoben"
+          ],
+          "procedureDetails": "Linienrichter hebt Arm für verzögertes Abseits. Angreifer müssen Zone verlassen und wieder eintreten. Sobald alle draußen sind, wird Arm gesenkt und Abseits ist aufgehoben.",
+          "whatToWatchFor": [
+            "Arm des Linienrichters nach oben",
+            "Angreifer dürfen Puck nicht spielen",
+            "Verteidigung kann Zone räumen",
+            "Sofortiger Pfiff bei Puckberührung durch Angreifer"
+          ],
+          "relatedRules": [
+            "83.1",
+            "83.2"
+          ]
         },
         {
           "number": "5.3",
@@ -218,7 +538,26 @@
           "title": "Icing (Unerlaubter Weitschuss)",
           "description": "Wenn ein Spieler den Puck aus der eigenen Hälfte über die gegnerische Torlinie schießt (ohne dass ein Tor erzielt wird), wird Icing gepfiffen.",
           "details": "Bully in der Verteidigungszone des verursachenden Teams",
-          "category": "abseits"
+          "category": "abseits",
+          "detailedExplanation": "Icing (unerlaubter Weitschuss) wird gepfiffen, wenn ein Spieler den Puck von seiner eigenen Seite der Mittellinie direkt über die gegnerische Torlinie schießt, ohne dass ein Spieler den Puck berührt. Das verursachende Team darf beim folgenden Bully keine Spieler wechseln. Icing soll verhindern, dass Teams den Puck einfach wegschießen, um Zeit zu gewinnen.",
+          "examples": [
+            "Verteidiger schießt Puck aus eigener Zone über gesamtes Feld",
+            "Puck überquert rote Torlinie = Icing",
+            "Bully in Verteidigungszone des verursachenden Teams",
+            "Kein Icing bei Unterzahl (Team darf icing spielen)"
+          ],
+          "whatToWatchFor": [
+            "Puck muss komplett über Torlinie",
+            "Von hinter der Mittellinie geschossen",
+            "Keine Berührung durch anderen Spieler",
+            "Verursachendes Team darf nicht wechseln"
+          ],
+          "exceptions": "Bei Unterzahl darf Team Icing spielen ohne Strafe. Torhüter kann Icing verhindern wenn er Puck berührt.",
+          "relatedRules": [
+            "81.1",
+            "82.1",
+            "5.5"
+          ]
         },
         {
           "number": "5.5",
@@ -250,13 +589,50 @@
           "number": "6.2",
           "title": "Aufgaben Hauptschiedsrichter",
           "description": "Hauptschiedsrichter entscheiden über Strafen, Tore und alle anderen Regelverstöße. Ihre Entscheidungen sind endgültig.",
-          "category": "schiedsrichter"
+          "category": "schiedsrichter",
+          "detailedExplanation": "Die Hauptschiedsrichter (Referees) haben die volle Autorität über das Spiel. Sie entscheiden über alle Strafen, bestätigen Tore, überwachen das Spielgeschehen und treffen finale Entscheidungen in Zweifelsfällen. Ihre Entscheidungen sind endgültig und können nicht angefochten werden. Sie tragen orange/rote Armbinden zur Kennzeichnung.",
+          "examples": [
+            "Schiedsrichter pfeift Strafe und zeigt Signal",
+            "Entscheidung über gültiges/ungültiges Tor",
+            "Klärung von Regelfragen mit Kapitän",
+            "Verweisung von Spielern bei schweren Vergehen"
+          ],
+          "whatToWatchFor": [
+            "Armbinden kennzeichnen Hauptschiedsrichter",
+            "Nur sie verhängen Strafen",
+            "Kommunizieren mit Team-Kapitänen",
+            "Ihre Entscheidungen sind final"
+          ],
+          "relatedRules": [
+            "31.1",
+            "6.1",
+            "6.3"
+          ]
         },
         {
           "number": "6.3",
           "title": "Aufgaben Linienrichter",
           "description": "Linienrichter achten auf Abseits, Icing und führen die meisten Bullys durch. Sie können auch offensichtliche Strafen melden.",
-          "category": "schiedsrichter"
+          "category": "schiedsrichter",
+          "detailedExplanation": "Linienrichter (Linesmen) haben spezifische Aufgaben: Sie achten auf Abseits und Icing, führen die meisten Bullys durch und können offensichtliche Regelverstöße (z.B. zu viele Spieler auf dem Eis) melden. Sie assistieren den Hauptschiedsrichtern, können aber keine Strafen selbst verhängen. Sie tragen keine Armbinden.",
+          "examples": [
+            "Linienrichter pfeift Abseits an blauer Linie",
+            "Führt Bully in Endzone durch",
+            "Meldet zu viele Spieler auf dem Eis",
+            "Unterstützt bei Schlägereien"
+          ],
+          "whatToWatchFor": [
+            "Überwachen blaue Linien für Abseits",
+            "Beobachten Icing-Situationen",
+            "Führen meiste Bullys durch",
+            "Können Strafen vorschlagen, nicht verhängen"
+          ],
+          "relatedRules": [
+            "32.1",
+            "6.1",
+            "83.1",
+            "81.1"
+          ]
         },
         {
           "number": "6.4",
@@ -289,14 +665,48 @@
           "title": "Tor mit Schlittschuh",
           "description": "Ein Tor zählt, wenn der Puck vom Schlittschuh ins Tor geht, sofern keine eindeutige Kickbewegung erkennbar ist.",
           "details": "Ablenken ist erlaubt, Kicken nicht",
-          "category": "tor"
+          "category": "tor",
+          "detailedExplanation": "Ein Tor mit dem Schlittschuh ist gültig, wenn der Puck vom Schlittschuh abprallt oder umgelenkt wird. Es ist NICHT gültig, wenn der Spieler eine deutliche Kickbewegung macht. Die Unterscheidung zwischen 'ablenken' und 'kicken' ist oft Ermessenssache des Schiedsrichters. Bei Zweifeln wird oft Video-Review eingesetzt.",
+          "examples": [
+            "Puck prallt vom Schlittschuh ins Tor = gültig",
+            "Spieler lenkt Puck geschickt mit Schlittschuh um = gültig",
+            "Spieler macht Kickbewegung Richtung Tor = ungültig",
+            "Absichtliches Kicken ist klar erkennbar"
+          ],
+          "whatToWatchFor": [
+            "Unterscheidung zwischen Ablenken und Kicken",
+            "Bewegung des Fußes ist entscheidend",
+            "Video-Review bei knappen Entscheidungen",
+            "Oft kontroverse Situationen"
+          ],
+          "relatedRules": [
+            "78.1",
+            "49.1"
+          ]
         },
         {
           "number": "7.3",
           "title": "Tor mit hohem Stock",
           "description": "Ein Tor zählt nicht, wenn der Puck mit einem Stock oberhalb der Querlatte berührt wurde, bevor er ins Tor ging.",
           "details": "Querlatte = 1,22m Höhe als Maßstab",
-          "category": "tor"
+          "category": "tor",
+          "detailedExplanation": "Ein Tor ist ungültig, wenn der Puck mit einem Schläger berührt wurde, der sich oberhalb der Querlatte (1,22m) befand. Die Höhe der Querlatte ist der Standard. Bei Zweifeln wird Video-Review eingesetzt. Der Puck darf mit hohem Stock gespielt werden, aber kein Tor damit erzielt.",
+          "examples": [
+            "Spieler hebt Schläger über Torhöhe und lenkt Puck um = ungültig",
+            "Schläger über Querlatte beim Abschluss = ungültig",
+            "Puck wird hoch gespielt dann ins Tor = gültig wenn unter Querlatte",
+            "Video zeigt Schlägerhöhe genau"
+          ],
+          "whatToWatchFor": [
+            "Querlatte = 1,22m Höhe ist Maßstab",
+            "Position des Schlägers beim Kontakt",
+            "Video-Review häufig notwendig",
+            "Kann Tor in letzter Sekunde annullieren"
+          ],
+          "relatedRules": [
+            "80.1",
+            "78.1"
+          ]
         },
         {
           "number": "7.4",
@@ -328,7 +738,24 @@
           "title": "Puck außerhalb des Spielfelds",
           "description": "Wenn der Puck das Spielfeld verlässt, wird das Spiel unterbrochen und mit einem Bully fortgesetzt.",
           "details": "Bully am nächstgelegenen Bully-Punkt",
-          "category": "puck"
+          "category": "puck",
+          "detailedExplanation": "Wenn der Puck über die Bande, ins Publikum oder gegen die Decke fliegt, ist er aus dem Spiel. Das Spiel wird sofort unterbrochen. Der Bully findet am nächstgelegenen Bully-Punkt in der Zone statt, aus der der Puck geschossen wurde. Dies verhindert, dass Teams absichtlich Zeit schinden.",
+          "examples": [
+            "Puck fliegt über Bande = Spiel gestoppt",
+            "Bully am nächstgelegenen Punkt",
+            "Aus eigener Zone geschossen = Bully dort",
+            "Absichtliches Schießen ins Aus = mögliche Strafe"
+          ],
+          "whatToWatchFor": [
+            "Sofortige Unterbrechung bei Puck im Aus",
+            "Bully-Position abhängig vom Ursprung",
+            "Wiederholtes absichtliches Ins-Aus = Verzögerung = Strafe",
+            "Neuer Puck wird verwendet"
+          ],
+          "relatedRules": [
+            "85.1",
+            "63.1"
+          ]
         },
         {
           "number": "8.3",
@@ -350,6 +777,10 @@
     "version": "2024/2025",
     "source": "IIHF Official Rule Book / DEB Regelbuch",
     "lastUpdated": "2026-02-17",
-    "totalRules": 43
+    "totalRules": 45,
+    "enhancementLevel": "comprehensive",
+    "enhancementDate": "2026-02-17",
+    "note": "Enhanced with detailed explanations, examples, and interactive features",
+    "lastEnhanced": "2026-02-17"
   }
 }

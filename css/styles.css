@@ -861,3 +861,481 @@ html {
     background-color: var(--accent-color);
     color: white;
 }
+
+/* ===========================
+   Penalties View Styles
+   =========================== */
+.penalties-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.penalties-intro {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.penalty-chart {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.penalty-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 5px solid;
+}
+
+.penalty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px var(--shadow-hover);
+}
+
+.penalty-minor {
+    border-top-color: #ffc107;
+}
+
+.penalty-major {
+    border-top-color: #dc3545;
+}
+
+.penalty-misconduct {
+    border-top-color: #ff9800;
+}
+
+.penalty-game-misconduct {
+    border-top-color: #dc3545;
+}
+
+.penalty-match {
+    border-top-color: #c62828;
+}
+
+.penalty-shot {
+    border-top-color: #2196f3;
+}
+
+.penalty-header {
+    padding: 1.5rem;
+    background: var(--bg-tertiary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.penalty-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+}
+
+.penalty-duration {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.penalty-body {
+    padding: 1.5rem;
+}
+
+.penalty-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.penalty-features {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: var(--bg-primary);
+    border-radius: 8px;
+}
+
+.penalty-features .feature {
+    padding: 0.4rem 0;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.penalty-examples {
+    margin-top: 1rem;
+}
+
+.penalty-examples strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.penalty-examples ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+}
+
+.penalty-examples li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.penalty-examples li::before {
+    content: "•";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.penalty-examples .note {
+    margin-top: 0.8rem;
+    padding: 0.6rem;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* Penalty Summary Table */
+.penalty-summary {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+}
+
+.penalty-summary h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.penalty-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.penalty-table thead {
+    background: var(--bg-tertiary);
+}
+
+.penalty-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.penalty-table td {
+    padding: 1rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.penalty-table tbody tr:hover {
+    background: var(--bg-secondary);
+}
+
+.penalty-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.highlight-yes {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.highlight-no {
+    color: var(--error-color);
+    font-weight: bold;
+}
+
+.highlight-partial {
+    color: var(--warning-color);
+    font-weight: bold;
+}
+
+.highlight-na {
+    color: var(--text-muted);
+}
+
+/* Penalty Notes */
+.penalty-notes {
+    margin: 3rem 0;
+}
+
+.penalty-notes h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.note-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.note-card {
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.note-card strong {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.note-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design for Penalties */
+@media (max-width: 768px) {
+    .penalties-container {
+        padding: 1rem;
+    }
+    
+    .penalty-chart {
+        grid-template-columns: 1fr;
+    }
+    
+    .penalty-table {
+        font-size: 0.85rem;
+    }
+    
+    .penalty-table th,
+    .penalty-table td {
+        padding: 0.6rem;
+    }
+    
+    .note-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   Enhanced Interactive Rules Styles
+   =========================== */
+
+/* Expandable Rule Items */
+.rule-item-expandable {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rule-item-expandable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-hover);
+}
+
+.rule-item.expanded {
+    border-left: 4px solid var(--accent-color);
+}
+
+/* Expand Button */
+.btn-expand {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-right: 0.5rem;
+}
+
+.btn-expand:hover {
+    background: var(--accent-hover);
+    transform: rotate(180deg);
+}
+
+/* Detailed Content Section */
+.rule-detailed-content {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-color);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 2000px;
+    }
+}
+
+.detail-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.detail-section h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-section p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Examples List */
+.examples-list,
+.watch-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.examples-list li,
+.watch-list li {
+    padding: 0.6rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.examples-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.watch-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* Special Detail Sections */
+.detail-watch {
+    background: rgba(40, 167, 69, 0.05);
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--success-color);
+}
+
+.detail-exceptions {
+    background: rgba(255, 193, 7, 0.05);
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--warning-color);
+}
+
+.detail-related {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+/* Related Rules Tags */
+.related-rules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.related-rule-tag {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.related-rule-tag:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+/* Enhanced Rule Item Spacing */
+.rule-item {
+    margin-bottom: 1.5rem;
+}
+
+.rule-item.expanded {
+    margin-bottom: 2rem;
+}
+
+/* Mobile Responsiveness for Enhanced Rules */
+@media (max-width: 768px) {
+    .rule-detailed-content {
+        padding: 1rem;
+    }
+    
+    .detail-section h4 {
+        font-size: 1rem;
+    }
+    
+    .btn-expand {
+        width: 28px;
+        height: 28px;
+        font-size: 10px;
+    }
+    
+    .related-rules {
+        flex-direction: column;
+    }
+    
+    .related-rule-tag {
+        text-align: center;
+    }
+}

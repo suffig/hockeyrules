@@ -1,0 +1,269 @@
+{
+  "categories": [
+    {
+      "id": "spielfeld",
+      "name": "Spielfeld und Ausrüstung",
+      "icon": "🏟️",
+      "description": "Alle Regeln zur Spielfläche, Toren, Banden, Linien und Markierungen sowie der erforderlichen Ausrüstung für Spieler und Torhüter.",
+      "rules": [
+        {
+          "number": "1.1",
+          "title": "Spielfeldabmessungen",
+          "description": "Das Spielfeld muss rechteckig sein mit abgerundeten Ecken. Die Standardmaße betragen 60 Meter Länge und 26-30 Meter Breite.",
+          "detailedExplanation": "Die Eisfläche bildet die Grundlage des Eishockeyspiels. Die IIHF-Standardmaße sind 60m x 30m, während in Nordamerika oft 61m x 26m (200 x 85 Fuß) verwendet wird. Die Ecken müssen mit einem Radius von 7-8,5 Metern abgerundet sein, um den Spielfluss zu fördern und Kollisionen zu minimieren.",
+          "examples": [
+            "Olympiastadien verwenden 60m x 30m",
+            "NHL-Rinks sind kleiner: 61m x 26m",
+            "Trainingshallen können kleinere Maße haben, solange sie proportional sind"
+          ],
+          "exceptions": "Bei kleineren Hallen für Jugendspiele können die Maße angepasst werden, müssen aber proportional bleiben.",
+          "relatedRules": ["1.2", "1.3", "1.4"],
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.2",
+          "title": "Tore und Torpfosten",
+          "description": "Die Tore müssen exakt 1,83 Meter breit und 1,22 Meter hoch sein. Die Torpfosten und Querlatte sind rot gestrichen.",
+          "detailedExplanation": "Die Tormaße sind weltweit standardisiert. Die Torpfosten müssen fest im Eis verankert sein, aber bei starkem Kontakt nachgeben können, um Verletzungen zu vermeiden. Die Tortiefe beträgt zwischen 0,6 und 1,12 Meter. Das Tornetz muss aus weißem Nylon bestehen und eine Maschenweite von maximal 4 cm haben.",
+          "examples": [
+            "Die roten Torpfosten müssen auch aus dem Tor deutlich sichtbar sein",
+            "Bei Video-Reviews ist die Lage des Pucks relativ zum Tor entscheidend",
+            "Torpfosten haben einen Durchmesser von 5 cm"
+          ],
+          "whatToWatchFor": [
+            "Puck muss vollständig die Torlinie überqueren",
+            "Tor zählt auch, wenn Pfosten verschoben wurde",
+            "Bei absichtlicher Verschiebung: Penalty Shot"
+          ],
+          "relatedRules": ["1.3", "7.1", "24.1"],
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.3",
+          "title": "Torlinien und Torraum",
+          "description": "Die Torlinien sind 5 cm breit und rot gefärbt. Der Torraum (Crease) ist halbkreisförmig blau markiert mit einem Radius von 1,83 Metern vor jedem Tor.",
+          "detailedExplanation": "Die Torlinie verläuft zwischen den Innenkanten der Torpfosten und erstreckt sich über die gesamte Breite des Spielfelds. Der Torraum ist eine besonders geschützte Zone, in der der Torhüter agieren kann. Feldspieler dürfen den Torraum betreten, aber nicht den Torhüter bei der Ausführung seiner Aufgaben behindern. Die blaue Farbe des Torraums ist international standardisiert.",
+          "examples": [
+            "Ein Tor zählt nur, wenn der Puck die Torlinie vollständig überquert",
+            "Spieler im Torraum bei Torerzielung führt zur Annullierung",
+            "Torhüter darf im Torraum nicht gecheckt werden"
+          ],
+          "whatToWatchFor": [
+            "Spieler dürfen sich nicht im Torraum aufhalten, wenn ein Tor erzielt wird",
+            "Kontakt mit dem Torhüter im Torraum führt zu Strafen",
+            "Puck im Torraum darf vom Torhüter mit der Hand gespielt werden"
+          ],
+          "exceptions": "Spieler dürfen den Torraum durchqueren, solange sie den Torhüter nicht behindern. Nach Torerzielung wird überprüft, ob ein Spieler im Torraum war.",
+          "relatedRules": ["1.2", "69.1", "69.2", "7.1"],
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.4",
+          "title": "Mittellinie und Zoneneinteilung",
+          "description": "Die rote Mittellinie teilt das Spielfeld in zwei gleiche Hälften. Sie ist 30 cm breit und verläuft parallel zu den Torlinien.",
+          "detailedExplanation": "Die Mittellinie ist für mehrere wichtige Regeln entscheidend: Sie definiert die Grenze für Icing (unerlaubter Weitschuss), teilt das Feld in Angriffs- und Verteidigungszonen und ist der Punkt für Spielbeginn und Tor-Bullys. Zusätzlich gibt es zwei blaue Linien, die die neutrale Zone von den Endzonen trennen. Diese blauen Linien sind 25 cm breit und befinden sich 17,23 Meter von jeder Torlinie entfernt.",
+          "examples": [
+            "Icing wird gepfiffen, wenn der Puck von hinter der Mittellinie über die gegnerische Torlinie geschossen wird",
+            "Nach einem Tor findet das Bully in der Spielfeldmitte statt",
+            "Die Mittellinie ist wichtig für Zwei-Linien-Pass-Regel (in einigen Ligen)"
+          ],
+          "whatToWatchFor": [
+            "Puck muss komplett die Linie überqueren",
+            "Für Abseits sind die blauen Linien entscheidend",
+            "Icing-Regelung bezieht sich auf die Mittellinie"
+          ],
+          "relatedRules": ["81.1", "83.1", "5.1"],
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.5",
+          "title": "Bully-Punkte und Anspielpunkte",
+          "description": "Es gibt neun Bully-Punkte auf dem Spielfeld: einen roten Mittelpunkt (30 cm Durchmesser) und je vier rote Punkte (60 cm Durchmesser) in beiden Endzonen.",
+          "detailedExplanation": "Die Bully-Punkte markieren die Positionen, an denen das Spiel nach Unterbrechungen fortgesetzt wird. Der zentrale Mittelpunkt wird für Spielbeginn, nach Toren und in bestimmten anderen Situationen verwendet. Die vier Punkte in jeder Endzone befinden sich jeweils in den Bullyzirkeln mit einem Radius von 4,5 Metern. Jeder Punkt ist mit detaillierten Markierungen umgeben, die die Positionen der Spieler während des Bullys definieren.",
+          "examples": [
+            "Spiel beginnt mit Bully am Mittelpunkt",
+            "Nach jedem Tor: Bully am Mittelpunkt",
+            "Nach Icing: Bully in der Verteidigungszone des verursachenden Teams",
+            "Bei Strafen wird oft in der neutralen Zone angestoßen"
+          ],
+          "whatToWatchFor": [
+            "Spieler müssen korrekt positioniert sein beim Bully",
+            "Nur die beiden Spieler am Bully-Punkt dürfen im Kreis stehen",
+            "Bei regelwidrigem Bully wird der beteiligte Spieler ausgewechselt"
+          ],
+          "procedureDetails": "Beim Bully stehen sich zwei Spieler gegenüber, Schläger müssen auf dem Eis sein. Der Linienrichter lässt den Puck fallen. Spieler dürfen erst nach dem Fallen des Pucks zuschlagen.",
+          "relatedRules": ["76.1", "76.2"],
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.6",
+          "title": "Banden und Schutzverglasung",
+          "description": "Die Banden müssen mindestens 1,02 Meter und höchstens 1,22 Meter hoch sein. Darüber befindet sich eine Schutzscheibe aus Plexiglas oder Sicherheitsglas.",
+          "detailedExplanation": "Die Banden bilden die äußere Begrenzung der Spielfläche und sind aus stabilem Material gefertigt, um die Sicherheit zu gewährleisten. Die Schutzverglasung schützt Zuschauer vor herausfliegenden Pucks und ist mindestens 1,60 Meter über den Banden angebracht. An den Seiten beträgt die Höhe der Scheiben 1,80 Meter. Die Verbindungen zwischen Banden und Verglasung müssen nahtlos sein, um Verletzungen zu vermeiden.",
+          "examples": [
+            "Checks an die Bande sind erlaubt, sofern regelkonform",
+            "Check von hinten gegen die Bande ist gefährlich und wird hart bestraft",
+            "Puck kann über die Bande ins Aus gehen"
+          ],
+          "whatToWatchFor": [
+            "Boarding (gefährliches Checken gegen Bande) wird bestraft",
+            "Beschädigte Banden müssen sofort repariert werden",
+            "Lücken in der Verglasung sind Sicherheitsrisiken"
+          ],
+          "relatedRules": ["41.1", "85.1"],
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.7",
+          "title": "Spielerbänke und Strafbank",
+          "description": "Jede Mannschaft hat eine eigene Spielerbank für mindestens 14 Personen. Die Strafbänke befinden sich gegenüber den Spielerbänken.",
+          "detailedExplanation": "Die Spielerbänke müssen auf derselben Seite des Spielfelds sein, mit einem Abstand zwischen den Türen von mindestens 3 Metern. Jede Bank muss direkten Zugang zur Eisfläche haben. Die Strafbänke sind auf der gegenüberliegenden Seite angeordnet und müssen ebenfalls getrennt sein für jedes Team. Die Strafbank muss mindestens 4,0 Meter lang und 1,5 Meter breit sein. Nur Spieler, die eine Strafe absitzen, und Offizielle haben Zugang zur Strafbank.",
+          "examples": [
+            "Zu viele Spieler auf dem Eis führt zu Bankstrafe",
+            "Spieler müssen direkt zur Strafbank bei Strafen",
+            "Trainer dürfen von der Bank aus Anweisungen geben"
+          ],
+          "whatToWatchFor": [
+            "Spielerwechsel müssen über die eigene Bank erfolgen",
+            "Verlassen der Bank während Schlägerei führt zu Spieldauer-Disziplinarstrafe",
+            "Nur bestimmte Personen dürfen auf der Bank sitzen"
+          ],
+          "relatedRules": ["71.1", "74.1", "3.1"],
+          "category": "spielfeld"
+        }
+      ]
+    },
+    {
+      "id": "spieler",
+      "name": "Spieler und Mannschaften",
+      "icon": "👥",
+      "description": "Regeln zur Mannschaftszusammensetzung, Spieleranzahl, Ausrüstung, Wechseln und Rollen im Team.",
+      "rules": [
+        {
+          "number": "2.1",
+          "title": "Mannschaftsstärke und Aufstellung",
+          "description": "Eine Mannschaft besteht aus maximal 22 Spielern (20 Feldspieler und 2 Torhüter). Auf dem Eis befinden sich gleichzeitig maximal 6 Spieler pro Team (1 Torhüter + 5 Feldspieler).",
+          "detailedExplanation": "Das Team muss vor Spielbeginn seine Aufstellung bekannt geben. Während des Spiels dürfen maximal 6 Spieler gleichzeitig auf dem Eis sein, wobei mindestens 1 Torhüter dabei sein muss (außer in den letzten Minuten bei Rückstand). Bei Strafen reduziert sich die Spieleranzahl entsprechend (Powerplay/Unterzahl). Die Mindestanzahl beträgt 1 Torhüter plus 5 Feldspieler. Bei zu wenigen Spielern wird das Spiel abgebrochen.",
+          "examples": [
+            "Standardaufstellung: 1 TW, 2 Verteidiger, 3 Stürmer",
+            "Bei kleiner Strafe: 5 gegen 6 (Powerplay)",
+            "Bei zwei Strafen: 4 gegen 6 (5 gegen 3 möglich)",
+            "Torhüter kann für zusätzlichen Feldspieler rausgenommen werden"
+          ],
+          "whatToWatchFor": [
+            "Zu viele Spieler auf dem Eis = 2 Minuten Bankstrafe",
+            "Illegaler Spielerwechsel = 2 Minuten",
+            "Bei schweren Verletzungen muss Ersatz gestellt werden"
+          ],
+          "relatedRules": ["2.4", "74.1", "68.1"],
+          "category": "spieler"
+        },
+        {
+          "number": "2.2",
+          "title": "Spielerpositionen und Rollen",
+          "description": "Typische Aufstellung besteht aus 1 Torhüter, 2 Verteidigern (Defense) und 3 Stürmern (Center, Links- und Rechtsaußen/Wings).",
+          "detailedExplanation": "Jede Position hat spezifische Aufgaben: Der Torhüter verteidigt das Tor und darf den Puck in bestimmten Bereichen mit der Hand spielen. Verteidiger sind primär für die Defensive zuständig, unterstützen aber auch Angriffe. Der Center ist oft für Bullys und zentrale Spielzüge verantwortlich. Die Flügelspieler (Wings) konzentrieren sich auf Angriff und Forechecking. Die Aufstellung kann taktisch variiert werden (z.B. 4 Stürmer bei Überzahl, 4 Verteidiger in Unterzahl).",
+          "examples": [
+            "Power-Forward: Physisch starker Center",
+            "Defensive Defenseman: Konzentriert auf Verteidigung",
+            "Playmaker: Stürmer mit vielen Assists",
+            "Enforcer: Spieler für körperliche Spielweise"
+          ],
+          "tacticalNotes": "Moderne Systeme setzen auf schnelle Positionswechsel. Verteidiger beteiligen sich aktiv am Angriff. Rollen sind fließend und situationsabhängig.",
+          "relatedRules": ["2.1", "6.1"],
+          "category": "spieler"
+        },
+        {
+          "number": "2.3",
+          "title": "Spielerausrüstung - Pflicht und Sicherheit",
+          "description": "Alle Spieler müssen vorgeschriebene Schutzausrüstung tragen: Helm mit Gesichtsschutz, Handschuhe, Ellenbogen-, Schulter- und Schienbeinschützer sowie Tiefschutz.",
+          "detailedExplanation": "Die Sicherheitsausrüstung ist zwingend vorgeschrieben und muss den IIHF-Standards entsprechen. Der Helm muss ein CE-Zertifikat haben und mit einem Kinnriemen gesichert sein. Der Gesichtsschutz (Visier oder Gitter) ist für alle Jugendspieler und bei IIHF-Turnieren Pflicht. Feldspieler tragen zusätzlich Schulterpolster, Ellenbogenschützer, Handschuhe mit verstärktem Handgelenk, Hose mit integrierten Schutzpolstern, Schienbeinschützer und Schlittschuhe. Der Tiefschutz (Suspensorium) ist Pflicht für alle männlichen Spieler. Alle Ausrüstungsteile müssen unbeschädigt und ordnungsgemäß angelegt sein.",
+          "examples": [
+            "Helm ohne Kinnriemen = sofortige Spielunterbrechung",
+            "Beschädigte Ausrüstung muss ersetzt werden",
+            "Zusätzliche Schutzausrüstung ist nach ärztlicher Empfehlung erlaubt",
+            "Helmpflicht gilt auch beim Aufwärmen"
+          ],
+          "whatToWatchFor": [
+            "Verlust des Helms während des Spiels = Spieler muss sofort Bank aufsuchen",
+            "Spielen ohne vorgeschriebene Ausrüstung = 2 Minuten Strafe",
+            "Ausrüstung darf keine Gefahr für andere darstellen"
+          ],
+          "relatedRules": ["9.1", "10.1", "11.1", "12.1"],
+          "category": "spieler"
+        },
+        {
+          "number": "2.4",
+          "title": "Spielerwechsel - Fliegender Wechsel",
+          "description": "Spielerwechsel können jederzeit während des laufenden Spiels vorgenommen werden ('fliegender Wechsel'), solange maximal 6 Spieler auf dem Eis sind.",
+          "detailedExplanation": "Der 'fliegende Wechsel' ist eine Besonderheit des Eishockeys. Spieler können während des laufenden Spiels gewechselt werden, ohne dass das Spiel unterbrochen wird. Der ausgewechselte Spieler muss die Spielfläche verlassen haben, bevor der neue Spieler das Eis betritt. Der Wechsel muss über die eigene Spielerbank erfolgen und darf maximal 1,5 Meter in die neutrale Zone reichen. Bei Strafen oder Unterbrechungen können Wechsel nur bei Spielunterbrechungen vorgenommen werden. Torhüterwechsel müssen dem Schiedsrichter angezeigt werden.",
+          "examples": [
+            "Schneller Wechsel während Gegenangriff",
+            "Ermüdete Spieler wechseln nach ca. 45 Sekunden",
+            "Wechsel bei Icing ist für das verursachende Team verboten",
+            "Strategischer Wechsel für letzte Sekunde"
+          ],
+          "whatToWatchFor": [
+            "Zu viele Spieler auf dem Eis = 2 Min. Bankstrafe",
+            "Wechsel über falsche Tür = 2 Min. Bankstrafe",
+            "Bei Icing darf verursachendes Team nicht wechseln",
+            "Zu früher Wechsel nach Strafe = 2 Min."
+          ],
+          "procedureDetails": "Der Wechsel sollte schnell erfolgen. Neue Spieler dürfen erst aufs Eis, wenn die abgelösten Spieler innerhalb 1,5m der Bank sind. Bei verzögertem Wechsel kann Strafe verhängt werden.",
+          "relatedRules": ["68.1", "74.1", "82.1", "71.1"],
+          "category": "spieler"
+        },
+        {
+          "number": "2.5",
+          "title": "Kapitän und Assistenten - Führungsrollen",
+          "description": "Jede Mannschaft bestimmt einen Kapitän (C) und maximal zwei Assistenten (A). Nur diese dürfen mit den Schiedsrichtern über Regelauslegungen sprechen.",
+          "detailedExplanation": "Der Kapitän ist der offizielle Vertreter des Teams auf dem Eis und trägt ein 'C' auf dem Trikot. Die Assistenten tragen ein 'A'. Diese Spieler haben das Privileg und die Verantwortung, mit den Schiedsrichtern zu kommunizieren und Fragen zur Regelauslegung zu stellen. Sie dürfen jedoch keine Strafen anzweifeln oder Entscheidungen in Frage stellen. Bei respektlosem Verhalten können auch sie bestraft werden. Der Kapitän muss beim Spielbeginn dem Schiedsrichter vorgestellt werden. Wenn kein Kapitän auf dem Eis ist, übernimmt ein Assistent diese Rolle.",
+          "examples": [
+            "Kapitän fragt nach Erklärung einer Strafen-Entscheidung",
+            "Bei Unklarheiten über Regelauslegung kontaktiert der Kapitän den Schiedsrichter",
+            "Assistenten können bei Abwesenheit des Kapitäns dessen Rolle übernehmen",
+            "Respektloses Verhalten führt auch bei Kapitän zu Strafen"
+          ],
+          "whatToWatchFor": [
+            "Nur Kapitän und Assistenten dürfen mit Schiedsrichtern sprechen",
+            "Andere Spieler, die protestieren = 2 Min. unsportliches Verhalten",
+            "Übermäßiges Protestieren = weitere Strafen möglich",
+            "Kapitän muss auf dem Eis sein, um diese Rolle auszuüben"
+          ],
+          "leadership": "Diese Spieler sind auch Vorbilder und Führungspersönlichkeiten, die das Team auf und neben dem Eis anführen.",
+          "relatedRules": ["6.1", "75.1", "39.1"],
+          "category": "spieler"
+        },
+        {
+          "number": "2.6",
+          "title": "Verletzte Spieler",
+          "description": "Bei Verletzungen wird das Spiel unterbrochen, wenn die verletzte Mannschaft in Puckbesitz ist. Der verletzte Spieler muss das Eis verlassen und kann ersetzt werden.",
+          "detailedExplanation": "Wenn ein Spieler verletzt wird, stoppt der Schiedsrichter das Spiel, sobald das Team des verletzten Spielers den Puck kontrolliert. Bei schweren Verletzungen (Bewusstlosigkeit, starke Blutungen) wird sofort gestoppt. Der verletzte Spieler muss die Eisfläche verlassen und darf erst nach ärztlicher Untersuchung zurückkehren. Bei Blutungen muss die Wunde ordnungsgemäß versorgt und bedeckt sein. Wenn ein Spieler während einer Strafe verletzt wird, muss ein Ersatzspieler die Strafe zu Ende absitzen. Bei schweren Verletzungen können medizinische Teams aufs Eis.",
+          "examples": [
+            "Spieler wird von Puck getroffen und ist verletzt",
+            "Spieler blutet nach High-Stick = sofortige Unterbrechung",
+            "Torhüter verletzt = ausreichend Zeit für Ersatz",
+            "Spieler in Strafbank verletzt = Ersatz sitzt weiter"
+          ],
+          "whatToWatchFor": [
+            "Verletzte Spieler müssen Eis verlassen",
+            "Blutungen müssen gestoppt und versorgt sein",
+            "Teamarzt/Physiotherapeut darf aufs Eis bei Bedarf",
+            "Vortäuschen von Verletzungen = Strafe"
+          ],
+          "safetyFirst": "Die Sicherheit der Spieler hat oberste Priorität. Bei Zweifeln wird immer gestoppt.",
+          "relatedRules": ["8.1", "60.1"],
+          "category": "spieler"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "2025/2026",
+    "source": "IIHF Official Rule Book / DEB Regelbuch - Enhanced Interactive Version",
+    "lastUpdated": "2026-02-17",
+    "totalRules": 6,
+    "enhancementLevel": "detailed-interactive",
+    "note": "This is a partial enhanced version. Complete rulebook being built."
+  }
+}
