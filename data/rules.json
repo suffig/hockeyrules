@@ -617,7 +617,7 @@
           "whatToWatchFor": [
             "Spieler sofort ausgeschlossen",
             "5 Minuten Unterzahl (endet nicht bei Tor)",
-            "Automatische Sperre für Folgespiels",
+            "Automatische Sperre für Folgespiele",
             "Disziplinarverfahren folgt"
           ],
           "procedureDetails": "Schiedsrichter muss Vorfall detailliert melden. Disziplinarkommission entscheidet über Länge der Sperre.",
