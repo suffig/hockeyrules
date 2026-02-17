@@ -116,6 +116,48 @@
             "76.1",
             "76.2"
           ]
+        },
+        {
+          "number": "1.6",
+          "title": "Schutzverglasung und Banden",
+          "description": "Die Banden müssen mindestens 1,17m hoch sein und das Spielfeld vollständig umgeben. Schutzverglasung schützt Zuschauer.",
+          "category": "spielfeld",
+          "detailedExplanation": "Die Banden sind ein wesentlicher Bestandteil des Spielfelds. Sie müssen fest konstruiert sein und mindestens 1,17m über der Eisfläche liegen. Hinter den Toren muss die Schutzverglasung mindestens 2,4m hoch sein und mindestens 4m von der Torlinie in Richtung blaue Linie reichen. An den Seiten beträgt die Mindesthöhe 1,8m.",
+          "examples": [
+            "Moderne Stadien verwenden durchsichtiges Plexiglas",
+            "Schutzverglasung verhindert, dass der Puck ins Publikum fliegt",
+            "Werbebanden dürfen Spielfeld-Markierungen nicht verdecken"
+          ],
+          "whatToWatchFor": [
+            "Puck bleibt im Spiel, solange er die Banden nicht überquert",
+            "Spieler dürfen am Glas spielen",
+            "Beschädigtes Glas muss sofort repariert werden"
+          ],
+          "relatedRules": [
+            "1.1",
+            "1.2"
+          ]
+        },
+        {
+          "number": "1.7",
+          "title": "Spielerbänke und Strafbänke",
+          "description": "Jedes Team hat eine Spielerbank für bis zu 17 Spieler plus Betreuer. Die Strafbank ist für bestrafte Spieler.",
+          "category": "spielfeld",
+          "detailedExplanation": "Die Spielerbänke befinden sich auf derselben Seite des Spielfelds, normalerweise in der neutralen Zone. Jede Bank muss Platz für bis zu 17 Spieler und Teamoffiziellen bieten. Die Strafbänke befinden sich gegenüber den Spielerbänken und müssen getrennte Bereiche für jedes Team haben.",
+          "examples": [
+            "Spieler dürfen nur über die Türen ihre Bank verlassen",
+            "Zu viele Spieler auf dem Eis führt zu Bankstrafe",
+            "Strafbänke haben getrennte Bereiche für beide Teams"
+          ],
+          "whatToWatchFor": [
+            "Spielerwechsel nur während Spielunterbrechungen oder im laufenden Spiel (Flying Substitution)",
+            "Spieler auf Strafbank dürfen nicht am Spiel teilnehmen",
+            "Teamoffizielle müssen auf der Bank bleiben"
+          ],
+          "relatedRules": [
+            "82",
+            "17"
+          ]
         }
       ],
       "description": "Alle Regeln zur Spielfläche, Toren, Banden, Linien und Markierungen sowie der erforderlichen Ausrüstung für Spieler und Torhüter."
@@ -366,7 +408,8 @@
             "3.4"
           ]
         }
-      ]
+      ],
+      "description": "Regeln zum Spielablauf, Spielzeit, Bullys und Spielunterbrechungen (IIHF Sektion 10)"
     },
     {
       "id": "strafen",
@@ -608,7 +651,8 @@
             "67"
           ]
         }
-      ]
+      ],
+      "description": "Übersicht über alle Strafarten nach IIHF-Regeln (IIHF Sektion 04)"
     },
     {
       "id": "abseits",
@@ -691,7 +735,8 @@
           "description": "Moderne Icing-Regel: Schiedsrichter entscheiden bereits an der Endzonentorlinie, wer den Puck zuerst erreicht hätte, um Kollisionen zu vermeiden.",
           "category": "abseits"
         }
-      ]
+      ],
+      "description": "Regeln zu Abseits und unerlaubtem Weitschuss (Icing) (IIHF Sektion 10)"
     },
     {
       "id": "schiedsrichter",
@@ -767,7 +812,8 @@
           "description": "Neben Schiedsrichtern gibt es Torrichter, Zeitnehmer, Strafzeitnehmer und Anschreiber, die das Spiel dokumentieren.",
           "category": "schiedsrichter"
         }
-      ]
+      ],
+      "description": "Aufgaben und Befugnisse der Schiedsrichter und Linienrichter (IIHF Sektion 05)"
     },
     {
       "id": "tor",
@@ -840,7 +886,8 @@
           "description": "Ein Powerplay-Tor beendet die kleine Strafe (2 Min.) des Gegners vorzeitig. Große Strafen laufen komplett ab.",
           "category": "tor"
         }
-      ]
+      ],
+      "description": "Regeln zur Torerzielung und Toraberkennung (IIHF Sektion 10)"
     },
     {
       "id": "puck",
@@ -890,7 +937,8 @@
           "description": "Den Puck mit dem Schlittschuh zu stoppen oder abzulenken ist erlaubt, jedoch nicht absichtlich vorwärts zu kicken.",
           "category": "puck"
         }
-      ]
+      ],
+      "description": "Regeln zum Spielgerät (Puck) und dessen Handhabung (IIHF Sektion 10)"
     }
   ],
   "metadata": {
