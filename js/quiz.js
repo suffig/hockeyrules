@@ -211,6 +211,9 @@ function showResults() {
     
     document.getElementById('resultMessage').textContent = `${emoji} ${message}`;
     
+    // Save quiz statistics
+    saveQuizStatistics();
+    
     showScreen('results');
 }
 
