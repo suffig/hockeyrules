@@ -1,0 +1,442 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Wie groß ist ein offizielles Eishockey-Spielfeld?",
+      "answers": [
+        "50m x 25m",
+        "60m x 30m",
+        "70m x 35m",
+        "55m x 28m"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "Ein IIHF-Spielfeld ist standardmäßig 60 Meter lang und 30 Meter breit.",
+      "category": "spielfeld"
+    },
+    {
+      "id": 2,
+      "question": "Wie viele Spieler einer Mannschaft befinden sich gleichzeitig auf dem Eis?",
+      "answers": [
+        "5 Spieler",
+        "6 Spieler",
+        "7 Spieler",
+        "8 Spieler"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "Maximal 6 Spieler pro Team sind gleichzeitig auf dem Eis (1 Torhüter + 5 Feldspieler).",
+      "category": "spieler"
+    },
+    {
+      "id": 3,
+      "question": "Wie lange dauert ein Eishockey-Drittel?",
+      "answers": [
+        "15 Minuten",
+        "20 Minuten",
+        "25 Minuten",
+        "30 Minuten"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "Ein Drittel dauert 20 Minuten effektive Spielzeit.",
+      "category": "spielablauf"
+    },
+    {
+      "id": 4,
+      "question": "Wie lange dauert eine kleine Strafe?",
+      "answers": [
+        "1 Minute",
+        "2 Minuten",
+        "3 Minuten",
+        "5 Minuten"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "Eine kleine Strafe dauert 2 Minuten und endet bei einem Gegentor vorzeitig.",
+      "category": "strafen"
+    },
+    {
+      "id": 5,
+      "question": "Was passiert bei Icing?",
+      "answers": [
+        "2 Minuten Strafe",
+        "Bully in der Angriffszone",
+        "Bully in der Verteidigungszone des verursachenden Teams",
+        "Penalty-Schuss"
+      ],
+      "correct": 2,
+      "difficulty": "medium",
+      "explanation": "Bei Icing wird ein Bully in der Verteidigungszone des Teams durchgeführt, das Icing verursacht hat.",
+      "category": "abseits"
+    },
+    {
+      "id": 6,
+      "question": "Wie breit ist ein Eishockey-Tor?",
+      "answers": [
+        "1,50 Meter",
+        "1,83 Meter",
+        "2,00 Meter",
+        "2,15 Meter"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "explanation": "Ein Eishockey-Tor ist 1,83 Meter breit und 1,22 Meter hoch.",
+      "category": "spielfeld"
+    },
+    {
+      "id": 7,
+      "question": "Wer darf mit den Schiedsrichtern über Regelauslegungen sprechen?",
+      "answers": [
+        "Alle Spieler",
+        "Nur der Torhüter",
+        "Nur Kapitän und Assistenten",
+        "Nur der Trainer"
+      ],
+      "correct": 2,
+      "difficulty": "medium",
+      "explanation": "Nur der Kapitän (C) und die Assistenten (A) dürfen mit Schiedsrichtern über Regelauslegungen sprechen.",
+      "category": "spieler"
+    },
+    {
+      "id": 8,
+      "question": "Was ist ein 'Powerplay'?",
+      "answers": [
+        "Ein besonders schneller Angriff",
+        "Spiel in Überzahl durch Strafe des Gegners",
+        "Die letzten 5 Minuten des Spiels",
+        "Ein Tor mit hohem Stock"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "Powerplay bedeutet, dass ein Team in Überzahl spielt, weil der Gegner eine Strafe absitzt.",
+      "category": "strafen"
+    },
+    {
+      "id": 9,
+      "question": "Wann ist ein Spieler im Abseits?",
+      "answers": [
+        "Wenn er die Mittellinie überquert",
+        "Wenn er vor dem Puck die gegnerische blaue Linie überquert",
+        "Wenn er den Puck mit der Hand berührt",
+        "Wenn er zu schnell läuft"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "explanation": "Ein Spieler ist im Abseits, wenn er vor dem Puck die gegnerische blaue Linie überquert.",
+      "category": "abseits"
+    },
+    {
+      "id": 10,
+      "question": "Wie viele Schiedsrichter leiten normalerweise ein IIHF-Spiel?",
+      "answers": [
+        "1 Schiedsrichter",
+        "2 Hauptschiedsrichter",
+        "3 Schiedsrichter",
+        "4 Schiedsrichter total (2 Haupt-, 2 Linienrichter)"
+      ],
+      "correct": 3,
+      "difficulty": "medium",
+      "explanation": "Bei IIHF-Spielen sind meist 4 Offizielle auf dem Eis: 2 Hauptschiedsrichter und 2 Linienrichter.",
+      "category": "schiedsrichter"
+    },
+    {
+      "id": 11,
+      "question": "Darf ein Team in Unterzahl Icing spielen?",
+      "answers": [
+        "Ja, ohne Konsequenzen",
+        "Nein, niemals",
+        "Nur im letzten Drittel",
+        "Ja, aber nur einmal pro Strafe"
+      ],
+      "correct": 0,
+      "difficulty": "hard",
+      "explanation": "Ein Team in Unterzahl darf Icing spielen, ohne dass dies geahndet wird.",
+      "category": "abseits"
+    },
+    {
+      "id": 12,
+      "question": "Was ist 'High-Sticking'?",
+      "answers": [
+        "Den Puck sehr hoch spielen",
+        "Den Schläger über Schulterhöhe führen und einen Gegner treffen",
+        "Ein besonders harter Schuss",
+        "Den Stock werfen"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "High-Sticking ist, wenn man den Schläger über Schulterhöhe führt und dabei einen Gegner trifft.",
+      "category": "strafen"
+    },
+    {
+      "id": 13,
+      "question": "Wie schwer ist ein offizieller Eishockey-Puck?",
+      "answers": [
+        "100-120 Gramm",
+        "130-150 Gramm",
+        "156-170 Gramm",
+        "180-200 Gramm"
+      ],
+      "correct": 2,
+      "difficulty": "hard",
+      "explanation": "Ein offizieller Puck wiegt zwischen 156 und 170 Gramm.",
+      "category": "puck"
+    },
+    {
+      "id": 14,
+      "question": "Zählt ein Tor, wenn der Puck mit dem Schlittschuh ins Tor geht?",
+      "answers": [
+        "Ja, immer",
+        "Nein, niemals",
+        "Ja, wenn keine eindeutige Kickbewegung erkennbar ist",
+        "Nur bei Eigentoren"
+      ],
+      "correct": 2,
+      "difficulty": "medium",
+      "explanation": "Ein Tor zählt, wenn der Puck vom Schlittschuh abgelenkt wird, aber nicht bei einer Kickbewegung.",
+      "category": "tor"
+    },
+    {
+      "id": 15,
+      "question": "Was passiert bei einer großen Strafe (5 Minuten)?",
+      "answers": [
+        "Strafe endet bei Gegentor",
+        "Strafe läuft komplett ab, auch bei Gegentor",
+        "Spieler muss sofort vom Platz",
+        "Team bekommt einen Penalty"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "explanation": "Eine große Strafe (5 Minuten) läuft komplett ab und endet nicht vorzeitig bei einem Gegentor.",
+      "category": "strafen"
+    },
+    {
+      "id": 16,
+      "question": "Wie viele Bully-Punkte gibt es auf einem Eishockey-Spielfeld?",
+      "answers": [
+        "5",
+        "7",
+        "9",
+        "11"
+      ],
+      "correct": 2,
+      "difficulty": "hard",
+      "explanation": "Es gibt 9 Bully-Punkte: einen in der Mitte und je vier in den beiden Endzonen.",
+      "category": "spielfeld"
+    },
+    {
+      "id": 17,
+      "question": "Aus wie vielen Spielern besteht maximal eine Mannschaft?",
+      "answers": [
+        "18 Spieler",
+        "20 Spieler",
+        "22 Spieler",
+        "25 Spieler"
+      ],
+      "correct": 2,
+      "difficulty": "medium",
+      "explanation": "Eine Mannschaft besteht aus maximal 22 Spielern (20 Feldspieler + 2 Torhüter).",
+      "category": "spieler"
+    },
+    {
+      "id": 18,
+      "question": "Was ist 'Hooking'?",
+      "answers": [
+        "Den Puck mit dem Schläger anheben",
+        "Mit dem Schläger den Gegner behindern oder aufhalten",
+        "Den Torhüter angreifen",
+        "Ein Tor erzielen"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "Hooking bedeutet, mit dem Schläger den Gegner zu behindern oder aufzuhalten.",
+      "category": "strafen"
+    },
+    {
+      "id": 19,
+      "question": "Was ist 'Hybrid Icing'?",
+      "answers": [
+        "Eine neue Puck-Art",
+        "Icing nur in der Verlängerung",
+        "Schiedsrichter entscheiden früh, wer Puck zuerst erreicht",
+        "Icing mit Video-Beweis"
+      ],
+      "correct": 2,
+      "difficulty": "hard",
+      "explanation": "Hybrid Icing: Schiedsrichter entscheiden bereits an der Torlinie, wer den Puck zuerst erreicht hätte, um Kollisionen zu vermeiden.",
+      "category": "abseits"
+    },
+    {
+      "id": 20,
+      "question": "Wie lange dauert die Pause zwischen den Dritteln?",
+      "answers": [
+        "10 Minuten",
+        "15 Minuten",
+        "20 Minuten",
+        "25 Minuten"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "Die Pausen zwischen den Dritteln dauern jeweils 15 Minuten.",
+      "category": "spielablauf"
+    },
+    {
+      "id": 21,
+      "question": "Was ist eine Matchstrafe?",
+      "answers": [
+        "2 Minuten Strafe",
+        "5 Minuten Strafe",
+        "Spielverweis mit möglicher Sperre",
+        "Mannschaftsstrafe"
+      ],
+      "correct": 2,
+      "difficulty": "medium",
+      "explanation": "Eine Matchstrafe bedeutet Spielverweis und meist eine Sperre für weitere Spiele. Das Team spielt 5 Minuten in Unterzahl.",
+      "category": "strafen"
+    },
+    {
+      "id": 22,
+      "question": "Darf ein Feldspieler den Puck mit der Hand fangen?",
+      "answers": [
+        "Ja, immer",
+        "Nein, niemals",
+        "Ja, aber nur stoppen oder zu Boden schlagen",
+        "Nur in der Verteidigungszone"
+      ],
+      "correct": 2,
+      "difficulty": "medium",
+      "explanation": "Feldspieler dürfen den Puck mit der Hand stoppen oder zu Boden schlagen, aber nicht werfen oder vorwärts spielen.",
+      "category": "puck"
+    },
+    {
+      "id": 23,
+      "question": "Bei welcher Höhe ist ein Tor mit hohem Stock ungültig?",
+      "answers": [
+        "Über Schulterhöhe",
+        "Über Kopfhöhe",
+        "Oberhalb der Querlatte (1,22m)",
+        "Über 2 Meter"
+      ],
+      "correct": 2,
+      "difficulty": "hard",
+      "explanation": "Ein Tor zählt nicht, wenn der Puck mit einem Stock oberhalb der Querlatte (1,22m Höhe) berührt wurde.",
+      "category": "tor"
+    },
+    {
+      "id": 24,
+      "question": "Was ist 'Tripping'?",
+      "answers": [
+        "Den Puck dribbeln",
+        "Einen Gegner zu Fall bringen",
+        "Einen Pass spielen",
+        "Das Spiel verlassen"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "Tripping (Beinstellen) ist, den Gegner mit Schläger, Knie, Fuß oder Bein zu Fall zu bringen.",
+      "category": "strafen"
+    },
+    {
+      "id": 25,
+      "question": "Wann wird ein verzögertes Abseits angezeigt?",
+      "answers": [
+        "Wenn der Puck die Zone verlässt",
+        "Wenn ein Verteidiger in Puckbesitz kommt",
+        "Nach einem Tor",
+        "Bei einer Strafe"
+      ],
+      "correct": 1,
+      "difficulty": "hard",
+      "explanation": "Verzögertes Abseits wird angezeigt, wenn ein Angreifer im Abseits ist, aber der Verteidiger den Puck hat. Das Spiel läuft bis Angreifer die Zone verlassen.",
+      "category": "abseits"
+    },
+    {
+      "id": 26,
+      "question": "Wie oft wird nach einem Tor ein Bully durchgeführt?",
+      "answers": [
+        "Nie, Spiel geht weiter",
+        "In der Mitte des Spielfelds",
+        "In der Angriffszone",
+        "Dort, wo das Tor fiel"
+      ],
+      "correct": 1,
+      "difficulty": "easy",
+      "explanation": "Nach jedem Tor wird ein Bully in der Spielfeldmitte durchgeführt.",
+      "category": "spielablauf"
+    },
+    {
+      "id": 27,
+      "question": "Welche Farbe haben die Torlinien?",
+      "answers": [
+        "Blau",
+        "Rot",
+        "Gelb",
+        "Weiß"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "explanation": "Die Torlinien sind rot gefärbt und 5 cm breit.",
+      "category": "spielfeld"
+    },
+    {
+      "id": 28,
+      "question": "Was ist ein 'Shorthanded Goal'?",
+      "answers": [
+        "Ein Tor in der letzten Minute",
+        "Ein Tor in Unterzahl erzielt",
+        "Ein Tor vom Torhüter",
+        "Ein Eigentor"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "explanation": "Ein Shorthanded Goal ist ein Tor, das in Unterzahl erzielt wird. Die Strafe läuft weiter.",
+      "category": "tor"
+    },
+    {
+      "id": 29,
+      "question": "Wer führt die meisten Bullys durch?",
+      "answers": [
+        "Hauptschiedsrichter",
+        "Linienrichter",
+        "Kapitäne",
+        "Zeitnehmer"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "explanation": "Linienrichter führen die meisten Bullys durch, außer bei besonderen Situationen.",
+      "category": "schiedsrichter"
+    },
+    {
+      "id": 30,
+      "question": "Was ist 'Checking from Behind'?",
+      "answers": [
+        "Rückwärts fahren",
+        "Einen Spieler von hinten gegen die Bande checken",
+        "Den Puck nach hinten spielen",
+        "Rückwärts schießen"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "explanation": "Checking from Behind ist sehr gefährlich und wird mit mindestens 5 Minuten Strafe bestraft.",
+      "category": "strafen"
+    }
+  ],
+  "metadata": {
+    "totalQuestions": 30,
+    "difficulties": {
+      "easy": 10,
+      "medium": 14,
+      "hard": 6
+    },
+    "categories": [
+      "spielfeld",
+      "spieler",
+      "spielablauf",
+      "strafen",
+      "abseits",
+      "schiedsrichter",
+      "tor",
+      "puck"
+    ]
+  }
+}
