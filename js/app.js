@@ -18,6 +18,7 @@ const elements = {
     rulesView: null,
     quizView: null,
     bookmarksView: null,
+    penaltiesView: null,
     rulesContent: null,
     bookmarksContent: null,
     themeToggle: null,
@@ -56,6 +57,7 @@ function cacheElements() {
     elements.rulesView = document.getElementById('rulesView');
     elements.quizView = document.getElementById('quizView');
     elements.bookmarksView = document.getElementById('bookmarksView');
+    elements.penaltiesView = document.getElementById('penaltiesView');
     elements.rulesContent = document.getElementById('rulesContent');
     elements.bookmarksContent = document.getElementById('bookmarksContent');
     elements.themeToggle = document.getElementById('themeToggle');
@@ -232,6 +234,9 @@ function switchView(viewName) {
     switch(viewName) {
         case 'rules':
             elements.rulesView.classList.add('active');
+            break;
+        case 'penalties':
+            elements.penaltiesView.classList.add('active');
             break;
         case 'quiz':
             elements.quizView.classList.add('active');

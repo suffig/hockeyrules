@@ -30,6 +30,9 @@
             <button class="nav-btn active" data-view="rules" aria-label="Regeln anzeigen">
                 📖 Regeln
             </button>
+            <button class="nav-btn" data-view="penalties" aria-label="Strafen-Übersicht anzeigen">
+                ⚠️ Strafen-Übersicht
+            </button>
             <button class="nav-btn" data-view="quiz" aria-label="Quiz starten">
                 🧠 Quiz
             </button>
@@ -122,6 +125,232 @@
                         <div class="results-actions">
                             <button id="restartQuiz" class="btn-primary">Nochmal spielen</button>
                             <button id="backToRules" class="btn-secondary">Zurück zu den Regeln</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Penalties View -->
+            <div id="penaltiesView" class="view">
+                <div class="penalties-container">
+                    <h2>⚠️ Strafen-Übersicht</h2>
+                    <p class="penalties-intro">Eine visuelle Übersicht über alle Strafarten im Eishockey nach IIHF-Regeln</p>
+                    
+                    <!-- Penalty Chart -->
+                    <div class="penalty-chart">
+                        <div class="penalty-card penalty-minor">
+                            <div class="penalty-header">
+                                <h3>🟡 Kleine Strafe</h3>
+                                <span class="penalty-duration">2 Minuten</span>
+                            </div>
+                            <div class="penalty-body">
+                                <p class="penalty-description">Bei leichten Vergehen. Das Team spielt in Unterzahl.</p>
+                                <div class="penalty-features">
+                                    <div class="feature">✓ Endet bei Gegentor vorzeitig</div>
+                                    <div class="feature">✓ Spieler sitzt auf Strafbank</div>
+                                </div>
+                                <div class="penalty-examples">
+                                    <strong>Beispiele:</strong>
+                                    <ul>
+                                        <li>Haken (Hooking)</li>
+                                        <li>Beinstellen (Tripping)</li>
+                                        <li>Halten (Holding)</li>
+                                        <li>Hoher Stock (High-Sticking)*</li>
+                                        <li>Übertriebene Härte (Roughing)</li>
+                                    </ul>
+                                    <p class="note">* Bei Verletzung: 4 Minuten (Doppelte Kleine Strafe)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="penalty-card penalty-major">
+                            <div class="penalty-header">
+                                <h3>🔴 Große Strafe</h3>
+                                <span class="penalty-duration">5 Minuten</span>
+                            </div>
+                            <div class="penalty-body">
+                                <p class="penalty-description">Für schwere Vergehen. Team spielt 5 Minuten in Unterzahl.</p>
+                                <div class="penalty-features">
+                                    <div class="feature">✗ Endet NICHT bei Gegentor</div>
+                                    <div class="feature">✓ Automatische Spieldauer-Disziplinarstrafe</div>
+                                </div>
+                                <div class="penalty-examples">
+                                    <strong>Beispiele:</strong>
+                                    <ul>
+                                        <li>Check von hinten (Checking from Behind)</li>
+                                        <li>Schweres Boarding</li>
+                                        <li>Gefährlicher Check gegen Kopf/Nacken</li>
+                                        <li>Kämpfen mit Verletzungsabsicht</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="penalty-card penalty-misconduct">
+                            <div class="penalty-header">
+                                <h3>🟠 Disziplinarstrafe</h3>
+                                <span class="penalty-duration">10 Minuten</span>
+                            </div>
+                            <div class="penalty-body">
+                                <p class="penalty-description">Bei unsportlichem Verhalten. Spieler verlässt das Eis.</p>
+                                <div class="penalty-features">
+                                    <div class="feature">✓ Team spielt NICHT in Unterzahl</div>
+                                    <div class="feature">✓ Anderer Spieler ersetzt sofort</div>
+                                </div>
+                                <div class="penalty-examples">
+                                    <strong>Beispiele:</strong>
+                                    <ul>
+                                        <li>Wiederholte Respektlosigkeit</li>
+                                        <li>Anhaltende Proteste</li>
+                                        <li>Unsportliches Verhalten</li>
+                                        <li>Beleidigungen</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="penalty-card penalty-game-misconduct">
+                            <div class="penalty-header">
+                                <h3>🔴 Spieldauer-Disziplinarstrafe</h3>
+                                <span class="penalty-duration">Rest des Spiels</span>
+                            </div>
+                            <div class="penalty-body">
+                                <p class="penalty-description">Spieler muss das Spiel verlassen und in Kabine gehen.</p>
+                                <div class="penalty-features">
+                                    <div class="feature">✓ Team spielt NICHT in Unterzahl</div>
+                                    <div class="feature">✓ Ersatzspieler kann sofort eingesetzt werden</div>
+                                </div>
+                                <div class="penalty-examples">
+                                    <strong>Beispiele:</strong>
+                                    <ul>
+                                        <li>Zweite Disziplinarstrafe im selben Spiel</li>
+                                        <li>Schwere unsportliche Vergehen</li>
+                                        <li>Dritte kleine Strafe (gleicher Spieler)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="penalty-card penalty-match">
+                            <div class="penalty-header">
+                                <h3>⛔ Matchstrafe</h3>
+                                <span class="penalty-duration">Spielverweis + Sperre</span>
+                            </div>
+                            <div class="penalty-body">
+                                <p class="penalty-description">Bei besonders schweren Vergehen. Spieler wird des Spiels verwiesen.</p>
+                                <div class="penalty-features">
+                                    <div class="feature">✗ Team spielt 5 Minuten in Unterzahl</div>
+                                    <div class="feature">✓ Automatische Sperre für weitere Spiele</div>
+                                </div>
+                                <div class="penalty-examples">
+                                    <strong>Beispiele:</strong>
+                                    <ul>
+                                        <li>Absichtliche Verletzung eines Gegners</li>
+                                        <li>Kopfstoß (Head-butting)</li>
+                                        <li>Spucken gegen Person</li>
+                                        <li>Rassistische/diskriminierende Äußerungen</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="penalty-card penalty-shot">
+                            <div class="penalty-header">
+                                <h3>🎯 Penalty-Schuss</h3>
+                                <span class="penalty-duration">Keine Zeitstrafe</span>
+                            </div>
+                            <div class="penalty-body">
+                                <p class="penalty-description">Ein Spieler darf allein auf den Torhüter zufahren.</p>
+                                <div class="penalty-features">
+                                    <div class="feature">✓ Team spielt NICHT in Unterzahl</div>
+                                    <div class="feature">✓ Bei Tor: Keine zusätzliche Strafe</div>
+                                </div>
+                                <div class="penalty-examples">
+                                    <strong>Vergeben bei:</strong>
+                                    <ul>
+                                        <li>Foul von hinten bei klarer Torchance</li>
+                                        <li>Werfen eines Gegenstands auf Puck</li>
+                                        <li>Absichtliches Verschieben des Tores</li>
+                                        <li>Torhüter verlässt Torraum bei verzögertem Abseits</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Section -->
+                    <div class="penalty-summary">
+                        <h3>📊 Zusammenfassung: Wann endet eine Strafe vorzeitig?</h3>
+                        <table class="penalty-table">
+                            <thead>
+                                <tr>
+                                    <th>Strafart</th>
+                                    <th>Dauer</th>
+                                    <th>Unterzahl</th>
+                                    <th>Endet bei Gegentor?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Kleine Strafe</td>
+                                    <td>2 Min.</td>
+                                    <td>✓ Ja</td>
+                                    <td class="highlight-yes">✓ Ja</td>
+                                </tr>
+                                <tr>
+                                    <td>Doppelte Kleine Strafe</td>
+                                    <td>4 Min.</td>
+                                    <td>✓ Ja</td>
+                                    <td class="highlight-partial">Nur erste 2 Min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Große Strafe</td>
+                                    <td>5 Min.</td>
+                                    <td>✓ Ja</td>
+                                    <td class="highlight-no">✗ Nein</td>
+                                </tr>
+                                <tr>
+                                    <td>Disziplinarstrafe</td>
+                                    <td>10 Min.</td>
+                                    <td>✗ Nein</td>
+                                    <td class="highlight-na">—</td>
+                                </tr>
+                                <tr>
+                                    <td>Spieldauer-Disziplinarstrafe</td>
+                                    <td>Rest</td>
+                                    <td>✗ Nein</td>
+                                    <td class="highlight-na">—</td>
+                                </tr>
+                                <tr>
+                                    <td>Matchstrafe</td>
+                                    <td>5 Min.</td>
+                                    <td>✓ Ja</td>
+                                    <td class="highlight-no">✗ Nein</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Important Notes -->
+                    <div class="penalty-notes">
+                        <h3>📝 Wichtige Hinweise</h3>
+                        <div class="note-cards">
+                            <div class="note-card">
+                                <strong>🏒 Powerplay</strong>
+                                <p>Wenn ein Team durch Strafen des Gegners in Überzahl spielt (Powerplay), endet eine kleine Strafe bei einem erzielten Tor vorzeitig.</p>
+                            </div>
+                            <div class="note-card">
+                                <strong>🎯 Shorthanded Goal</strong>
+                                <p>Tore, die in Unterzahl erzielt werden, beenden die eigene Strafe NICHT vorzeitig. Die Strafe läuft weiter.</p>
+                            </div>
+                            <div class="note-card">
+                                <strong>👥 Gleichzeitige Strafen</strong>
+                                <p>Bei gleichzeitigen Strafen (Coincidental Penalties) spielen beide Teams weiterhin mit gleicher Spieleranzahl, die Spieler sitzen trotzdem ab.</p>
+                            </div>
+                            <div class="note-card">
+                                <strong>⏱️ Verzögerte Strafe</strong>
+                                <p>Wenn eine Strafe gegen das Team verhängt wird, das nicht in Ballbesitz ist, wird die Strafe verzögert angezeigt. Sie tritt erst beim nächsten Ballbesitz in Kraft.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
