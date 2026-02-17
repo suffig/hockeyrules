@@ -312,6 +312,25 @@ function createCategoryElement(category) {
         });
     });
     
+    // Add event listeners for expand buttons
+    div.querySelectorAll('.btn-expand').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const ruleNumber = btn.dataset.rule;
+            const ruleItem = div.querySelector(`.rule-item[data-rule="${ruleNumber}"]`);
+            const detailsContent = ruleItem.querySelector('.rule-detailed-content');
+            
+            if (detailsContent) {
+                const isExpanded = detailsContent.style.display !== 'none';
+                detailsContent.style.display = isExpanded ? 'none' : 'block';
+                btn.textContent = isExpanded ? '▼' : '▲';
+                btn.setAttribute('aria-label', isExpanded ? 'Details anzeigen' : 'Details ausblenden');
+                btn.setAttribute('title', isExpanded ? 'Details anzeigen' : 'Details ausblenden');
+                ruleItem.classList.toggle('expanded', !isExpanded);
+            }
+        });
+    });
+    
     return div;
 }
 
@@ -320,12 +339,14 @@ function createCategoryElement(category) {
  */
 function createRuleElement(rule) {
     const isBookmarked = appState.bookmarks.has(rule.number);
+    const hasDetailedContent = rule.detailedExplanation || rule.examples || rule.whatToWatchFor || rule.relatedRules;
     
-    return `
-        <div class="rule-item" data-rule="${rule.number}">
+    let html = `
+        <div class="rule-item ${hasDetailedContent ? 'rule-item-expandable' : ''}" data-rule="${rule.number}">
             <div class="rule-header">
                 <span class="rule-number">Regel ${rule.number}</span>
                 <div class="rule-actions">
+                    ${hasDetailedContent ? '<button class="btn-expand" data-rule="' + rule.number + '" aria-label="Details anzeigen" title="Details anzeigen">▼</button>' : ''}
                     <button class="btn-bookmark ${isBookmarked ? 'active' : ''}" 
                             data-rule="${rule.number}" 
                             aria-label="Lesezeichen ${isBookmarked ? 'entfernen' : 'hinzufügen'}"
@@ -343,8 +364,65 @@ function createRuleElement(rule) {
             <h3 class="rule-title">${rule.title}</h3>
             <p class="rule-description">${rule.description}</p>
             ${rule.details ? `<p class="rule-details">${rule.details}</p>` : ''}
-        </div>
     `;
+    
+    // Add detailed content section if available
+    if (hasDetailedContent) {
+        html += `
+            <div class="rule-detailed-content" style="display: none;">
+                ${rule.detailedExplanation ? `
+                    <div class="detail-section">
+                        <h4>📋 Detaillierte Erklärung</h4>
+                        <p>${rule.detailedExplanation}</p>
+                    </div>
+                ` : ''}
+                
+                ${rule.examples && rule.examples.length > 0 ? `
+                    <div class="detail-section">
+                        <h4>💡 Beispiele</h4>
+                        <ul class="examples-list">
+                            ${rule.examples.map(ex => `<li>${ex}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
+                
+                ${rule.whatToWatchFor && rule.whatToWatchFor.length > 0 ? `
+                    <div class="detail-section detail-watch">
+                        <h4>👁️ Worauf achten?</h4>
+                        <ul class="watch-list">
+                            ${rule.whatToWatchFor.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
+                
+                ${rule.exceptions ? `
+                    <div class="detail-section detail-exceptions">
+                        <h4>⚠️ Ausnahmen</h4>
+                        <p>${rule.exceptions}</p>
+                    </div>
+                ` : ''}
+                
+                ${rule.procedureDetails ? `
+                    <div class="detail-section">
+                        <h4>📝 Ablauf</h4>
+                        <p>${rule.procedureDetails}</p>
+                    </div>
+                ` : ''}
+                
+                ${rule.relatedRules && rule.relatedRules.length > 0 ? `
+                    <div class="detail-section detail-related">
+                        <h4>🔗 Verwandte Regeln</h4>
+                        <div class="related-rules">
+                            ${rule.relatedRules.map(ruleNum => `<span class="related-rule-tag">Regel ${ruleNum}</span>`).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    }
+    
+    html += `</div>`;
+    return html;
 }
 
 /**
