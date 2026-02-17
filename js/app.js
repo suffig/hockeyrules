@@ -237,6 +237,7 @@ function switchView(viewName) {
             break;
         case 'penalties':
             elements.penaltiesView.classList.add('active');
+            renderPenalties();
             break;
         case 'quiz':
             elements.quizView.classList.add('active');
@@ -503,6 +504,78 @@ function renderBookmarks() {
         
         elements.bookmarksContent.appendChild(ruleEl);
     });
+}
+
+/**
+ * Render penalties overview from rules data
+ */
+function renderPenalties() {
+    const penaltyChart = document.getElementById('penaltyChart');
+    if (!penaltyChart || !appState.rules) return;
+    
+    // Find penalties category
+    const penaltiesCategory = appState.rules.categories.find(cat => cat.id === 'strafen');
+    if (!penaltiesCategory || !penaltiesCategory.rules) {
+        penaltyChart.innerHTML = '<p class="empty-state">Keine Strafendetails verfügbar.</p>';
+        return;
+    }
+    
+    // Map penalty numbers to card styles and icons
+    const penaltyStyles = {
+        '16': { class: 'penalty-minor', icon: '🟡', duration: '2 Minuten' },
+        '17': { class: 'penalty-minor', icon: '🟡', duration: '2 Minuten' },
+        '18': { class: 'penalty-minor', icon: '🟡', duration: '4 Minuten' },
+        '19': { class: 'penalty-misconduct', icon: '🟠', duration: 'Variabel' },
+        '20': { class: 'penalty-major', icon: '🔴', duration: '5 Minuten' },
+        '22': { class: 'penalty-misconduct', icon: '🟠', duration: '10 Minuten' },
+        '23': { class: 'penalty-game-misconduct', icon: '🔴', duration: 'Rest des Spiels' },
+        '24': { class: 'penalty-match', icon: '⛔', duration: 'Spielverweis + Sperre' },
+        '25': { class: 'penalty-shot', icon: '🎯', duration: 'Keine Zeitstrafe' }
+    };
+    
+    // Generate penalty cards
+    let html = '';
+    penaltiesCategory.rules.forEach(rule => {
+        const style = penaltyStyles[rule.number] || { class: 'penalty-minor', icon: '⚠️', duration: rule.details || '' };
+        
+        html += `
+            <div class="penalty-card ${style.class}">
+                <div class="penalty-header">
+                    <h3>${style.icon} ${rule.title}</h3>
+                    <span class="penalty-duration">${style.duration}</span>
+                </div>
+                <div class="penalty-body">
+                    <p class="penalty-description">${rule.description}</p>
+                    ${rule.detailedExplanation ? `
+                        <div class="penalty-detail">
+                            <p><strong>Details:</strong> ${rule.detailedExplanation}</p>
+                        </div>
+                    ` : ''}
+                    ${rule.whatToWatchFor && rule.whatToWatchFor.length > 0 ? `
+                        <div class="penalty-features">
+                            ${rule.whatToWatchFor.map(item => `<div class="feature">✓ ${item}</div>`).join('')}
+                        </div>
+                    ` : ''}
+                    ${rule.examples && rule.examples.length > 0 ? `
+                        <div class="penalty-examples">
+                            <strong>Beispiele:</strong>
+                            <ul>
+                                ${rule.examples.map(ex => `<li>${ex}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${rule.exceptions ? `
+                        <p class="note"><strong>Ausnahmen:</strong> ${rule.exceptions}</p>
+                    ` : ''}
+                    ${rule.procedureDetails ? `
+                        <p class="note"><strong>Ablauf:</strong> ${rule.procedureDetails}</p>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+    });
+    
+    penaltyChart.innerHTML = html;
 }
 
 /**
