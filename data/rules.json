@@ -1,0 +1,355 @@
+{
+  "categories": [
+    {
+      "id": "spielfeld",
+      "name": "Spielfeld und Ausrüstung",
+      "icon": "🏟️",
+      "rules": [
+        {
+          "number": "1.1",
+          "title": "Spielfeldabmessungen",
+          "description": "Das Spielfeld muss 60 Meter lang und 26-30 Meter breit sein. Die Ecken sind mit einem Radius von 7-8,5 Metern abgerundet.",
+          "details": "International üblich: 60m x 30m",
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.2",
+          "title": "Tore",
+          "description": "Die Tore müssen 1,83 Meter breit und 1,22 Meter hoch sein. Die Torpfosten sind rot gestrichen.",
+          "details": "Tortiefe: 0,6 - 1,12 Meter",
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.3",
+          "title": "Torlinien und Torraum",
+          "description": "Die Torlinien sind 5 cm breit und rot gefärbt. Der Torraum ist blau und hat einen Radius von 1,83 Metern vor jedem Tor.",
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.4",
+          "title": "Mittellinie",
+          "description": "Die Mittellinie teilt das Spielfeld in zwei gleiche Hälften. Sie ist rot und 30 cm breit.",
+          "category": "spielfeld"
+        },
+        {
+          "number": "1.5",
+          "title": "Bully-Punkte",
+          "description": "Es gibt neun Bully-Punkte auf dem Spielfeld: einen in der Mitte und je vier in den beiden Endzonen.",
+          "details": "Mittelpunkt: 30 cm Durchmesser, andere: 60 cm Durchmesser",
+          "category": "spielfeld"
+        }
+      ]
+    },
+    {
+      "id": "spieler",
+      "name": "Spieler und Mannschaften",
+      "icon": "👥",
+      "rules": [
+        {
+          "number": "2.1",
+          "title": "Mannschaftsstärke",
+          "description": "Eine Mannschaft besteht aus maximal 22 Spielern (20 Feldspieler und 2 Torhüter). Auf dem Eis befinden sich gleichzeitig maximal 6 Spieler pro Team.",
+          "details": "Minimum: 1 Torhüter + 5 Feldspieler",
+          "category": "spieler"
+        },
+        {
+          "number": "2.2",
+          "title": "Spielerpositionen",
+          "description": "Typische Aufstellung: 1 Torhüter, 2 Verteidiger, 3 Stürmer (Center, Links- und Rechtsaußen).",
+          "category": "spieler"
+        },
+        {
+          "number": "2.3",
+          "title": "Ausrüstung",
+          "description": "Alle Spieler müssen einen Helm mit Gesichtsschutz, Handschuhe, Ellenbogenschützer, Schulterpolster, Schienbeinschützer und einen Tiefschutz tragen.",
+          "details": "Torhüter haben zusätzlich spezielle Ausrüstung",
+          "category": "spieler"
+        },
+        {
+          "number": "2.4",
+          "title": "Spielerwechsel",
+          "description": "Spielerwechsel können jederzeit während des Spiels vorgenommen werden ('fliegender Wechsel'), solange max. 6 Spieler auf dem Eis sind.",
+          "category": "spieler"
+        },
+        {
+          "number": "2.5",
+          "title": "Kapitän und Assistenten",
+          "description": "Jede Mannschaft bestimmt einen Kapitän (C) und maximal zwei Assistenten (A). Nur diese dürfen mit den Schiedsrichtern über Regelauslegungen sprechen.",
+          "category": "spieler"
+        }
+      ]
+    },
+    {
+      "id": "spielablauf",
+      "name": "Spielablauf und Spielzeit",
+      "icon": "⏱️",
+      "rules": [
+        {
+          "number": "3.1",
+          "title": "Spielzeit",
+          "description": "Ein Spiel besteht aus drei Dritteln zu je 20 Minuten (effektive Spielzeit). Zwischen den Dritteln gibt es 15-minütige Pausen.",
+          "category": "spielablauf"
+        },
+        {
+          "number": "3.2",
+          "title": "Spielbeginn",
+          "description": "Das Spiel beginnt mit einem Bully in der Spielfeldmitte. Nach jedem Tor wird ebenfalls ein Bully in der Mitte durchgeführt.",
+          "category": "spielablauf"
+        },
+        {
+          "number": "3.3",
+          "title": "Unterbrechungen",
+          "description": "Das Spiel wird unterbrochen bei Tor, Strafen, Puck außerhalb des Spielfelds, Torhüterwechsel oder anderen Regelverstößen.",
+          "category": "spielablauf"
+        },
+        {
+          "number": "3.4",
+          "title": "Verlängerung",
+          "description": "Bei Unentschieden nach regulärer Spielzeit kann eine Verlängerung (Overtime) gespielt werden. Format variiert je nach Wettbewerb.",
+          "details": "Oft 3 gegen 3 für 5 Minuten in der regulären Saison",
+          "category": "spielablauf"
+        },
+        {
+          "number": "3.5",
+          "title": "Penalty-Schießen",
+          "description": "Wenn nach der Verlängerung kein Sieger feststeht, wird ein Penalty-Schießen durchgeführt. Jedes Team nominiert 3 Schützen.",
+          "details": "Bei weiterem Unentschieden: Sudden Death",
+          "category": "spielablauf"
+        }
+      ]
+    },
+    {
+      "id": "strafen",
+      "name": "Strafen und Disziplinarmaßnahmen",
+      "icon": "⚠️",
+      "rules": [
+        {
+          "number": "4.1",
+          "title": "Kleine Strafe (2 Minuten)",
+          "description": "Bei leichten Vergehen wird eine kleine Strafe von 2 Minuten verhängt. Der Spieler muss auf die Strafbank und sein Team spielt in Unterzahl.",
+          "details": "Bei einem Gegentor endet die Strafe vorzeitig",
+          "category": "strafen"
+        },
+        {
+          "number": "4.2",
+          "title": "Große Strafe (5 Minuten)",
+          "description": "Für schwere Vergehen gibt es 5 Minuten Strafe plus automatische Spieldauer-Disziplinarstrafe. Das Team spielt 5 Minuten in Unterzahl.",
+          "details": "Endet nicht bei Gegentor",
+          "category": "strafen"
+        },
+        {
+          "number": "4.3",
+          "title": "Matchstrafe",
+          "description": "Bei besonders schweren Vergehen wird der Spieler des Spiels verwiesen. Zusätzlich droht eine Sperre für weitere Spiele.",
+          "details": "Team spielt 5 Minuten in Unterzahl",
+          "category": "strafen"
+        },
+        {
+          "number": "4.4",
+          "title": "Haken (Hooking)",
+          "description": "Mit dem Schläger den Gegner behindern oder aufhalten. Führt zu einer 2-Minuten-Strafe.",
+          "category": "strafen"
+        },
+        {
+          "number": "4.5",
+          "title": "Beinstellen (Tripping)",
+          "description": "Den Gegner mit Schläger, Knie, Fuß oder Bein zu Fall bringen. 2-Minuten-Strafe.",
+          "category": "strafen"
+        },
+        {
+          "number": "4.6",
+          "title": "Hoher Stock (High-Sticking)",
+          "description": "Den Schläger über Schulterhöhe führen und dabei einen Gegner treffen. Mindestens 2 Minuten, bei Verletzung 4 Minuten.",
+          "category": "strafen"
+        },
+        {
+          "number": "4.7",
+          "title": "Halten (Holding)",
+          "description": "Einen Gegner mit Händen oder Armen am Körper oder an der Ausrüstung festhalten. 2-Minuten-Strafe.",
+          "category": "strafen"
+        },
+        {
+          "number": "4.8",
+          "title": "Check von hinten (Checking from Behind)",
+          "description": "Einen Spieler von hinten gegen die Bande checken. Sehr gefährlich, mindestens 5 Minuten Strafe.",
+          "category": "strafen"
+        },
+        {
+          "number": "4.9",
+          "title": "Übertriebene Härte (Roughing)",
+          "description": "Unnötig hartes oder gefährliches Spiel. 2-Minuten-Strafe, bei Verletzungsabsicht auch höher.",
+          "category": "strafen"
+        },
+        {
+          "number": "4.10",
+          "title": "Unsportliches Verhalten",
+          "description": "Beleidigungen, Respektlosigkeit gegenüber Schiedsrichtern oder Gegnern. Mindestens 2 Minuten, kann zu Matchstrafe führen.",
+          "category": "strafen"
+        }
+      ]
+    },
+    {
+      "id": "abseits",
+      "name": "Abseits und Icing",
+      "icon": "🚫",
+      "rules": [
+        {
+          "number": "5.1",
+          "title": "Abseits (Offside)",
+          "description": "Ein Spieler ist im Abseits, wenn er vor dem Puck die gegnerische blaue Linie überquert. Das Spiel wird unterbrochen und ein Bully in der neutralen Zone durchgeführt.",
+          "details": "Ausnahme: Rückwärtiges Abseits bei eigenem Ballbesitz",
+          "category": "abseits"
+        },
+        {
+          "number": "5.2",
+          "title": "Verzögertes Abseits",
+          "description": "Wenn ein angreifender Spieler im Abseits ist, aber der verteidigende Spieler in Puckbesitz kommt, wird das Abseits verzögert angezeigt.",
+          "details": "Spiel läuft weiter bis Angreifer Zone verlassen",
+          "category": "abseits"
+        },
+        {
+          "number": "5.3",
+          "title": "Absichtliches Abseits",
+          "description": "Wenn ein Spieler absichtlich im Abseits steht und am Spiel teilnimmt, kann eine 2-Minuten-Strafe verhängt werden.",
+          "category": "abseits"
+        },
+        {
+          "number":="5.4",
+          "title": "Icing (Unerlaubter Weitschuss)",
+          "description": "Wenn ein Spieler den Puck aus der eigenen Hälfte über die gegnerische Torlinie schießt (ohne dass ein Tor erzielt wird), wird Icing gepfiffen.",
+          "details": "Bully in der Verteidigungszone des verursachenden Teams",
+          "category": "abseits"
+        },
+        {
+          "number": "5.5",
+          "title": "Kein Icing bei Unterzahl",
+          "description": "Ein Team in Unterzahl darf Icing spielen, ohne dass dies geahndet wird.",
+          "category": "abseits"
+        },
+        {
+          "number": "5.6",
+          "title": "Hybrid Icing",
+          "description": "Moderne Icing-Regel: Schiedsrichter entscheiden bereits an der Endzonentorlinie, wer den Puck zuerst erreicht hätte, um Kollisionen zu vermeiden.",
+          "category": "abseits"
+        }
+      ]
+    },
+    {
+      "id": "schiedsrichter",
+      "name": "Schiedsrichter und Offizielle",
+      "icon": "👨‍⚖️",
+      "rules": [
+        {
+          "number": "6.1",
+          "title": "Schiedsrichter-System",
+          "description": "Ein Spiel wird von 2-4 Schiedsrichtern geleitet: 1-2 Hauptschiedsrichter und 2 Linienrichter.",
+          "details": "Bei IIHF-Turnieren meist 2 Hauptschiedsrichter",
+          "category": "schiedsrichter"
+        },
+        {
+          "number": "6.2",
+          "title": "Aufgaben Hauptschiedsrichter",
+          "description": "Hauptschiedsrichter entscheiden über Strafen, Tore und alle anderen Regelverstöße. Ihre Entscheidungen sind endgültig.",
+          "category": "schiedsrichter"
+        },
+        {
+          "number": "6.3",
+          "title": "Aufgaben Linienrichter",
+          "description": "Linienrichter achten auf Abseits, Icing und führen die meisten Bullys durch. Sie können auch offensichtliche Strafen melden.",
+          "category": "schiedsrichter"
+        },
+        {
+          "number": "6.4",
+          "title": "Video-Beweis",
+          "description": "In höheren Ligen kann ein Video-Beweis zur Überprüfung von Toren eingesetzt werden. Nicht alle Situationen sind überprüfbar.",
+          "details": "Torlinie, Puck im Tor, Zeit abgelaufen, etc.",
+          "category": "schiedsrichter"
+        },
+        {
+          "number": "6.5",
+          "title": "Spieloffizielle",
+          "description": "Neben Schiedsrichtern gibt es Torrichter, Zeitnehmer, Strafzeitnehmer und Anschreiber, die das Spiel dokumentieren.",
+          "category": "schiedsrichter"
+        }
+      ]
+    },
+    {
+      "id": "tor",
+      "name": "Tore und Torerzielung",
+      "icon": "🥅",
+      "rules": [
+        {
+          "number": "7.1",
+          "title": "Gültiges Tor",
+          "description": "Ein Tor zählt, wenn der Puck vollständig die Torlinie zwischen den Pfosten und unterhalb der Querlatte überquert hat.",
+          "category": "tor"
+        },
+        {
+          "number": "7.2",
+          "title": "Tor mit Schlittschuh",
+          "description": "Ein Tor zählt, wenn der Puck vom Schlittschuh ins Tor geht, sofern keine eindeutige Kickbewegung erkennbar ist.",
+          "details": "Ablenken ist erlaubt, Kicken nicht",
+          "category": "tor"
+        },
+        {
+          "number": "7.3",
+          "title": "Tor mit hohem Stock",
+          "description": "Ein Tor zählt nicht, wenn der Puck mit einem Stock oberhalb der Querlatte berührt wurde, bevor er ins Tor ging.",
+          "details": "Querlatte = 1,22m Höhe als Maßstab",
+          "category": "tor"
+        },
+        {
+          "number": "7.4",
+          "title": "Tor bei Unterzahl",
+          "description": "Tore, die in Unterzahl erzielt werden (Shorthanded Goals), zählen normal. Die Strafe läuft weiter bis zum Ablauf der Zeit.",
+          "category": "tor"
+        },
+        {
+          "number": "7.5",
+          "title": "Tor bei Überzahl (Powerplay)",
+          "description": "Ein Powerplay-Tor beendet die kleine Strafe (2 Min.) des Gegners vorzeitig. Große Strafen laufen komplett ab.",
+          "category": "tor"
+        }
+      ]
+    },
+    {
+      "id": "puck",
+      "name": "Puck und Spielgerät",
+      "icon": "🥏",
+      "rules": [
+        {
+          "number": "8.1",
+          "title": "Puck-Spezifikationen",
+          "description": "Der offizielle Puck ist eine schwarze Hartgummischeibe mit 7,62 cm Durchmesser, 2,54 cm Dicke und wiegt 156-170 Gramm.",
+          "category": "puck"
+        },
+        {
+          "number": "8.2",
+          "title": "Puck außerhalb des Spielfelds",
+          "description": "Wenn der Puck das Spielfeld verlässt, wird das Spiel unterbrochen und mit einem Bully fortgesetzt.",
+          "details": "Bully am nächstgelegenen Bully-Punkt",
+          "category": "puck"
+        },
+        {
+          "number": "8.3",
+          "title": "Hand am Puck",
+          "description": "Feldspieler dürfen den Puck mit der Hand stoppen oder zu Boden schlagen, aber nicht werfen oder vorwärts spielen.",
+          "details": "Torhüter darf in seinem Torraum fangen",
+          "category": "puck"
+        },
+        {
+          "number": "8.4",
+          "title": "Puck mit Schlittschuh spielen",
+          "description": "Den Puck mit dem Schlittschuh zu stoppen oder abzulenken ist erlaubt, jedoch nicht absichtlich vorwärts zu kicken.",
+          "category": "puck"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "2024/2025",
+    "source": "IIHF Official Rule Book / DEB Regelbuch",
+    "lastUpdated": "2024-09-01",
+    "totalRules": 43
+  }
+}

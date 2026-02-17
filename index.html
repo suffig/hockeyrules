@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IIHF Eishockey-Regeln nach DEB-Regelbuch - Interaktive Webapp zum Lernen und Testen">
+    <title>Hockey Rules - IIHF Regeln nach DEB-Regelbuch</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🏒 Hockey Rules</h1>
+                <p class="subtitle">IIHF-Regeln nach DEB-Regelbuch</p>
+                <div class="header-controls">
+                    <button id="themeToggle" class="btn-icon" aria-label="Dark/Light Mode umschalten" title="Dark/Light Mode">
+                        <span class="theme-icon">🌓</span>
+                    </button>
+                    <button id="printBtn" class="btn-icon" aria-label="Drucken" title="Drucken">
+                        <span>🖨️</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-view="rules" aria-label="Regeln anzeigen">
+                📖 Regeln
+            </button>
+            <button class="nav-btn" data-view="quiz" aria-label="Quiz starten">
+                🧠 Quiz
+            </button>
+            <button class="nav-btn" data-view="bookmarks" aria-label="Lesezeichen anzeigen">
+                ⭐ Lesezeichen
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Rules View -->
+            <div id="rulesView" class="view active">
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="🔍 Regeln durchsuchen..." 
+                        aria-label="Regeln durchsuchen"
+                    >
+                    <button id="clearSearch" class="btn-clear" aria-label="Suche löschen">✕</button>
+                </div>
+
+                <!-- Filter Section -->
+                <div class="filter-container">
+                    <div class="filter-header">
+                        <h3>Filter nach Kategorie:</h3>
+                        <button id="resetFilters" class="btn-secondary">↺ Zurücksetzen</button>
+                    </div>
+                    <div id="filterButtons" class="filter-buttons">
+                        <!-- Filter buttons will be generated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Rules Content -->
+                <div id="rulesContent" class="rules-content">
+                    <!-- Rules will be loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Quiz View -->
+            <div id="quizView" class="view">
+                <div class="quiz-container">
+                    <!-- Quiz Start Screen -->
+                    <div id="quizStart" class="quiz-start">
+                        <h2>🧠 Quiz-Modus</h2>
+                        <p>Teste dein Wissen über die IIHF-Regeln!</p>
+                        <div class="difficulty-selection">
+                            <h3>Schwierigkeitsgrad wählen:</h3>
+                            <div class="difficulty-buttons">
+                                <button class="btn-difficulty" data-difficulty="easy">
+                                    😊 Einfach
+                                </button>
+                                <button class="btn-difficulty" data-difficulty="medium">
+                                    🤔 Mittel
+                                </button>
+                                <button class="btn-difficulty" data-difficulty="hard">
+                                    🔥 Schwer
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Question Screen -->
+                    <div id="quizQuestion" class="quiz-question" style="display: none;">
+                        <div class="quiz-progress">
+                            <span id="questionCounter">Frage 1/10</span>
+                            <span id="scoreCounter">Punkte: 0</span>
+                        </div>
+                        <h3 id="questionText" class="question-text"></h3>
+                        <div id="answersContainer" class="answers-container">
+                            <!-- Answer buttons will be generated dynamically -->
+                        </div>
+                        <div id="feedbackContainer" class="feedback-container" style="display: none;">
+                            <p id="feedbackText"></p>
+                            <button id="nextQuestion" class="btn-primary">Nächste Frage →</button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Results Screen -->
+                    <div id="quizResults" class="quiz-results" style="display: none;">
+                        <h2>Quiz beendet! 🎉</h2>
+                        <div class="results-summary">
+                            <p class="final-score">
+                                <span id="finalScore">0</span> von <span id="totalQuestions">0</span> Punkten
+                            </p>
+                            <p id="resultMessage" class="result-message"></p>
+                        </div>
+                        <div class="results-actions">
+                            <button id="restartQuiz" class="btn-primary">Nochmal spielen</button>
+                            <button id="backToRules" class="btn-secondary">Zurück zu den Regeln</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookmarks View -->
+            <div id="bookmarksView" class="view">
+                <div class="bookmarks-container">
+                    <h2>⭐ Lesezeichen</h2>
+                    <div id="bookmarksContent" class="bookmarks-content">
+                        <p class="empty-state">Noch keine Lesezeichen gesetzt. Markiere Regeln, um sie hier wiederzufinden.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 Hockey Rules - Basierend auf IIHF-Regeln nach DEB-Regelbuch</p>
+            <p class="footer-note">Diese App dient als Lernhilfe. Für offizielle Regelauslegungen siehe das aktuelle DEB-Regelbuch.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
