@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Requirements Engineering – Kompakte Lernübersicht</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181c27;
+    --surface2: #1e2333;
+    --border: #2a3045;
+    --accent1: #4f9cf9;   /* blue */
+    --accent2: #f97b4f;   /* orange */
+    --accent3: #4fd97a;   /* green */
+    --accent4: #c77dff;   /* purple */
+    --accent5: #ffd166;   /* yellow */
+    --accent6: #f94f7b;   /* pink */
+    --text: #e2e8f4;
+    --muted: #7a8aaa;
+    --tag-bg: #242b3d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    line-height: 1.45;
+    padding: 18px;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    border-bottom: 2px solid var(--accent1);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    gap: 12px;
+  }
+  .header h1 {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #fff;
+    line-height: 1;
+  }
+  .header h1 span { color: var(--accent1); }
+  .header .sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-style: italic;
+  }
+  .header .badge {
+    background: var(--accent1);
+    color: #000;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  /* ─── GRID ─── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .col2 { grid-column: span 2; }
+  .col3 { grid-column: span 3; }
+  .col4 { grid-column: span 4; }
+
+  /* ─── CARD ─── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--card-accent, var(--accent1));
+  }
+  .card.blue   { --card-accent: var(--accent1); }
+  .card.orange { --card-accent: var(--accent2); }
+  .card.green  { --card-accent: var(--accent3); }
+  .card.purple { --card-accent: var(--accent4); }
+  .card.yellow { --card-accent: var(--accent5); }
+  .card.pink   { --card-accent: var(--accent6); }
+
+  .card h2 {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--card-accent, var(--accent1));
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .card h2 .num {
+    background: var(--card-accent, var(--accent1));
+    color: #000;
+    font-size: 8px;
+    width: 14px; height: 14px;
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ─── ITEMS ─── */
+  .item { margin-bottom: 5px; }
+  .item:last-child { margin-bottom: 0; }
+
+  .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--card-accent, var(--accent1));
+    display: block;
+    margin-bottom: 1px;
+  }
+  .desc {
+    color: var(--text);
+    font-size: 10.5px;
+    line-height: 1.4;
+  }
+  .muted { color: var(--muted); font-size: 10px; font-style: italic; }
+
+  /* ─── TAGS / PILLS ─── */
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 2px 6px;
+    font-size: 9.5px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text);
+  }
+  .tag.hi { background: color-mix(in srgb, var(--card-accent) 15%, transparent); border-color: color-mix(in srgb, var(--card-accent) 40%, transparent); color: var(--card-accent); }
+
+  /* ─── TABLE ─── */
+  .mini-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .mini-table th {
+    background: var(--surface2);
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 3px 5px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .mini-table td {
+    padding: 3px 5px;
+    font-size: 10px;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+    vertical-align: top;
+    line-height: 1.35;
+  }
+  .mini-table tr:last-child td { border-bottom: none; }
+  .mini-table td:first-child {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--card-accent, var(--accent1));
+    white-space: nowrap;
+  }
+
+  /* ─── FLOW STEPS ─── */
+  .steps { display: flex; flex-wrap: wrap; gap: 3px; align-items: center; margin-top: 4px; }
+  .step {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 3px 7px;
+    font-size: 9.5px;
+    font-family: 'IBM Plex Mono', monospace;
+    white-space: nowrap;
+  }
+  .step.hi {
+    background: color-mix(in srgb, var(--card-accent) 15%, transparent);
+    border-color: color-mix(in srgb, var(--card-accent) 40%, transparent);
+    color: var(--card-accent, var(--accent1));
+    font-weight: 600;
+  }
+  .arrow { color: var(--muted); font-size: 10px; }
+
+  /* ─── TIP BOX ─── */
+  .tip {
+    background: color-mix(in srgb, var(--accent5) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent5) 30%, transparent);
+    border-radius: 3px;
+    padding: 5px 8px;
+    margin-top: 5px;
+    font-size: 10px;
+    color: var(--accent5);
+    line-height: 1.4;
+  }
+  .tip::before { content: '💡 '; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 5px 0;
+  }
+
+  /* ─── FORMULA ─── */
+  .formula {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    margin-top: 4px;
+    color: var(--accent5);
+    text-align: center;
+    letter-spacing: 0.3px;
+  }
+
+  /* ─── STATE MACHINE ─── */
+  .states { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; }
+  .state-row { display: flex; align-items: center; gap: 4px; font-size: 10px; }
+  .state-box {
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    white-space: nowrap;
+    border: 1px solid;
+  }
+  .s-avail  { background: #1a3326; border-color: var(--accent3); color: var(--accent3); }
+  .s-res    { background: #2e2a14; border-color: var(--accent5); color: var(--accent5); }
+  .s-occ    { background: #12223a; border-color: var(--accent1); color: var(--accent1); }
+  .s-over   { background: #3a1212; border-color: var(--accent6); color: var(--accent6); }
+  .s-oor    { background: #222; border-color: var(--muted); color: var(--muted); }
+  .trans { font-size: 9.5px; color: var(--muted); flex: 1; }
+
+  /* ─── CONFLICT BOX ─── */
+  .conflict-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-top: 4px;
+  }
+  .conflict-side {
+    background: var(--tag-bg);
+    border-radius: 3px;
+    padding: 4px 6px;
+    font-size: 9.5px;
+    border: 1px solid var(--border);
+  }
+  .conflict-side .req-id { font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: var(--accent6); font-size: 9px; }
+  .vs { text-align: center; font-size: 11px; font-weight: 700; color: var(--accent6); align-self: center; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 9.5px;
+  }
+
+  @media print {
+    body { background: white; color: #111; font-size: 9px; padding: 8px; }
+    .header h1 { color: #111; }
+    .card { border: 1px solid #ccc; background: #f9f9f9; }
+    .tag, .step, .mini-table td { color: #333; }
+    .tip { background: #fffbea; color: #7a5f00; border-color: #e8c94f; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Requirements <span>Engineering</span></h1>
+    <div class="sub">Prof. Dr. Andreas Vogelsang · Software Systems Engineering · Kompakte Lernübersicht</div>
+  </div>
+  <div class="badge">VL 1–9 · Alle Übungsblätter</div>
+</div>
+
+<div class="grid">
+
+  <!-- ═══ VL1: GRUNDLAGEN ═══ -->
+  <div class="card blue col2">
+    <h2><span class="num">1</span>RE-Grundlagen & Anforderungstypen</h2>
+    <div class="item">
+      <span class="label">Was ist eine Anforderung?</span>
+      <div class="desc">1) Wahrgenommener Bedarf eines Stakeholders &nbsp;2) Fähigkeit/Eigenschaft eines Systems &nbsp;3) Dokumentierte Darstellung davon</div>
+    </div>
+    <div class="divider"></div>
+    <table class="mini-table">
+      <tr><th>Typ</th><th>Was?</th><th>Beispiel</th></tr>
+      <tr><td>Funktional</td><td>Was das System tun soll</td><td>„System zeigt Wetter"</td></tr>
+      <tr><td>Qualität</td><td>Wie das System es tun soll</td><td>„Response ≤ 2s"</td></tr>
+      <tr><td>Constraint</td><td>Nicht verhandelbare Einschränkung</td><td>„DSGVO-Konformität"</td></tr>
+      <tr><td>Prozess</td><td>Wie entwickelt werden soll</td><td>„Scrum, 2-Wochen-Sprints"</td></tr>
+      <tr><td>Projekt</td><td>Budget, Zeit, Umfang</td><td>„Lieferung in 9 Monaten"</td></tr>
+    </table>
+    <div class="tip">Constraint ≠ QR: Constraints kommen von außen (Recht, Normen), sind hart und nicht verhandelbar. QRs spiegeln Stakeholder-Wünsche wider.</div>
+  </div>
+
+  <!-- ═══ VL1: RE-AKTIVITÄTEN ═══ -->
+  <div class="card orange col2">
+    <h2><span class="num">1</span>RE-Aktivitäten (5 Kernprozesse)</h2>
+    <div class="steps">
+      <span class="step hi">Elicitation</span><span class="arrow">→</span>
+      <span class="step hi">Analysis</span><span class="arrow">→</span>
+      <span class="step hi">Specification</span><span class="arrow">→</span>
+      <span class="step hi">Validation</span><span class="arrow">→</span>
+      <span class="step hi">Management</span>
+    </div>
+    <div style="margin-top:6px">
+    <table class="mini-table">
+      <tr><th>Aktivität</th><th>Aufgaben</th></tr>
+      <tr><td>Elicitation</td><td>Stakeholder identifizieren, Bedürfnisse verstehen, Ziele ermitteln</td></tr>
+      <tr><td>Analysis</td><td>Kategorisieren, priorisieren, konsolidieren, Konflikte erkennen</td></tr>
+      <tr><td>Specification</td><td>Anforderungen dokumentieren und strukturieren</td></tr>
+      <tr><td>Validation</td><td>Anforderungen gegen Stakeholder-Erwartungen prüfen</td></tr>
+      <tr><td>Management</td><td>Änderungen, Traceability, Versionierung, Priorisierung</td></tr>
+    </table>
+    </div>
+    <div class="tip">„Moving targets" = größtes RE-Problem. Management hält die Anforderungen aktuell und nachvollziehbar.</div>
+  </div>
+
+  <!-- ═══ VL2: RE PROZESSE ═══ -->
+  <div class="card purple col2">
+    <h2><span class="num">2</span>RE-Prozess-Templates</h2>
+    <table class="mini-table">
+      <tr><th>Template</th><th>Zeit</th><th>Zweck</th><th>Ziel</th><th>Wann?</th></tr>
+      <tr><td>Contractual</td><td>Linear</td><td>Präskriptiv</td><td>Kundensp.</td><td>Fester Vertrag, Safety-kritisch (z.B. Luft- u. Raumfahrt)</td></tr>
+      <tr><td>Participatory</td><td>Iterativ</td><td>Explorativ</td><td>Kundensp.</td><td>Agile Inhouse-Entwicklung, enge Zusammenarbeit</td></tr>
+      <tr><td>Product-oriented</td><td>Iterativ</td><td>Explorativ</td><td>Markt</td><td>Startups, Open Source, Produktentwicklung</td></tr>
+    </table>
+    <div class="tip">Kontext → Template ableiten: Fester Vertrag + Safety = Contractual. Wöchentliches User-Feedback = Product-oriented.</div>
+    <div class="item" style="margin-top:5px">
+      <span class="label">Twin Peaks Model</span>
+      <div class="desc">Anforderungen (RE) und Architektur (Design) werden <em>parallel</em> und durch gegenseitiges Zusammenspiel verfeinert – nicht sequenziell.</div>
+    </div>
+  </div>
+
+  <!-- ═══ VL3: STAKEHOLDER ═══ -->
+  <div class="card green col2">
+    <h2><span class="num">3</span>Stakeholder & Power-Interest Grid</h2>
+    <table class="mini-table">
+      <tr><th>Quadrant</th><th>Power</th><th>Interest</th><th>Strategie</th></tr>
+      <tr><td>Manage closely</td><td>Hoch</td><td>Hoch</td><td>Intensive Einbindung, regelmäßige Reviews</td></tr>
+      <tr><td>Keep satisfied</td><td>Hoch</td><td>Niedrig</td><td>Proaktiv informieren, Erwartungen managen</td></tr>
+      <tr><td>Keep informed</td><td>Niedrig</td><td>Hoch</td><td>Regelmäßige Updates, Usability-Tests</td></tr>
+      <tr><td>Monitor</td><td>Niedrig</td><td>Niedrig</td><td>Beobachten, gelegentliches Feedback</td></tr>
+    </table>
+    <div class="item" style="margin-top:5px">
+      <span class="label">Jackson & Zave Referenzmodell</span>
+      <div class="tags">
+        <span class="tag hi">W = World Phenomena</span>
+        <span class="tag hi">R = Requirements</span>
+        <span class="tag hi">S = Specification</span>
+        <span class="tag hi">P = Program</span>
+        <span class="tag hi">M = Machine</span>
+      </div>
+    </div>
+    <div class="desc" style="margin-top:4px; font-size:10px;">Jede Anforderung muss durch ein Kontextelement begründet werden (Rationale). Kontextgrenze ≠ Systemgrenze!</div>
+  </div>
+
+  <!-- ═══ VL4: ELICITATION ═══ -->
+  <div class="card yellow col2">
+    <h2><span class="num">4</span>Elicitation-Techniken</h2>
+    <table class="mini-table">
+      <tr><th>Technik</th><th>Stärke</th><th>Schwäche</th><th>Einsatz</th></tr>
+      <tr><td>Interview (semi-strukturiert)</td><td>Flexibel, tiefgehend</td><td>Zeitaufwendig, subjektiv</td><td>Immer – Basis für alles</td></tr>
+      <tr><td>Fragebogen</td><td>Skalierbar</td><td>Kein Dialog möglich</td><td>Hypothesen in großen Gruppen prüfen</td></tr>
+      <tr><td>Workshop</td><td>Synergie der Gruppe</td><td>Dominante Personen</td><td>Konsens finden</td></tr>
+      <tr><td>Feldbeobachtung</td><td>Tacit knowledge</td><td>Beobachter-Effekt</td><td>Implizite Bedürfnisse aufdecken</td></tr>
+      <tr><td>Prototyping</td><td>Konkretes Feedback</td><td>Missverständnis als Endprodukt</td><td>Neue/innovative Systeme</td></tr>
+      <tr><td>Brainstorming</td><td>Kreative Ideen</td><td>Keine Tiefe</td><td>Exploration, Frühphase</td></tr>
+    </table>
+    <div class="item" style="margin-top:5px">
+      <span class="label">Interview-Leitfaden-Struktur</span>
+      <div class="steps">
+        <span class="step">1. Intro</span><span class="arrow">→</span>
+        <span class="step">2. Warm-up</span><span class="arrow">→</span>
+        <span class="step">3. Kernfragen</span><span class="arrow">→</span>
+        <span class="step">4. Probing</span><span class="arrow">→</span>
+        <span class="step">5. Wrap-up</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ VL5: FUNKTIONALE ANFORDERUNGEN ═══ -->
+  <div class="card blue col2">
+    <h2><span class="num">5</span>Funktionale Anforderungen</h2>
+    <div class="item">
+      <span class="label">Use Case – Pflichtfelder</span>
+      <div class="tags">
+        <span class="tag">Title</span><span class="tag">Actors</span><span class="tag">Preconditions</span>
+        <span class="tag">Trigger</span><span class="tag">Main Scenario (5–8 Steps)</span>
+        <span class="tag">Alternative Flows</span><span class="tag">Postconditions</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="item">
+      <span class="label">User Story</span>
+      <div class="formula">As a &lt;user type&gt; I want &lt;goal&gt; so that &lt;reason&gt;</div>
+    </div>
+    <div class="item" style="margin-top:5px">
+      <span class="label">INVEST-Kriterien</span>
+      <div class="tags">
+        <span class="tag hi">I ndependent</span>
+        <span class="tag hi">N egotiable</span>
+        <span class="tag hi">V aluable</span>
+        <span class="tag hi">E stimable</span>
+        <span class="tag hi">S mall</span>
+        <span class="tag hi">T estable</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="item">
+      <span class="label">EARS-Muster</span>
+      <table class="mini-table">
+        <tr><th>Pattern</th><th>Syntax</th></tr>
+        <tr><td>Ubiquitous</td><td>The &lt;system&gt; SHALL &lt;action&gt;</td></tr>
+        <tr><td>Event-Driven</td><td>WHEN &lt;trigger&gt; the &lt;system&gt; SHALL &lt;action&gt;</td></tr>
+        <tr><td>State-Driven</td><td>WHILE &lt;state&gt; the &lt;system&gt; SHALL &lt;action&gt;</td></tr>
+        <tr><td>Unwanted Behaviour</td><td>IF &lt;condition&gt; THEN the &lt;system&gt; SHALL &lt;action&gt;</td></tr>
+        <tr><td>Option</td><td>WHERE &lt;feature&gt; the &lt;system&gt; SHALL &lt;action&gt;</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ VL6: QUALITÄTSANFORDERUNGEN ═══ -->
+  <div class="card pink col2">
+    <h2><span class="num">6</span>Qualitätsanforderungen & ISO 25010</h2>
+    <table class="mini-table">
+      <tr><th>ISO 25010 Attribut</th><th>Untertypen (Auswahl)</th><th>Beispiel-Metrik</th></tr>
+      <tr><td>Performance Efficiency</td><td>Time Behaviour, Capacity, Resource Use</td><td>Response p95 ≤ 500ms</td></tr>
+      <tr><td>Reliability</td><td>Availability, Fault Tolerance, Recoverability</td><td>SLA ≥ 99,9% Uptime</td></tr>
+      <tr><td>Security</td><td>Confidentiality, Integrity, Authenticity</td><td>0 kritische CVEs nach 7 Tagen</td></tr>
+      <tr><td>Usability</td><td>Learnability, Efficiency, Accessibility</td><td>SUS-Score ≥ 70</td></tr>
+      <tr><td>Maintainability</td><td>Modularity, Testability, Modifiability</td><td>Bugfix ≤ 4h durchschnittlich</td></tr>
+      <tr><td>Portability</td><td>Adaptability, Installability</td><td>3 Plattformen unterstützt</td></tr>
+      <tr><td>Compatibility</td><td>Coexistence, Interoperability</td><td>REST API konform zu Standard X</td></tr>
+    </table>
+    <div class="item" style="margin-top:5px">
+      <span class="label">Planguage-Tabelle (Pattern-Ansatz)</span>
+      <div class="tags">
+        <span class="tag hi">Tag</span>
+        <span class="tag hi">Scale (Messskala)</span>
+        <span class="tag hi">Meter (Messgerät)</span>
+        <span class="tag hi">Minimum</span>
+        <span class="tag hi">Goal</span>
+        <span class="tag hi">Outstanding</span>
+      </div>
+    </div>
+    <div class="item" style="margin-top:4px">
+      <span class="label">Glinz-Facetten</span>
+      <div class="tags">
+        <span class="tag">Kind: Quality / Constraint</span>
+        <span class="tag">Representation: Qualitativ / Quantitativ / Operational</span>
+        <span class="tag">Satisfaction: Hard / Soft</span>
+        <span class="tag">Role: QR / Constraint</span>
+      </div>
+    </div>
+    <div class="tip">Qualitative QRs (z.B. „sicher sein") sind leicht zu elicitieren, aber schwer zu testen. Quantitative sind testbar, aber oft schwer zu formulieren.</div>
+  </div>
+
+  <!-- ═══ VL7: UML MODELLE ═══ -->
+  <div class="card green col2">
+    <h2><span class="num">7</span>UML-Modellierung</h2>
+    <div class="item">
+      <span class="label">Klassendiagramm – Beziehungstypen</span>
+      <table class="mini-table">
+        <tr><th>Beziehung</th><th>Symbol</th><th>Bedeutung</th></tr>
+        <tr><td>Association</td><td>──────</td><td>Strukturelle Beziehung zwischen Gleichrangigen</td></tr>
+        <tr><td>Aggregation</td><td>◇──────</td><td>„hat-eine" – Teile können unabhängig existieren</td></tr>
+        <tr><td>Composition</td><td>◆──────</td><td>„besteht-aus" – Teile existieren nur mit dem Ganzen</td></tr>
+        <tr><td>Generalization</td><td>──────▷</td><td>„ist-eine-Art-von" – Vererbung / Unterklasse</td></tr>
+        <tr><td>Dependency</td><td>- - - -▷</td><td>Nutzungsbeziehung (z.B. Status-Enum)</td></tr>
+      </table>
+    </div>
+    <div class="divider"></div>
+    <div class="item">
+      <span class="label">Zustandsdiagramm – Locker Lifecycle</span>
+      <div class="states">
+        <div class="state-row"><span class="state-box s-avail">AVAILABLE</span><span class="arrow" style="font-size:12px">→</span><span class="state-box s-res">RESERVED</span><span class="trans">user reserves [via app]</span></div>
+        <div class="state-row"><span class="state-box s-res">RESERVED</span><span class="arrow" style="font-size:12px">→</span><span class="state-box s-occ">OCCUPIED</span><span class="trans">user opens locker</span></div>
+        <div class="state-row"><span class="state-box s-res">RESERVED</span><span class="arrow" style="font-size:12px">→</span><span class="state-box s-avail">AVAILABLE</span><span class="trans">reservation expires [timeout]</span></div>
+        <div class="state-row"><span class="state-box s-occ">OCCUPIED</span><span class="arrow" style="font-size:12px">→</span><span class="state-box s-avail">AVAILABLE</span><span class="trans">user checks out [app]</span></div>
+        <div class="state-row"><span class="state-box s-occ">OCCUPIED</span><span class="arrow" style="font-size:12px">→</span><span class="state-box s-over">OVERSTAYED</span><span class="trans">max time exceeded [timeout]</span></div>
+        <div class="state-row"><span class="state-box s-over">OVERSTAYED</span><span class="arrow" style="font-size:12px">→</span><span class="state-box s-avail">AVAILABLE</span><span class="trans">admin resets state</span></div>
+        <div class="state-row"><span class="state-box s-avail">AVAILABLE</span><span class="arrow" style="font-size:12px">→</span><span class="state-box s-oor">OUT OF ORDER</span><span class="trans">admin marks defect</span></div>
+        <div class="state-row"><span class="state-box s-oor">OUT OF ORDER</span><span class="arrow" style="font-size:12px">→</span><span class="state-box s-avail">AVAILABLE</span><span class="trans">admin restores</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ VL8: VALIDATION / SMELLS ═══ -->
+  <div class="card orange col2">
+    <h2><span class="num">8</span>Validation & Requirements Smells</h2>
+    <div class="item">
+      <span class="label">Validation vs. Verification vs. Analysis</span>
+      <table class="mini-table">
+        <tr><th>Aktivität</th><th>Frage</th></tr>
+        <tr><td>Validation</td><td>Sind die Anforderungen korrekt spezifiziert? (richtige Anforderungen?)</td></tr>
+        <tr><td>Verification</td><td>Ist die Implementierung korrekt? (Anforderungen korrekt umgesetzt?)</td></tr>
+        <tr><td>Analysis</td><td>Sind die Anforderungen konsistent, vollständig und konfliktfrei?</td></tr>
+      </table>
+    </div>
+    <div class="divider"></div>
+    <div class="item">
+      <span class="label">Requirements Smells – Typen</span>
+      <table class="mini-table">
+        <tr><th>Smell</th><th>Erkennungsmerkmal</th><th>Nocuous?</th></tr>
+        <tr><td>Vagueness</td><td>Vage Begriffe: „schnell", „sicher", „benutzerfreundlich"</td><td>Meist ja</td></tr>
+        <tr><td>Ambiguity</td><td>Mehrere Interpretationen möglich</td><td>Meist ja</td></tr>
+        <tr><td>Incompleteness</td><td>Fehlende Informationen (was? wie? wann?)</td><td>Oft ja</td></tr>
+        <tr><td>Inconsistency</td><td>Widerspruch zu anderer Anforderung</td><td>Immer ja</td></tr>
+        <tr><td>Weakness</td><td>Modalverben: may, might, could, should</td><td>Kontextabhängig</td></tr>
+      </table>
+    </div>
+    <div class="tip">Nocuous = schädlich (führt zu Fehlern). Innocuous = harmlos (kein praktischer Schaden, z.B. wenn Begriff im Glossar definiert ist).</div>
+  </div>
+
+  <!-- ═══ VL9: MANAGEMENT ═══ -->
+  <div class="card blue col2">
+    <h2><span class="num">9</span>Requirements Management & Priorisierung</h2>
+    <div class="item">
+      <span class="label">MoSCoW-Methode</span>
+      <table class="mini-table">
+        <tr><th>Kategorie</th><th>Bedeutung</th></tr>
+        <tr><td>Must Have</td><td>Essenziell – ohne das kein Go-Live</td></tr>
+        <tr><td>Should Have</td><td>Wichtig, aber nicht kritisch – ggf. verschiebbar</td></tr>
+        <tr><td>Could Have</td><td>Nice-to-have – Low Priority</td></tr>
+        <tr><td>Won't Have</td><td>Nicht in diesem Release – explizit ausgeschlossen</td></tr>
+      </table>
+    </div>
+    <div class="item" style="margin-top:4px">
+      <span class="label">WSJF – Weighted Shortest Job First</span>
+      <div class="formula">WSJF = (Business Value + Time Criticality + Risk Reduction) ÷ Effort</div>
+      <div class="desc muted" style="margin-top:3px">Skala: Fibonacci-ähnlich (1, 2, 3, 5, 8, 13). Höchster WSJF = höchste Priorität. Risk Reduction = Risikominimierung / Opportunitäts-Enablement.</div>
+    </div>
+    <div class="item" style="margin-top:4px">
+      <span class="label">Kano-Modell</span>
+      <div class="tags">
+        <span class="tag hi">Basic Need → Selbstverständlich, Fehlen = Ablehnung</span>
+        <span class="tag hi">Performance Need → Linear: mehr = besser</span>
+        <span class="tag hi">Delighter → Unerwartet, Begeisterung wenn vorhanden</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ KONFLIKTTYPEN ═══ -->
+  <div class="card purple col2">
+    <h2><span class="num">9</span>Konflikte & Konfliktlösung</h2>
+    <div class="item">
+      <span class="label">Konflikttypen</span>
+      <table class="mini-table">
+        <tr><th>Typ</th><th>Ursache</th></tr>
+        <tr><td>Subject Matter</td><td>Verschiedene faktische Bedürfnisse (andere Nutzungsumgebungen)</td></tr>
+        <tr><td>Data Conflict</td><td>Unterschiedliche Interpretation derselben Information</td></tr>
+        <tr><td>Interest Conflict</td><td>Divergierende persönliche Interessen der Stakeholder</td></tr>
+        <tr><td>Value Conflict</td><td>Unterschiedliche Werte/Präferenzen (z.B. Sicherheit vs. Komfort)</td></tr>
+        <tr><td>Structural Conflict</td><td>Unterschiedliche Hierarchie-/Machtebenen in der Organisation</td></tr>
+      </table>
+    </div>
+    <div class="item" style="margin-top:4px">
+      <span class="label">Konfliktlösung – 4 Schritte</span>
+      <div class="steps">
+        <span class="step hi">1. Identifizierung</span><span class="arrow">→</span>
+        <span class="step hi">2. Analyse</span><span class="arrow">→</span>
+        <span class="step hi">3. Lösung</span><span class="arrow">→</span>
+        <span class="step hi">4. Dokumentation</span>
+      </div>
+    </div>
+    <div class="item" style="margin-top:4px">
+      <span class="label">Lösungsstrategien</span>
+      <div class="tags">
+        <span class="tag">Agreement → Win-Win, zeitaufwendig</span>
+        <span class="tag">Compromise → Beide geben nach</span>
+        <span class="tag">Voting → Schnell, Win-Lose</span>
+        <span class="tag">Overruling → Hierarchie entscheidet</span>
+        <span class="tag">Variants → Verschiedene Produktvarianten</span>
+      </div>
+    </div>
+    <div class="tip">In der Praxis sind Konflikte meist eine Mischung mehrerer Typen. Agreement/Compromise fördern Beziehungen; Overruling ist schnell, aber demotivierend.</div>
+  </div>
+
+  <!-- ═══ TRACEABILITY ═══ -->
+  <div class="card green col2">
+    <h2><span class="num">9</span>Traceability & RM-Aufgaben</h2>
+    <div class="item">
+      <span class="label">Traceability-Richtungen</span>
+      <table class="mini-table">
+        <tr><th>Richtung</th><th>Frage</th></tr>
+        <tr><td>Backward tracing</td><td>Wo kommt diese Anforderung her? (Stakeholder, Dokument, System)</td></tr>
+        <tr><td>Forward tracing</td><td>Wo wird diese Anforderung verwendet? (Code, Tests, Handbücher)</td></tr>
+        <tr><td>Req ↔ Req</td><td>Hängen andere Anforderungen davon ab? (Epic → Stories → Kriterien)</td></tr>
+      </table>
+    </div>
+    <div class="item" style="margin-top:5px">
+      <span class="label">RM-Kernaufgaben</span>
+      <div class="tags">
+        <span class="tag hi">Attribution (Quellen)</span>
+        <span class="tag hi">Priorisierung</span>
+        <span class="tag hi">Versionierung</span>
+        <span class="tag hi">Reporting/KPIs</span>
+        <span class="tag hi">Prozesssteuerung</span>
+      </div>
+    </div>
+    <div class="tip">Traceability ist teuer und fehleranfällig (manuelle Aufgabe). Tools (Jira, Confluence) unterstützen – aber der RE ist verantwortlich!</div>
+  </div>
+
+  <!-- ═══ QUICK REFERENCE: HÄUFIGE FEHLER ═══ -->
+  <div class="card pink col2">
+    <h2><span class="num">!</span>Häufige Fehler & Prüfungsfallen</h2>
+    <table class="mini-table">
+      <tr><th>Fehler</th><th>Richtig machen</th></tr>
+      <tr><td>„System soll benutzerfreundlich sein"</td><td>Mit Planguage operationalisieren: Scale, Meter, Min, Goal</td></tr>
+      <tr><td>QR als funktionale Anforderung</td><td>Fragen: Was (funktional) oder Wie (Qualität)?</td></tr>
+      <tr><td>Constraint mit QR verwechseln</td><td>Constraint = kommt von außen, nicht verhandelbar</td></tr>
+      <tr><td>User Story ohne „so that"</td><td>Grund/Motivation ist essenziell für Wert der Story</td></tr>
+      <tr><td>WSJF: Effort im Zähler</td><td>Effort ist im Nenner! Kleiner Effort = höherer Score</td></tr>
+      <tr><td>Validation = Verification</td><td>Validation = richtige Anforderungen; Verification = korrekte Umsetzung</td></tr>
+      <tr><td>Interview = Umfrage</td><td>Interview = geführte Exploration, aktiv zuhören, nachfragen</td></tr>
+      <tr><td>Alle Stakeholder gleich behandeln</td><td>Power-Interest Grid nutzen! Nicht alle brauchen intensive Einbindung</td></tr>
+    </table>
+  </div>
+
+  <!-- ═══ AGILE QR ═══ -->
+  <div class="card yellow col2">
+    <h2><span class="num">6</span>Agile Mechanismen für QRs</h2>
+    <div class="item">
+      <span class="label">Problem</span>
+      <div class="desc">QRs sind cross-cutting – passen nicht in einen Sprint-Kontext. Risiko: „Wir optimieren die Performance später" → bekanntes Anti-Pattern!</div>
+    </div>
+    <div class="divider"></div>
+    <div class="item">
+      <span class="label">Quality Story</span>
+      <div class="desc muted">„Als Sicherheitsbeauftragter möchte ich, dass alle Passwortdaten verschlüsselt werden, damit keine sensiblen Daten im Klartext gespeichert werden."</div>
+    </div>
+    <div class="item" style="margin-top:4px">
+      <span class="label">Definition of Done (DoD)</span>
+      <div class="desc muted">Ort für übergreifende QRs: „Alle Endpoints müssen automatisierte Leistungstests haben."</div>
+    </div>
+    <div class="item" style="margin-top:4px">
+      <span class="label">Acceptance Criteria</span>
+      <div class="desc muted">QRs als messbare Kriterien direkt an User Stories hängen: „Upload ≤ 3s bei 4G"</div>
+    </div>
+  </div>
+
+  <!-- ═══ MODELL-REGELN ═══ -->
+  <div class="card blue col2">
+    <h2><span class="num">7</span>UML-Regeln & Modellierungs-Tipps</h2>
+    <table class="mini-table">
+      <tr><th>Regel</th><th>Detail</th></tr>
+      <tr><td>Klassenname</td><td>Kurze Substantive, UpperCamelCase (z.B. LockerStation)</td></tr>
+      <tr><td>Attributname</td><td>lowerCamelCase, erster Buchstabe klein (z.B. lockerId)</td></tr>
+      <tr><td>Vererbung</td><td>Keine Zyklen! Jede Klasse nur Teil einer Komposition</td></tr>
+      <tr><td>Multiplizität</td><td>Immer an beiden Enden angeben (z.B. 1 ←→ 0..*)</td></tr>
+      <tr><td>Zustandsdiagramm</td><td>Initialzustand (●), Endzustand (⊙), Transitionen mit Event [Guard]</td></tr>
+      <tr><td>Komposition</td><td>◆ am „Ganzen"-Ende; Teile ohne Ganzes nicht existenzfähig</td></tr>
+    </table>
+    <div class="item" style="margin-top:5px">
+      <span class="label">Was ist ein gutes Modell? (Stachowiak)</span>
+      <div class="tags">
+        <span class="tag hi">Abbildung (bildet Realität ab)</span>
+        <span class="tag hi">Reduktion (vereinfacht)</span>
+        <span class="tag hi">Pragmatik (Zweckgebunden)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PRÜFUNGS-CHECKLISTE ═══ -->
+  <div class="card orange col4">
+    <h2><span class="num">✓</span>Prüfungs-Checkliste – Kannst du das?</h2>
+    <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:8px; margin-top:4px;">
+      <div>
+        <div class="label">VL 1–2: Grundlagen</div>
+        <div class="desc">☐ 5 RE-Aktivitäten benennen und abgrenzen<br>☐ Anforderungstypen klassifizieren (inkl. Beispiele)<br>☐ 3 RE-Prozess-Templates ableiten und begründen<br>☐ Twin Peaks erklären + Beispiel</div>
+      </div>
+      <div>
+        <div class="label">VL 3–4: Stakeholder & Elicitation</div>
+        <div class="desc">☐ Power-Interest Grid befüllen + Management-Strategie<br>☐ Jackson & Zave: W, R, S, P, M erklären<br>☐ Interview-Typ wählen + begründen<br>☐ Elicitation-Technik für Kontext wählen + Pros/Cons</div>
+      </div>
+      <div>
+        <div class="label">VL 5–6: Anforderungen spec.</div>
+        <div class="desc">☐ Vollständigen Use Case schreiben (alle Felder!)<br>☐ User Story mit INVEST-Check<br>☐ EARS-Pattern korrekt anwenden (5 Typen!)<br>☐ QR mit Planguage operationalisieren<br>☐ ISO 25010-Attribut für Szenario benennen + begründen</div>
+      </div>
+      <div>
+        <div class="label">VL 7–9: Modell, Val., Mgmt.</div>
+        <div class="desc">☐ Klassendiagramm mit Beziehungstypen zeichnen<br>☐ Zustandsdiagramm Locker-Lifecycle<br>☐ Smell-Typ erkennen + nocuous/innocuous bewerten<br>☐ MoSCoW + WSJF anwenden (Formel!)<br>☐ Konflikttyp benennen + Lösungsstrategie wählen</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div>Requirements Engineering · Prof. Dr. Andreas Vogelsang · Software Systems Engineering · Universität Duisburg-Essen</div>
+  <div>VL 1–9 · Alle Übungsblätter abgedeckt</div>
+</div>
+
+</body>
+</html>
