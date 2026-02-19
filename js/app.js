@@ -513,77 +513,183 @@ function showToast(message, type = 'info') {
  * Render comprehensive penalties view with data from penalties_reference.json
  */
 function renderPenaltiesView() {
-    if (!appState.penalties || !elements.penaltiesContent) return;
+    if (!appState.penalties) return;
     
-    // The penalties view is already in HTML, but we need to render the infractions table dynamically
-    const penaltiesContainer = document.querySelector('.penalties-container');
-    if (!penaltiesContainer) return;
+    // Generate complete infractions table from penalties_reference.json
+    const tableBody = document.querySelector('.infractions-table tbody');
+    if (!tableBody) return;
     
-    // Find or create infractions table section
-    let infractionsSection = penaltiesContainer.querySelector('.infractions-section');
-    if (!infractionsSection) {
-        // If table section doesn't exist, create it dynamically
-        const infractionsList = [];
-        
-        // Collect all infractions from different categories
-        if (appState.penalties.penalty_infractions) {
-            const infractions = appState.penalties.penalty_infractions;
-            
-            // Add minor penalties
-            if (infractions.minor_penalties) {
-                infractions.minor_penalties.forEach(inf => {
-                    infractionsList.push({
-                        ...inf,
-                        category: getCategoryFromRules(inf.rules),
-                        badge: '<span class="badge-minor">2 Min.</span>'
-                    });
-                });
-            }
-            
-            // Add double-minor penalties
-            if (infractions.double_minor_penalties) {
-                infractions.double_minor_penalties.forEach(inf => {
-                    infractionsList.push({
-                        ...inf,
-                        category: getCategoryFromRules(inf.rules),
-                        badge: '<span class="badge-double">4 Min.</span>'
-                    });
-                });
-            }
-            
-            // Add major penalties
-            if (infractions.major_penalties) {
-                infractions.major_penalties.forEach(inf => {
-                    infractionsList.push({
-                        ...inf,
-                        category: getCategoryFromRules(inf.rules),
-                        badge: '<span class="badge-major">5 Min.</span>'
-                    });
-                });
-            }
-            
-            // Add misconduct penalties
-            if (infractions.misconduct_penalties) {
-                infractions.misconduct_penalties.forEach(inf => {
-                    infractionsList.push({
-                        ...inf,
-                        category: getCategoryFromRules(inf.rules),
-                        badge: '<span class="badge-misconduct">10 Min.</span>'
-                    });
-                });
-            }
+    // Clear existing rows
+    tableBody.innerHTML = '';
+    
+    const allInfractions = [];
+    const infractions = appState.penalties.penalty_infractions;
+    
+    // Mapping of German translations for common terms
+    const translations = {
+        'Aggressor': 'Angreifer',
+        'Boarding': 'Bandencheck',
+        'Broken Stick': 'Gebrochener Schläger',
+        'Butt-Ending': 'Schlägerknauf-Stoß',
+        'Charging': 'Anlaufen',
+        'Checking from Behind': 'Check von hinten',
+        'Clipping': 'Tiefcheck',
+        'Closing Hand on Puck': 'Puck mit Hand bedecken',
+        'Cross-Checking': 'Querschlag',
+        'Delay of Game': 'Spielverzögerung',
+        'Delaying the Game': 'Spielverzögerung',
+        'Diving': 'Schwalbe',
+        'Elbowing': 'Ellbogencheck',
+        'Embellishment': 'Übertreibung',
+        'Face-off Violation': 'Bully-Verstoß',
+        'Fighting': 'Kämpfen',
+        'Goal Celebration': 'Torjubel',
+        'Goalkeeper Interference': 'Behinderung des Torhüters',
+        'Head-Butting': 'Kopfstoß',
+        'High-Sticking': 'Hoher Stock',
+        'Holding': 'Halten',
+        'Holding the Stick': 'Schlägerhalten',
+        'Hooking': 'Haken',
+        'Illegal Check to Head': 'Illegaler Check gegen Kopf',
+        'Illegal Equipment': 'Illegale Ausrüstung',
+        'Illegal Stick': 'Illegaler Schläger',
+        'Illegal Substitution': 'Illegaler Wechsel',
+        'Instigator': 'Anstifter',
+        'Interference': 'Behinderung',
+        'Interference by/with Spectator': 'Behinderung durch/von Zuschauer',
+        'Kneeing': 'Kniestoss',
+        'Leaving the Bench': 'Verlassen der Spielerbank',
+        'Misconduct': 'Disziplinarstrafe',
+        'Physical Harassment of Officials': 'Physische Belästigung von Offiziellen',
+        'Puck Out of Bounds': 'Puck aus dem Spielfeld',
+        'Refusing to Start Play': 'Spielverweigerung',
+        'Refusing to Surrender Stick': 'Weigerung Schläger abzugeben',
+        'Roughing': 'Übertriebene Härte',
+        'Slashing': 'Schlagen',
+        'Slew-Footing': 'Beinfang',
+        'Spearing': 'Speeren',
+        'Throwing Equipment': 'Werfen von Ausrüstung',
+        'Throwing Puck': 'Werfen des Pucks',
+        'Too Many Players': 'Zu viele Spieler',
+        'Tripping': 'Beinstellen',
+        'Unsportsmanlike Conduct': 'Unsportliches Verhalten'
+    };
+    
+    // Helper function to get German name
+    const getGermanName = (englishName) => {
+        return translations[englishName] || englishName;
+    };
+    
+    // Helper function to get category badge
+    const getCategoryInfo = (rules) => {
+        if (!rules || rules.length === 0) return { type: 'gameplay', label: 'Spielweise' };
+        const firstRule = rules[0];
+        if ((firstRule >= 41 && firstRule <= 51) || (firstRule >= 56 && firstRule <= 58)) {
+            return { type: 'physical', label: 'Körperkontakt' };
         }
-        
-        // Sort by infraction name
-        infractionsList.sort((a, b) => a.infraction.localeCompare(b.infraction));
-        
-        // Update the table with comprehensive data
-        const tableBody = penaltiesContainer.querySelector('.infractions-table tbody');
-        if (tableBody && infractionsList.length > 0) {
-            // Keep existing rows but we could also replace them with dynamic data
-            // For now, let's just ensure the filter works
+        if (firstRule >= 55 && firstRule <= 62) {
+            return { type: 'stick', label: 'Schläger' };
         }
+        return { type: 'gameplay', label: 'Spielweise' };
+    };
+    
+    // Add minor penalties
+    if (infractions.minor_penalties) {
+        infractions.minor_penalties.forEach(inf => {
+            const category = getCategoryInfo(inf.rules);
+            allInfractions.push({
+                german: getGermanName(inf.infraction),
+                english: inf.infraction,
+                badge: '<span class="badge-minor">2 Min.</span>',
+                rules: inf.rules ? inf.rules.map(r => r.toString()).join(', ') : '',
+                category: category.type,
+                categoryLabel: category.label,
+                sortOrder: 1
+            });
+        });
     }
+    
+    // Add double-minor penalties
+    if (infractions.double_minor_penalties) {
+        infractions.double_minor_penalties.forEach(inf => {
+            const category = getCategoryInfo(inf.rules);
+            allInfractions.push({
+                german: getGermanName(inf.infraction),
+                english: inf.infraction,
+                badge: '<span class="badge-double">4 Min.</span>',
+                rules: inf.rules ? inf.rules.map(r => r.toString()).join(', ') : '',
+                category: category.type,
+                categoryLabel: category.label,
+                sortOrder: 2
+            });
+        });
+    }
+    
+    // Add major penalties
+    if (infractions.major_penalties) {
+        infractions.major_penalties.forEach(inf => {
+            const category = getCategoryInfo(inf.rules);
+            allInfractions.push({
+                german: getGermanName(inf.infraction),
+                english: inf.infraction,
+                badge: '<span class="badge-major">5 Min.</span>',
+                rules: inf.rules ? inf.rules.map(r => r.toString()).join(', ') : '',
+                category: category.type,
+                categoryLabel: category.label,
+                sortOrder: 3
+            });
+        });
+    }
+    
+    // Add misconduct penalties
+    if (infractions.misconduct_penalties) {
+        infractions.misconduct_penalties.forEach(inf => {
+            const category = getCategoryInfo(inf.rules);
+            allInfractions.push({
+                german: getGermanName(inf.infraction),
+                english: inf.infraction,
+                badge: '<span class="badge-misconduct">10 Min.</span>',
+                rules: inf.rules ? inf.rules.map(r => r.toString()).join(', ') : '',
+                category: category.type,
+                categoryLabel: category.label,
+                sortOrder: 4
+            });
+        });
+    }
+    
+    // Sort by German name
+    allInfractions.sort((a, b) => a.german.localeCompare(b.german));
+    
+    // Remove duplicates (keep the one with most severe penalty)
+    const uniqueInfractions = [];
+    const seen = new Map();
+    
+    allInfractions.forEach(inf => {
+        if (!seen.has(inf.english)) {
+            seen.set(inf.english, inf);
+            uniqueInfractions.push(inf);
+        } else {
+            // If we've seen this before, update the badge to show all possible penalties
+            const existing = seen.get(inf.english);
+            if (!existing.badge.includes(inf.badge)) {
+                existing.badge += ' ' + inf.badge;
+            }
+        }
+    });
+    
+    // Render all infractions
+    uniqueInfractions.forEach(inf => {
+        const row = document.createElement('tr');
+        row.dataset.category = inf.category;
+        row.innerHTML = `
+            <td><strong>${inf.german}</strong></td>
+            <td>${inf.english}</td>
+            <td>${inf.badge}</td>
+            <td><code>${inf.rules || 'N/A'}</code></td>
+            <td><span class="cat-badge">${inf.categoryLabel}</span></td>
+        `;
+        tableBody.appendChild(row);
+    });
     
     // Initialize filter if not already done
     if (!window.infractionsFilterInitialized) {
