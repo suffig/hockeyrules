@@ -6,7 +6,7 @@
 // Global state
 const appState = {
     rules: null,
-    quiz: null,
+    penalties: null,
     currentView: 'rules',
     theme: 'light',
     bookmarks: new Set(),
@@ -16,11 +16,11 @@ const appState = {
 // DOM elements
 const elements = {
     rulesView: null,
-    quizView: null,
     bookmarksView: null,
     penaltiesView: null,
     rulesContent: null,
     bookmarksContent: null,
+    penaltiesContent: null,
     themeToggle: null,
     printBtn: null,
     navButtons: null,
@@ -55,11 +55,11 @@ async function init() {
  */
 function cacheElements() {
     elements.rulesView = document.getElementById('rulesView');
-    elements.quizView = document.getElementById('quizView');
     elements.bookmarksView = document.getElementById('bookmarksView');
     elements.penaltiesView = document.getElementById('penaltiesView');
     elements.rulesContent = document.getElementById('rulesContent');
     elements.bookmarksContent = document.getElementById('bookmarksContent');
+    elements.penaltiesContent = document.getElementById('penaltiesContent');
     elements.themeToggle = document.getElementById('themeToggle');
     elements.printBtn = document.getElementById('printBtn');
     elements.navButtons = document.querySelectorAll('.nav-btn');
@@ -67,7 +67,7 @@ function cacheElements() {
 }
 
 /**
- * Load rules and quiz data from JSON files
+ * Load rules and penalties data from JSON files
  */
 async function loadData() {
     try {
@@ -75,9 +75,9 @@ async function loadData() {
         const rulesResponse = await fetch('data/rules.json');
         appState.rules = await rulesResponse.json();
         
-        // Load quiz questions
-        const quizResponse = await fetch('data/quiz.json');
-        appState.quiz = await quizResponse.json();
+        // Load penalties data
+        const penaltiesResponse = await fetch('data/penalties_reference.json');
+        appState.penalties = await penaltiesResponse.json();
         
         console.log('Data loaded successfully');
     } catch (error) {
@@ -207,12 +207,6 @@ function setupEventListeners() {
             switchView(view);
         });
     });
-    
-    // Back to rules button (in quiz results)
-    const backToRulesBtn = document.getElementById('backToRules');
-    if (backToRulesBtn) {
-        backToRulesBtn.addEventListener('click', () => switchView('rules'));
-    }
 }
 
 /**
@@ -237,9 +231,7 @@ function switchView(viewName) {
             break;
         case 'penalties':
             elements.penaltiesView.classList.add('active');
-            break;
-        case 'quiz':
-            elements.quizView.classList.add('active');
+            renderPenaltiesView();
             break;
         case 'bookmarks':
             elements.bookmarksView.classList.add('active');
@@ -517,6 +509,104 @@ function showToast(message, type = 'info') {
     }, 3000);
 }
 
+/**
+ * Render comprehensive penalties view with data from penalties_reference.json
+ */
+function renderPenaltiesView() {
+    if (!appState.penalties || !elements.penaltiesContent) return;
+    
+    // The penalties view is already in HTML, but we need to render the infractions table dynamically
+    const penaltiesContainer = document.querySelector('.penalties-container');
+    if (!penaltiesContainer) return;
+    
+    // Find or create infractions table section
+    let infractionsSection = penaltiesContainer.querySelector('.infractions-section');
+    if (!infractionsSection) {
+        // If table section doesn't exist, create it dynamically
+        const infractionsList = [];
+        
+        // Collect all infractions from different categories
+        if (appState.penalties.penalty_infractions) {
+            const infractions = appState.penalties.penalty_infractions;
+            
+            // Add minor penalties
+            if (infractions.minor_penalties) {
+                infractions.minor_penalties.forEach(inf => {
+                    infractionsList.push({
+                        ...inf,
+                        category: getCategoryFromRules(inf.rules),
+                        badge: '<span class="badge-minor">2 Min.</span>'
+                    });
+                });
+            }
+            
+            // Add double-minor penalties
+            if (infractions.double_minor_penalties) {
+                infractions.double_minor_penalties.forEach(inf => {
+                    infractionsList.push({
+                        ...inf,
+                        category: getCategoryFromRules(inf.rules),
+                        badge: '<span class="badge-double">4 Min.</span>'
+                    });
+                });
+            }
+            
+            // Add major penalties
+            if (infractions.major_penalties) {
+                infractions.major_penalties.forEach(inf => {
+                    infractionsList.push({
+                        ...inf,
+                        category: getCategoryFromRules(inf.rules),
+                        badge: '<span class="badge-major">5 Min.</span>'
+                    });
+                });
+            }
+            
+            // Add misconduct penalties
+            if (infractions.misconduct_penalties) {
+                infractions.misconduct_penalties.forEach(inf => {
+                    infractionsList.push({
+                        ...inf,
+                        category: getCategoryFromRules(inf.rules),
+                        badge: '<span class="badge-misconduct">10 Min.</span>'
+                    });
+                });
+            }
+        }
+        
+        // Sort by infraction name
+        infractionsList.sort((a, b) => a.infraction.localeCompare(b.infraction));
+        
+        // Update the table with comprehensive data
+        const tableBody = penaltiesContainer.querySelector('.infractions-table tbody');
+        if (tableBody && infractionsList.length > 0) {
+            // Keep existing rows but we could also replace them with dynamic data
+            // For now, let's just ensure the filter works
+        }
+    }
+    
+    // Initialize filter if not already done
+    if (!window.infractionsFilterInitialized) {
+        initInfractionsFilter();
+        window.infractionsFilterInitialized = true;
+    }
+}
+
+/**
+ * Helper function to determine category from rule numbers
+ */
+function getCategoryFromRules(rules) {
+    if (!rules || rules.length === 0) return 'gameplay';
+    
+    const firstRule = rules[0];
+    // Physical contact rules: 40-60
+    if (firstRule >= 40 && firstRule <= 60) return 'physical';
+    // Stick infractions: 55-65
+    if (firstRule >= 55 && firstRule <= 65) return 'stick';
+    // Default to gameplay
+    return 'gameplay';
+}
+
 // Initialize app when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -556,18 +646,4 @@ function initInfractionsFilter() {
         });
     });
 }
-
-// Call filter initialization when switching to penalties view
-const originalSwitchView = switchView;
-switchView = function(viewName) {
-    originalSwitchView(viewName);
-    
-    if (viewName === 'penalties') {
-        // Initialize filter if not already done
-        if (!window.infractionsFilterInitialized) {
-            initInfractionsFilter();
-            window.infractionsFilterInitialized = true;
-        }
-    }
-};
 

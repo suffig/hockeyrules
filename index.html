@@ -33,9 +33,6 @@
             <button class="nav-btn" data-view="penalties" aria-label="Strafen-Übersicht anzeigen">
                 ⚠️ Strafen-Übersicht
             </button>
-            <button class="nav-btn" data-view="quiz" aria-label="Quiz starten">
-                🧠 Quiz
-            </button>
             <button class="nav-btn" data-view="bookmarks" aria-label="Lesezeichen anzeigen">
                 ⭐ Lesezeichen
             </button>
@@ -71,62 +68,6 @@
                 <!-- Rules Content -->
                 <div id="rulesContent" class="rules-content">
                     <!-- Rules will be loaded dynamically -->
-                </div>
-            </div>
-
-            <!-- Quiz View -->
-            <div id="quizView" class="view">
-                <div class="quiz-container">
-                    <!-- Quiz Start Screen -->
-                    <div id="quizStart" class="quiz-start">
-                        <h2>🧠 Quiz-Modus</h2>
-                        <p>Teste dein Wissen über die IIHF-Regeln!</p>
-                        <div class="difficulty-selection">
-                            <h3>Schwierigkeitsgrad wählen:</h3>
-                            <div class="difficulty-buttons">
-                                <button class="btn-difficulty" data-difficulty="easy">
-                                    😊 Einfach
-                                </button>
-                                <button class="btn-difficulty" data-difficulty="medium">
-                                    🤔 Mittel
-                                </button>
-                                <button class="btn-difficulty" data-difficulty="hard">
-                                    🔥 Schwer
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Quiz Question Screen -->
-                    <div id="quizQuestion" class="quiz-question" style="display: none;">
-                        <div class="quiz-progress">
-                            <span id="questionCounter">Frage 1/10</span>
-                            <span id="scoreCounter">Punkte: 0</span>
-                        </div>
-                        <h3 id="questionText" class="question-text"></h3>
-                        <div id="answersContainer" class="answers-container">
-                            <!-- Answer buttons will be generated dynamically -->
-                        </div>
-                        <div id="feedbackContainer" class="feedback-container" style="display: none;">
-                            <p id="feedbackText"></p>
-                            <button id="nextQuestion" class="btn-primary">Nächste Frage →</button>
-                        </div>
-                    </div>
-
-                    <!-- Quiz Results Screen -->
-                    <div id="quizResults" class="quiz-results" style="display: none;">
-                        <h2>Quiz beendet! 🎉</h2>
-                        <div class="results-summary">
-                            <p class="final-score">
-                                <span id="finalScore">0</span> von <span id="totalQuestions">0</span> Punkten
-                            </p>
-                            <p id="resultMessage" class="result-message"></p>
-                        </div>
-                        <div class="results-actions">
-                            <button id="restartQuiz" class="btn-primary">Nochmal spielen</button>
-                            <button id="backToRules" class="btn-secondary">Zurück zu den Regeln</button>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -603,6 +544,5 @@
     <script src="js/app.js"></script>
     <script src="js/search.js"></script>
     <script src="js/filter.js"></script>
-    <script src="js/quiz.js"></script>
 </body>
 </html>
