@@ -557,7 +557,7 @@ function renderPenaltiesView() {
         'Instigator': 'Anstifter',
         'Interference': 'Behinderung',
         'Interference by/with Spectator': 'Behinderung durch/von Zuschauer',
-        'Kneeing': 'Kniestoss',
+        'Kneeing': 'Kniestoß',
         'Leaving the Bench': 'Verlassen der Spielerbank',
         'Misconduct': 'Disziplinarstrafe',
         'Physical Harassment of Officials': 'Physische Belästigung von Offiziellen',
@@ -583,13 +583,17 @@ function renderPenaltiesView() {
     // Helper function to get category badge
     const getCategoryInfo = (rules) => {
         if (!rules || rules.length === 0) return { type: 'gameplay', label: 'Spielweise' };
+        
         const firstRule = rules[0];
+        // Physical contact rules (IIHF Rules 40-60): Checking, hitting, physical play
         if ((firstRule >= 41 && firstRule <= 51) || (firstRule >= 56 && firstRule <= 58)) {
             return { type: 'physical', label: 'Körperkontakt' };
         }
+        // Stick infractions (IIHF Rules 55-62): Hooking, slashing, high-sticking, etc.
         if (firstRule >= 55 && firstRule <= 62) {
             return { type: 'stick', label: 'Schläger' };
         }
+        // Default to gameplay rules
         return { type: 'gameplay', label: 'Spielweise' };
     };
     
@@ -696,21 +700,6 @@ function renderPenaltiesView() {
         initInfractionsFilter();
         window.infractionsFilterInitialized = true;
     }
-}
-
-/**
- * Helper function to determine category from rule numbers
- */
-function getCategoryFromRules(rules) {
-    if (!rules || rules.length === 0) return 'gameplay';
-    
-    const firstRule = rules[0];
-    // Physical contact rules: 40-60
-    if (firstRule >= 40 && firstRule <= 60) return 'physical';
-    // Stick infractions: 55-65
-    if (firstRule >= 55 && firstRule <= 65) return 'stick';
-    // Default to gameplay
-    return 'gameplay';
 }
 
 // Initialize app when DOM is ready
