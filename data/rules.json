@@ -375,210 +375,31 @@
       "rules": [
         {
           "number": "4.1",
-          "title": "Kleine Strafe (Minor Penalty)",
+          "title": "Kleine Strafe (2 Minuten)",
           "description": "Bei leichten Vergehen wird eine kleine Strafe von 2 Minuten verhängt. Der Spieler muss auf die Strafbank und sein Team spielt in Unterzahl.",
-          "category": "strafen",
-          "duration": "2 Minuten",
-          "detailedExplanation": "Eine kleine Strafe ist die häufigste Strafart im Eishockey. Der bestrafte Spieler muss für 2 Minuten auf die Strafbank, während sein Team in Unterzahl spielt. Wenn das in Unterzahl spielende Team (Short-handed) ein Tor erzielt, endet die Strafe vorzeitig. Kein Ersatzspieler ist während der Strafzeit erlaubt.",
-          "substitution": "Nicht erlaubt während Strafzeit",
-          "shortHanded": "Ja - Team spielt in Unterzahl",
-          "endsOnGoal": "Ja - wenn gegnerisches Team in Überzahl (Powerplay) ein Tor erzielt",
-          "examples": [
-            "Haken (Hooking)",
-            "Beinstellen (Tripping)",
-            "Halten (Holding)",
-            "Hoher Stock ohne Verletzung",
-            "Übertriebene Härte (Roughing)"
-          ],
-          "relatedRules": [
-            "4.4",
-            "4.5",
-            "4.6",
-            "4.7",
-            "4.9"
-          ]
+          "details": "Bei einem Gegentor endet die Strafe vorzeitig",
+          "category": "strafen"
         },
         {
           "number": "4.2",
-          "title": "Bankstrafe (Bench Minor Penalty)",
-          "description": "Strafe gegen das Team oder die Spielerbank. Ein beliebiger Feldspieler wird benannt, um die Strafe abzusitzen.",
-          "category": "strafen",
-          "duration": "2 Minuten",
-          "detailedExplanation": "Eine Bankstrafe wird gegen das Team vergeben, nicht gegen einen einzelnen Spieler. Der Trainer muss einen beliebigen Feldspieler (kein Torhüter) bestimmen, der die 2 Minuten auf der Strafbank absitzt. Wie bei kleinen Strafen endet sie vorzeitig, wenn das in Unterzahl spielende Team ein Tor kassiert.",
-          "substitution": "Jeder Feldspieler kann benannt werden",
-          "shortHanded": "Ja - Team spielt in Unterzahl",
-          "endsOnGoal": "Ja - bei Gegentor in Überzahl",
-          "examples": [
-            "Zu viele Spieler auf dem Eis",
-            "Unsportliches Verhalten von der Bank",
-            "Verzögerung des Spiels durch Team",
-            "Trainer betritt das Eis",
-            "Gegenstände auf das Eis werfen"
-          ],
-          "relatedRules": [
-            "4.10"
-          ]
+          "title": "Große Strafe (5 Minuten)",
+          "description": "Für schwere Vergehen gibt es 5 Minuten Strafe plus automatische Spieldauer-Disziplinarstrafe. Das Team spielt 5 Minuten in Unterzahl.",
+          "details": "Endet nicht bei Gegentor",
+          "category": "strafen"
         },
         {
           "number": "4.3",
-          "title": "Doppelte Kleine Strafe (Double-Minor Penalty)",
-          "description": "Bei bestimmten Vergehen mit Verletzung werden 4 Minuten verhängt (2+2 Minuten).",
-          "category": "strafen",
-          "duration": "4 Minuten (2+2)",
-          "detailedExplanation": "Eine doppelte kleine Strafe wird verhängt, wenn bei einem Vergehen eine Verletzung entsteht, besonders bei Hoher Stock (High-Sticking) mit Blutung. Sie wird als zwei separate 2-Minuten-Strafen behandelt. Wenn das gegnerische Team während der ersten 2 Minuten ein Tor erzielt, endet nur diese erste Hälfte vorzeitig; die zweiten 2 Minuten müssen vollständig abgesessen werden.",
-          "substitution": "Nicht erlaubt während Strafzeit",
-          "shortHanded": "Ja - Team spielt in Unterzahl",
-          "endsOnGoal": "Teilweise - nur erste 2 Minuten enden bei Gegentor",
-          "examples": [
-            "Hoher Stock mit Blutung/Verletzung",
-            "Spearing (Speeren)",
-            "Butt-ending",
-            "Kopfstoß (Head-butting)"
-          ],
-          "relatedRules": [
-            "4.6"
-          ]
+          "title": "Matchstrafe",
+          "description": "Bei besonders schweren Vergehen wird der Spieler des Spiels verwiesen. Zusätzlich droht eine Sperre für weitere Spiele.",
+          "details": "Team spielt 5 Minuten in Unterzahl",
+          "category": "strafen"
         },
         {
           "number": "4.4",
-          "title": "Große Strafe (Major Penalty)",
-          "description": "Für schwere Vergehen gibt es 5 Minuten Strafe. Das Team spielt 5 Minuten in Unterzahl, die Strafe endet NICHT bei Gegentor.",
-          "category": "strafen",
-          "duration": "5 Minuten",
-          "detailedExplanation": "Eine große Strafe wird bei schweren Vergehen verhängt. Der bestrafte Spieler muss die vollen 5 Minuten auf der Strafbank verbringen, unabhängig davon, wie viele Tore erzielt werden. Erst nach Ablauf der vollen 5 Minuten darf ein Ersatzspieler aufs Eis. Bei einer zweiten großen Strafe im selben Spiel oder bei bestimmten schweren Vergehen wird automatisch eine zusätzliche Spieldauer-Disziplinarstrafe verhängt.",
-          "substitution": "Nach Ablauf der 5 Minuten erlaubt",
-          "shortHanded": "Ja - Team spielt 5 Minuten in Unterzahl",
-          "endsOnGoal": "NEIN - volle 5 Minuten müssen abgesessen werden",
-          "autoGameMisconduct": "Bei zweiter großer Strafe oder bei bestimmten Vergehen",
-          "examples": [
-            "Check von hinten (Checking from Behind)",
-            "Schweres Boarding",
-            "Gefährlicher Check gegen Kopf/Nacken",
-            "Kämpfen mit Verletzungsabsicht",
-            "Schwere Körperverletzung"
-          ],
-          "relatedRules": [
-            "4.8",
-            "4.11"
-          ]
-        },
-        {
-          "number": "4.5",
-          "title": "Disziplinarstrafe (Misconduct Penalty)",
-          "description": "Bei unsportlichem Verhalten wird eine 10-Minuten-Disziplinarstrafe verhängt. Der Spieler verlässt das Eis, aber das Team spielt NICHT in Unterzahl.",
-          "category": "strafen",
-          "duration": "10 Minuten",
-          "detailedExplanation": "Eine Disziplinarstrafe wird für unsportliches Verhalten verhängt. Der bestrafte Spieler muss für 10 Minuten auf die Strafbank, aber sein Team darf sofort einen Ersatzspieler aufs Eis schicken - es entsteht also KEINE Unterzahl. Der Spieler darf erst bei der nächsten Spielunterbrechung nach Ablauf der 10 Minuten zurück aufs Eis. Bei einer zweiten Disziplinarstrafe im selben Spiel wird automatisch eine Spieldauer-Disziplinarstrafe verhängt.",
-          "substitution": "Sofort erlaubt - Team spielt mit voller Stärke",
-          "shortHanded": "NEIN - nur wenn zusätzlich kleine/große Strafe verhängt wird",
-          "endsOnGoal": "Nicht relevant (keine Unterzahl)",
-          "autoGameMisconduct": "Bei zweiter Disziplinarstrafe im selben Spiel",
-          "examples": [
-            "Wiederholte Respektlosigkeit gegenüber Schiedsrichtern",
-            "Anhaltende Proteste gegen Entscheidungen",
-            "Beleidigungen",
-            "Übermäßig unsportliches Verhalten"
-          ],
-          "relatedRules": [
-            "4.10",
-            "4.11"
-          ]
-        },
-        {
-          "number": "4.6",
-          "title": "Spieldauer-Disziplinarstrafe (Game Misconduct Penalty)",
-          "description": "Der Spieler wird für den Rest des Spiels vom Eis verwiesen und muss in die Kabine gehen. Das Team spielt NICHT in Unterzahl.",
-          "category": "strafen",
-          "duration": "Rest des Spiels (als 20 Minuten erfasst)",
-          "detailedExplanation": "Bei einer Spieldauer-Disziplinarstrafe wird der Spieler für den Rest des Spiels suspendiert und muss sofort in die Kabine gehen (nicht nur zur Strafbank). Ein Ersatzspieler darf sofort aufs Eis, sodass das Team nicht in Unterzahl spielt. Die Strafe wird statistisch als 20 Minuten erfasst. Der Spieler/Trainer wird den zuständigen Behörden für weitere Disziplinarmaßnahmen gemeldet.",
-          "substitution": "Sofort erlaubt - Team spielt mit voller Stärke",
-          "shortHanded": "NEIN - nur wenn zusätzlich große Strafe verhängt wird",
-          "endsOnGoal": "Nicht relevant (Spieler ist bereits ausgeschlossen)",
-          "reportingRequired": "Ja - Meldung an zuständige Behörden",
-          "examples": [
-            "Zweite Disziplinarstrafe im selben Spiel",
-            "Dritte kleine Strafe desselben Spielers",
-            "Automatisch bei zweiter großer Strafe",
-            "Schwere unsportliche Vergehen",
-            "Bestimmte gefährliche Vergehen"
-          ],
-          "relatedRules": [
-            "4.4",
-            "4.5",
-            "4.7"
-          ]
-        },
-        {
-          "number": "4.7",
-          "title": "Matchstrafe (Match Penalty)",
-          "description": "Bei besonders schweren Vergehen wird der Spieler des Spiels verwiesen. Das Team spielt 5 Minuten in Unterzahl und der Spieler wird automatisch gesperrt.",
-          "category": "strafen",
-          "duration": "Spielverweis + 5 Minuten Unterzahl + automatische Sperre",
-          "detailedExplanation": "Die Matchstrafe ist die schwerste Strafe im Eishockey. Sie wird bei absichtlichen Verletzungsversuchen oder besonders gefährlichem Verhalten verhängt. Der Spieler wird sofort des Spiels verwiesen und muss in die Kabine. Sein Team muss für 5 Minuten in Unterzahl spielen (diese Zeit endet NICHT bei Gegentoren). Der Spieler wird automatisch für mindestens ein weiteres Spiel gesperrt, weitere Strafen durch die Liga sind wahrscheinlich.",
-          "substitution": "Nach 5 Minuten erlaubt",
-          "shortHanded": "Ja - Team spielt 5 Minuten in Unterzahl",
-          "endsOnGoal": "NEIN - volle 5 Minuten müssen abgesessen werden",
-          "automaticSuspension": "Ja - mindestens 1 weiteres Spiel",
-          "reportingRequired": "Ja - obligatorische Meldung für weitere Disziplinarmaßnahmen",
-          "examples": [
-            "Absichtliche Verletzung eines Gegners",
-            "Kopfstoß (Head-butting) mit Verletzungsabsicht",
-            "Spucken gegen eine Person",
-            "Rassistische oder diskriminierende Äußerungen",
-            "Versuch, einen Gegner mit dem Schläger zu verletzen"
-          ],
-          "relatedRules": [
-            "4.11"
-          ]
-        },
-        {
-          "number": "4.8",
-          "title": "Penalty-Schuss (Penalty Shot)",
-          "description": "Ein Spieler darf allein auf den Torhüter zufahren. Wird vergeben, wenn eine klare Torchance durch ein Foul verhindert wurde.",
-          "category": "strafen",
-          "duration": "Kein Zeitverlust - ein Versuch",
-          "detailedExplanation": "Ein Penalty-Schuss wird vergeben, wenn einem Spieler in aussichtsreicher Position eine klare Torchance durch ein regelwidriges Vergehen genommen wird. Der Puck wird auf den Mittelpunkt gelegt, und der betroffene Spieler fährt allein auf den Torhüter zu. Der Spieler muss den Puck kontinuierlich vorwärtsbewegen und darf nur einmal schießen. Rebounds zählen nicht (außer vom Pfosten/Latte zum Torhüter zurück ins Tor). Das Team spielt nach dem Penalty-Schuss NICHT in Unterzahl.",
-          "substitution": "Nicht relevant",
-          "shortHanded": "NEIN - keine Zeitstrafe",
-          "procedure": "Puck auf Mittelpunkt, Spieler fährt allein auf Tor zu, ein Schuss, Puck muss vorwärtsbewegt werden",
-          "examples": [
-            "Foul von hinten bei klarer Torchance",
-            "Werfen eines Gegenstands auf den Puck",
-            "Absichtliches Verschieben des Tores",
-            "Torhüter verlässt Torraum bei verzögertem Abseits",
-            "Spieler wird von hinten gehalten bei Durchbruch"
-          ],
-          "relatedRules": [
-            "4.9"
-          ]
-        },
-        {
-          "number": "4.9",
-          "title": "Zugesprochenes Tor (Awarded Goal)",
-          "description": "In bestimmten Situationen wird ein Tor direkt zugesprochen, ohne dass der Puck das Tor überqueren muss.",
-          "category": "strafen",
-          "duration": "Sofortiges Tor - keine Zeitstrafe",
-          "detailedExplanation": "Ein Tor wird direkt zugesprochen, wenn bestimmte schwere Vergehen ein sicheres Tor verhindern. Dies geschieht vor allem, wenn bei einem Penalty-Schuss ein erneutes Foul begangen wird, wenn der Torhüter absichtlich das Tor verschiebt bei einem Breakaway, oder wenn ein Spieler sich absichtlich auf den Puck im Torraum legt. Ein zugesprochenes Tor wird wie ein reguläres Tor gewertet.",
-          "substitution": "Nicht relevant",
-          "shortHanded": "NEIN",
-          "examples": [
-            "Feldspieler wirft sich absichtlich auf Puck im Torraum",
-            "Torhüter verschiebt absichtlich Tor bei Breakaway",
-            "Erneutes Foul während Penalty-Schuss",
-            "Spieler ohne Torhüter: Gegner verschiebt absichtlich Tor"
-          ],
-          "relatedRules": [
-            "4.8"
-          ]
-        },
-        {
-          "number": "4.10",
           "title": "Haken (Hooking)",
           "description": "Mit dem Schläger den Gegner behindern oder aufhalten. Führt zu einer 2-Minuten-Strafe.",
           "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.) oder Große Strafe (5 Min.) bei Verletzung",
-          "detailedExplanation": "Haken tritt auf, wenn ein Spieler seinen Schläger verwendet, um einen Gegner zu behindern oder aufzuhalten, indem er ihn am Körper, an den Armen oder am Stock 'hakt'. Dies ist eine der häufigsten Strafen im Eishockey. Der Spieler verwendet die gebogene Klinge seines Schlägers, um den Gegner zurückzuziehen oder seine Bewegung einzuschränken. Bei schweren Fällen mit Verletzung kann eine große Strafe verhängt werden.",
-          "iihfRule": "55.2 (Minor), 55.3 (Major)",
+          "detailedExplanation": "Haken (Hooking) tritt auf, wenn ein Spieler seinen Schläger verwendet, um einen Gegner zu behindern oder aufzuhalten, indem er ihn am Körper, an den Armen oder am Stock 'hakt'. Dies ist eine der häufigsten Strafen im Eishockey. Der Spieler verwendet die gebogene Klinge seines Schlägers, um den Gegner zurückzuziehen oder seine Bewegung einzuschränken.",
           "examples": [
             "Angreifer wird von hinten gehakt beim Durchbruch",
             "Verteidiger hakt den Arm des Stürmers",
@@ -592,18 +413,17 @@
             "Häufig wenn Verteidiger überspielt wird"
           ],
           "relatedRules": [
-            "4.1",
-            "4.4"
+            "54.1",
+            "56.1",
+            "57.1"
           ]
         },
         {
-          "number": "4.11",
+          "number": "4.5",
           "title": "Beinstellen (Tripping)",
           "description": "Den Gegner mit Schläger, Knie, Fuß oder Bein zu Fall bringen. 2-Minuten-Strafe.",
           "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.)",
-          "detailedExplanation": "Beinstellen liegt vor, wenn ein Spieler einen Gegner mit dem Schläger, dem Knie, dem Fuß, dem Arm, der Hand oder dem Ellbogen zu Fall bringt oder versucht, ihn zu Fall zu bringen. Dies ist besonders gefährlich, da fallende Spieler sich schwer verletzen können. Auch unabsichtliches Beinstellen wird bestraft.",
-          "iihfRule": "57.2",
+          "detailedExplanation": "Beinstellen (Tripping) liegt vor, wenn ein Spieler einen Gegner mit dem Schläger, dem Knie, dem Fuß, dem Arm, der Hand oder dem Ellbogen zu Fall bringt oder versucht, ihn zu Fall zu bringen. Dies ist besonders gefährlich, da fallende Spieler sich schwer verletzen können.",
           "examples": [
             "Schläger zwischen die Beine des Gegners stecken",
             "Bein vorstrecken, sodass Gegner darüber stolpert",
@@ -617,17 +437,16 @@
             "Verletzungsgefahr ist sehr hoch"
           ],
           "relatedRules": [
-            "4.1"
+            "57.1",
+            "52.1"
           ]
         },
         {
-          "number": "4.12",
+          "number": "4.6",
           "title": "Hoher Stock (High-Sticking)",
-          "description": "Den Schläger über Schulterhöhe führen und dabei einen Gegner treffen. 2-4 Minuten je nach Verletzung.",
+          "description": "Den Schläger über Schulterhöhe führen und dabei einen Gegner treffen. Mindestens 2 Minuten, bei Verletzung 4 Minuten.",
           "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.), Doppelte Kleine (4 Min.) bei Verletzung, oder Große Strafe (5 Min.)",
-          "detailedExplanation": "Hoher Stock liegt vor, wenn ein Spieler seinen Schläger über Schulterhöhe schwingt und damit einen Gegner trifft. Die Schulterhöhe des getroffenen Spielers ist maßgeblich. Bei Verletzungen (besonders Gesicht/Kopf) wird eine doppelte kleine Strafe (4 Minuten) verhängt. Bei schweren Verletzungen mit Absicht kann eine große Strafe plus Spieldauer-Disziplinarstrafe verhängt werden.",
-          "iihfRule": "60.2 (Minor), 60.3 (Double-Minor), 60.4 (Major)",
+          "detailedExplanation": "Hoher Stock (High-Sticking) liegt vor, wenn ein Spieler seinen Schläger über Schulterhöhe eines beliebigen Spielers schwingt und damit einen Gegner trifft. Bei Verletzungen (besonders Gesicht/Kopf) wird eine doppelte kleine Strafe (4 Minuten) verhängt. Die Schulterhöhe des getroffenen Spielers ist maßgeblich, nicht die des Spielers mit dem Schläger.",
           "examples": [
             "Schläger trifft Gegner im Gesicht beim Schussversuch",
             "Unkontrollierter Schwung trifft Gegner am Kopf",
@@ -641,202 +460,35 @@
             "Extrem gefährlich für Gesicht und Augen"
           ],
           "relatedRules": [
-            "4.1",
-            "4.3"
+            "60.1",
+            "61.1"
           ]
         },
         {
-          "number": "4.13",
+          "number": "4.7",
           "title": "Halten (Holding)",
-          "description": "Einen Gegner mit Händen oder Armen festhalten, um ihn zu behindern.",
-          "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.)",
-          "iihfRule": "54.2",
-          "detailedExplanation": "Halten liegt vor, wenn ein Spieler einen Gegner mit den Händen, Armen oder Beinen festhält oder umklammert, um ihn am Weiterspielen zu hindern. Dies schließt auch das Festhalten der Ausrüstung (Trikot, Schläger) ein.",
-          "examples": [
-            "Festhalten des Trikots",
-            "Umklammern des Gegners mit den Armen",
-            "Festhalten des gegnerischen Schlägers",
-            "Behindern der Bewegungsfreiheit"
-          ],
-          "relatedRules": [
-            "4.1"
-          ]
+          "description": "Einen Gegner mit Händen oder Armen am Körper oder an der Ausrüstung festhalten. 2-Minuten-Strafe.",
+          "category": "strafen"
         },
         {
-          "number": "4.14",
+          "number": "4.8",
           "title": "Check von hinten (Checking from Behind)",
-          "description": "Einen Spieler von hinten gegen die Bande checken - sehr gefährlich.",
-          "category": "strafen",
-          "penaltyType": "Große Strafe (5 Min.) + Spieldauer-Disziplinarstrafe",
-          "iihfRule": "43.3, 43.4",
-          "detailedExplanation": "Check von hinten ist eine der gefährlichsten Aktionen im Eishockey. Wenn ein Spieler einen Gegner von hinten checkt, besonders in Bandennähe, ist die Verletzungsgefahr extrem hoch. Diese Aktion wird mit mindestens einer großen Strafe plus automatischer Spieldauer-Disziplinarstrafe geahndet.",
-          "examples": [
-            "Check von hinten in die Bande",
-            "Spieler sieht Check nicht kommen",
-            "Gefahr von Kopf- und Nackenverletzungen",
-            "Oft bei Spielern, die zum Puck hingeneigt sind"
-          ],
-          "relatedRules": [
-            "4.4",
-            "4.6"
-          ]
+          "description": "Einen Spieler von hinten gegen die Bande checken. Sehr gefährlich, mindestens 5 Minuten Strafe.",
+          "category": "strafen"
         },
         {
-          "number": "4.15",
+          "number": "4.9",
           "title": "Übertriebene Härte (Roughing)",
-          "description": "Unnötig hartes oder aggressives Spiel ohne Ball.",
-          "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.)",
-          "iihfRule": "51.2",
-          "detailedExplanation": "Übertriebene Härte liegt vor, wenn ein Spieler unnötig hart oder aggressiv gegen einen Gegner vorgeht, besonders nach einem Pfiff oder ohne Puckbeteiligung. Dies schließt Schubsen, Schläge und andere aggressive Aktionen ein.",
-          "examples": [
-            "Schubsen nach dem Pfiff",
-            "Unnötige Härte ohne Puck",
-            "Provokation des Gegners",
-            "Nachtreten oder Nachstoßen"
-          ],
-          "relatedRules": [
-            "4.1"
-          ]
+          "description": "Unnötig hartes oder gefährliches Spiel. 2-Minuten-Strafe, bei Verletzungsabsicht auch höher.",
+          "category": "strafen"
         },
         {
-          "number": "4.16",
-          "title": "Unsportliches Verhalten (Unsportsmanlike Conduct)",
-          "description": "Beleidigungen, Respektlosigkeit oder unsportliches Verhalten.",
-          "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.) oder Disziplinarstrafe (10 Min.)",
-          "iihfRule": "75.2, 75.4",
-          "detailedExplanation": "Unsportliches Verhalten umfasst alle Aktionen, die den Geist des Sports verletzen: Beleidigungen, Provokationen, Respektlosigkeit gegenüber Schiedsrichtern, Simulieren von Fouls, übermäßiges Jubeln oder Verspotten des Gegners. Je nach Schwere kann eine kleine Strafe oder Disziplinarstrafe verhängt werden.",
-          "examples": [
-            "Beleidigungen gegenüber Schiedsrichtern oder Gegnern",
-            "Übertriebenes Jubeln oder Provozieren",
-            "Simulieren von Verletzungen",
-            "Respektloses Verhalten"
-          ],
-          "relatedRules": [
-            "4.1",
-            "4.2",
-            "4.5"
-          ]
-        },
-        {
-          "number": "4.17",
-          "title": "Slashing (Schlagen mit dem Schläger)",
-          "description": "Mit dem Schläger gegen Körper oder Ausrüstung des Gegners schlagen.",
-          "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.) oder Große Strafe (5 Min.)",
-          "iihfRule": "61.2, 61.3",
-          "detailedExplanation": "Slashing liegt vor, wenn ein Spieler mit seinem Schläger gegen den Körper, die Arme, Hände oder den Schläger eines Gegners schlägt. Dies ist eine häufige Strafe, die oft beim Kampf um den Puck verhängt wird. Bei schweren Schlägen mit Verletzung kann eine große Strafe verhängt werden.",
-          "examples": [
-            "Schlag auf die Hände des Gegners",
-            "Schlagen auf den Schläger",
-            "Schlag gegen die Beine",
-            "Hieb gegen Arme oder Handgelenke"
-          ],
-          "relatedRules": [
-            "4.1",
-            "4.4"
-          ]
-        },
-        {
-          "number": "4.18",
-          "title": "Cross-Checking (Querchecken)",
-          "description": "Mit beiden Händen am Schläger gegen den Gegner stoßen.",
-          "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.) oder Große Strafe (5 Min.)",
-          "iihfRule": "59.2, 59.3",
-          "detailedExplanation": "Cross-Checking liegt vor, wenn ein Spieler mit beiden Händen am Schläger (ohne dass die Klinge das Eis berührt) gegen einen Gegner stößt. Dies geschieht oft vor dem Tor oder an der Bande. Bei schweren Cross-Checks kann eine große Strafe verhängt werden.",
-          "examples": [
-            "Stoß mit dem Schläger vor dem Tor",
-            "Cross-Check an der Bande",
-            "Stoß in den Rücken",
-            "Harter Cross-Check im Kampf um Position"
-          ],
-          "relatedRules": [
-            "4.1",
-            "4.4"
-          ]
-        },
-        {
-          "number": "4.19",
-          "title": "Boarding",
-          "description": "Gefährlicher Check gegen einen Spieler in die Bande.",
-          "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.), Große Strafe (5 Min.), oder Matchstrafe",
-          "iihfRule": "41.2, 41.4, 41.5",
-          "detailedExplanation": "Boarding liegt vor, wenn ein Spieler einen Gegner so checkt, dass dieser gefährlich gegen die Bande prallt. Die Gefahr entsteht oft durch die Entfernung zur Bande und die Wucht des Checks. Je nach Schwere und Verletzung kann eine kleine Strafe, große Strafe oder sogar Matchstrafe verhängt werden.",
-          "examples": [
-            "Check aus großer Entfernung in die Bande",
-            "Spieler kann sich nicht vorbereiten",
-            "Kopf schlägt gegen Bande",
-            "Gefährlicher Check von der Seite"
-          ],
-          "relatedRules": [
-            "4.1",
-            "4.4",
-            "4.7"
-          ]
-        },
-        {
-          "number": "4.20",
-          "title": "Charging (Anlaufen)",
-          "description": "Mit Anlauf oder vielen Schritten gegen einen Gegner checken.",
-          "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.) oder Große Strafe (5 Min.)",
-          "iihfRule": "42.2, 42.4",
-          "detailedExplanation": "Charging liegt vor, wenn ein Spieler mehr als drei Schritte Anlauf nimmt oder springt, um einen Gegner zu checken. Dies erhöht die Wucht des Checks und die Verletzungsgefahr erheblich. Bei besonders gefährlichem Charging kann eine große Strafe verhängt werden.",
-          "examples": [
-            "Anlauf über mehrere Meter",
-            "Springen beim Check",
-            "Zu harter Check mit Anlauf",
-            "Mehr als 3 Schritte vor dem Check"
-          ],
-          "relatedRules": [
-            "4.1",
-            "4.4"
-          ]
-        },
-        {
-          "number": "4.21",
-          "title": "Interference (Behinderung)",
-          "description": "Behindern eines Spielers, der nicht am Puck ist.",
-          "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.) oder Große Strafe (5 Min.)",
-          "iihfRule": "56.2, 56.5",
-          "detailedExplanation": "Interference liegt vor, wenn ein Spieler einen Gegner behindert, der nicht am Puck ist oder diesen gerade verloren hat. Dies schließt auch das Behindern eines Spielerwechsels ein. Besonders schwere Fälle können mit einer großen Strafe geahndet werden.",
-          "examples": [
-            "Blockieren eines Spielers ohne Puck",
-            "Behindern beim Wechsel",
-            "Stören eines Spielers auf dem Weg zum Puck",
-            "Behinderung des Torhüters"
-          ],
-          "relatedRules": [
-            "4.1",
-            "4.4"
-          ]
-        },
-        {
-          "number": "4.22",
-          "title": "Delay of Game (Spielverzögerung)",
-          "description": "Absichtliche Verzögerung des Spiels.",
-          "category": "strafen",
-          "penaltyType": "Kleine Strafe (2 Min.) oder Bankstrafe (2 Min.)",
-          "iihfRule": "63.2, 63.3",
-          "detailedExplanation": "Spielverzögerung liegt vor, wenn ein Team oder Spieler das Spiel absichtlich verzögert. Dazu gehört: Puck über die Bande schießen aus der Verteidigungszone, absichtliches Verschieben des Tores, Verzögerung beim Wechsel oder beim Bully. Dies wird meist mit einer kleinen Strafe oder Bankstrafe geahndet.",
-          "examples": [
-            "Puck absichtlich über die Bande schießen",
-            "Tor absichtlich verschieben",
-            "Verzögerung beim Spielerwechsel",
-            "Absichtliche Verzögerung beim Bully"
-          ],
-          "relatedRules": [
-            "4.1",
-            "4.2"
-          ]
+          "number": "4.10",
+          "title": "Unsportliches Verhalten",
+          "description": "Beleidigungen, Respektlosigkeit gegenüber Schiedsrichtern oder Gegnern. Mindestens 2 Minuten, kann zu Matchstrafe führen.",
+          "category": "strafen"
         }
-      ],
-      "description": "Umfassende Übersicht aller Strafarten im Eishockey nach IIHF-Regeln 2025/26 - von kleinen Strafen bis zur Matchstrafe, einschließlich aller wichtigen Vergehen und ihrer Konsequenzen."
+      ]
     },
     {
       "id": "abseits",
