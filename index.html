@@ -134,7 +134,7 @@
             <div id="penaltiesView" class="view">
                 <div class="penalties-container">
                     <h2>⚠️ Strafen-Übersicht</h2>
-                    <p class="penalties-intro">Eine visuelle Übersicht über alle Strafarten im Eishockey nach IIHF-Regeln</p>
+                    <p class="penalties-intro">Umfassende Übersicht über alle Strafarten im Eishockey nach IIHF-Regeln 2025/26</p>
                     
                     <!-- Penalty Chart -->
                     <div class="penalty-chart">
@@ -278,57 +278,279 @@
                         </div>
                     </div>
 
-                    <!-- Summary Section -->
-                    <div class="penalty-summary">
-                        <h3>📊 Zusammenfassung: Wann endet eine Strafe vorzeitig?</h3>
-                        <table class="penalty-table">
-                            <thead>
-                                <tr>
-                                    <th>Strafart</th>
-                                    <th>Dauer</th>
-                                    <th>Unterzahl</th>
-                                    <th>Endet bei Gegentor?</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Kleine Strafe</td>
-                                    <td>2 Min.</td>
-                                    <td>✓ Ja</td>
-                                    <td class="highlight-yes">✓ Ja</td>
-                                </tr>
-                                <tr>
-                                    <td>Doppelte Kleine Strafe</td>
-                                    <td>4 Min.</td>
-                                    <td>✓ Ja</td>
-                                    <td class="highlight-partial">Nur erste 2 Min.</td>
-                                </tr>
-                                <tr>
-                                    <td>Große Strafe</td>
-                                    <td>5 Min.</td>
-                                    <td>✓ Ja</td>
-                                    <td class="highlight-no">✗ Nein</td>
-                                </tr>
-                                <tr>
-                                    <td>Disziplinarstrafe</td>
-                                    <td>10 Min.</td>
-                                    <td>✗ Nein</td>
-                                    <td class="highlight-na">—</td>
-                                </tr>
-                                <tr>
-                                    <td>Spieldauer-Disziplinarstrafe</td>
-                                    <td>Rest</td>
-                                    <td>✗ Nein</td>
-                                    <td class="highlight-na">—</td>
-                                </tr>
-                                <tr>
-                                    <td>Matchstrafe</td>
-                                    <td>5 Min.</td>
-                                    <td>✓ Ja</td>
-                                    <td class="highlight-no">✗ Nein</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <!-- Comprehensive Penalty Matrix -->
+                    <div class="penalty-matrix-section">
+                        <h3>📊 Strafen-Vergleichsmatrix</h3>
+                        <p class="matrix-intro">Detaillierte Übersicht aller Strafarten mit allen wichtigen Eigenschaften</p>
+                        <div class="table-responsive">
+                            <table class="penalty-matrix">
+                                <thead>
+                                    <tr>
+                                        <th>Strafart</th>
+                                        <th>Dauer</th>
+                                        <th>Unterzahl</th>
+                                        <th>Ersatz­spieler</th>
+                                        <th>Endet bei Tor?</th>
+                                        <th>Auto GM*</th>
+                                        <th>IIHF Regel</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="penalty-row-minor">
+                                        <td><strong>Kleine Strafe</strong><br><small>(Minor Penalty)</small></td>
+                                        <td><span class="duration-badge">2 Min.</span></td>
+                                        <td class="cell-yes">✓ Ja</td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td class="cell-yes">✓ Ja</td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td><code>Regel 16</code></td>
+                                    </tr>
+                                    <tr class="penalty-row-bench">
+                                        <td><strong>Bankstrafe</strong><br><small>(Bench Minor)</small></td>
+                                        <td><span class="duration-badge">2 Min.</span></td>
+                                        <td class="cell-yes">✓ Ja</td>
+                                        <td class="cell-partial">⚠️ Jeder Feldspieler</td>
+                                        <td class="cell-yes">✓ Ja</td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td><code>Regel 17</code></td>
+                                    </tr>
+                                    <tr class="penalty-row-double">
+                                        <td><strong>Doppelte Kleine</strong><br><small>(Double-Minor)</small></td>
+                                        <td><span class="duration-badge">4 Min.</span><br><small>(2+2)</small></td>
+                                        <td class="cell-yes">✓ Ja</td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td class="cell-partial">⚠️ Nur 1. Hälfte</td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td><code>Regel 18</code></td>
+                                    </tr>
+                                    <tr class="penalty-row-major">
+                                        <td><strong>Große Strafe</strong><br><small>(Major Penalty)</small></td>
+                                        <td><span class="duration-badge duration-major">5 Min.</span></td>
+                                        <td class="cell-yes">✓ Ja</td>
+                                        <td class="cell-partial">⚠️ Nach 5 Min.</td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td class="cell-partial">⚠️ Manchmal**</td>
+                                        <td><code>Regel 20</code></td>
+                                    </tr>
+                                    <tr class="penalty-row-misconduct">
+                                        <td><strong>Disziplinarstrafe</strong><br><small>(Misconduct)</small></td>
+                                        <td><span class="duration-badge duration-misconduct">10 Min.</span></td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td class="cell-yes">✓ Sofort</td>
+                                        <td class="cell-na">— N/A</td>
+                                        <td class="cell-partial">⚠️ Bei 2. DM</td>
+                                        <td><code>Regel 22</code></td>
+                                    </tr>
+                                    <tr class="penalty-row-game-misconduct">
+                                        <td><strong>Spieldauer-DM</strong><br><small>(Game Misconduct)</small></td>
+                                        <td><span class="duration-badge duration-game">Spielende</span><br><small>(20 Min.)</small></td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td class="cell-yes">✓ Sofort</td>
+                                        <td class="cell-na">— N/A</td>
+                                        <td class="cell-na">🛑 Ausschluss</td>
+                                        <td><code>Regel 23</code></td>
+                                    </tr>
+                                    <tr class="penalty-row-match">
+                                        <td><strong>Matchstrafe</strong><br><small>(Match Penalty)</small></td>
+                                        <td><span class="duration-badge duration-match">Verweis</span><br><small>+ 5 Min. UZ</small></td>
+                                        <td class="cell-yes">✓ 5 Min.</td>
+                                        <td class="cell-partial">⚠️ Nach 5 Min.</td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td class="cell-yes">✓ + Sperre</td>
+                                        <td><code>Regel 23</code></td>
+                                    </tr>
+                                    <tr class="penalty-row-penalty-shot">
+                                        <td><strong>Penalty-Schuss</strong><br><small>(Penalty Shot)</small></td>
+                                        <td><span class="duration-badge duration-shot">1 Versuch</span></td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td class="cell-na">— N/A</td>
+                                        <td class="cell-na">— N/A</td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td><code>Regel 24</code></td>
+                                    </tr>
+                                    <tr class="penalty-row-awarded">
+                                        <td><strong>Zugesprochenes Tor</strong><br><small>(Awarded Goal)</small></td>
+                                        <td><span class="duration-badge duration-goal">Sofort</span></td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td class="cell-na">— N/A</td>
+                                        <td class="cell-na">— N/A</td>
+                                        <td class="cell-no">✗ Nein</td>
+                                        <td><code>Regel 25</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="matrix-legend">
+                            <p><small>* <strong>Auto GM</strong> = Automatische Spieldauer-Disziplinarstrafe (Game Misconduct)</small></p>
+                            <p><small>** Bei 2. großer Strafe oder bestimmten Vergehen nach Regel 20.4 und Tabelle 6</small></p>
+                            <p><small><strong>UZ</strong> = Unterzahl | <strong>DM</strong> = Disziplinarstrafe</small></p>
+                        </div>
+                    </div>
+
+                    <!-- Common Infractions Table -->
+                    <div class="infractions-section">
+                        <h3>🎯 Häufigste Vergehen und ihre Strafen</h3>
+                        <div class="infractions-filter">
+                            <button class="filter-btn active" data-category="all">Alle</button>
+                            <button class="filter-btn" data-category="physical">Körperkontakt</button>
+                            <button class="filter-btn" data-category="stick">Schläger</button>
+                            <button class="filter-btn" data-category="gameplay">Spielweise</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="infractions-table">
+                                <thead>
+                                    <tr>
+                                        <th>Vergehen (Deutsch)</th>
+                                        <th>Englisch</th>
+                                        <th>Strafdauer</th>
+                                        <th>IIHF Regel</th>
+                                        <th>Kategorie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-category="stick">
+                                        <td><strong>Haken</strong></td>
+                                        <td>Hooking</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>55.2-55.3</code></td>
+                                        <td><span class="cat-badge">Schläger</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Beinstellen</strong></td>
+                                        <td>Tripping</td>
+                                        <td><span class="badge-minor">2 Min.</span></td>
+                                        <td><code>57.2</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="stick">
+                                        <td><strong>Hoher Stock</strong></td>
+                                        <td>High-Sticking</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-double">4 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>60.2-60.4</code></td>
+                                        <td><span class="cat-badge">Schläger</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Halten</strong></td>
+                                        <td>Holding</td>
+                                        <td><span class="badge-minor">2 Min.</span></td>
+                                        <td><code>54.2</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="stick">
+                                        <td><strong>Slashing</strong></td>
+                                        <td>Slashing</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>61.2-61.3</code></td>
+                                        <td><span class="cat-badge">Schläger</span></td>
+                                    </tr>
+                                    <tr data-category="stick">
+                                        <td><strong>Cross-Checking</strong></td>
+                                        <td>Cross-Checking</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>59.2-59.3</code></td>
+                                        <td><span class="cat-badge">Schläger</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Übertriebene Härte</strong></td>
+                                        <td>Roughing</td>
+                                        <td><span class="badge-minor">2 Min.</span></td>
+                                        <td><code>51.2</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Boarding</strong></td>
+                                        <td>Boarding</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span> <span class="badge-match">Match</span></td>
+                                        <td><code>41.2-41.5</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Charging (Anlaufen)</strong></td>
+                                        <td>Charging</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>42.2-42.4</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Check von hinten</strong></td>
+                                        <td>Checking from Behind</td>
+                                        <td><span class="badge-major">5 Min.</span> <span class="badge-game">+ GM</span></td>
+                                        <td><code>43.3-43.4</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Behinderung</strong></td>
+                                        <td>Interference</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>56.2-56.5</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="gameplay">
+                                        <td><strong>Spielverzögerung</strong></td>
+                                        <td>Delay of Game</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-bench">Bench</span></td>
+                                        <td><code>63.2-63.3</code></td>
+                                        <td><span class="cat-badge">Spielweise</span></td>
+                                    </tr>
+                                    <tr data-category="gameplay">
+                                        <td><strong>Unsportliches Verhalten</strong></td>
+                                        <td>Unsportsmanlike Conduct</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-misconduct">10 Min.</span></td>
+                                        <td><code>75.2-75.4</code></td>
+                                        <td><span class="cat-badge">Spielweise</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Ellbogencheck</strong></td>
+                                        <td>Elbowing</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>45.2-45.4</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Kniestoss</strong></td>
+                                        <td>Kneeing</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>50.2-50.3</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="stick">
+                                        <td><strong>Speeren</strong></td>
+                                        <td>Spearing</td>
+                                        <td><span class="badge-double">4 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>62.2-62.3</code></td>
+                                        <td><span class="cat-badge">Schläger</span></td>
+                                    </tr>
+                                    <tr data-category="stick">
+                                        <td><strong>Butt-Ending</strong></td>
+                                        <td>Butt-Ending</td>
+                                        <td><span class="badge-double">4 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>58.2-58.3</code></td>
+                                        <td><span class="cat-badge">Schläger</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Clipping</strong></td>
+                                        <td>Clipping</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>44.2-44.3</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="physical">
+                                        <td><strong>Check gegen Kopf/Hals</strong></td>
+                                        <td>Illegal Check to Head</td>
+                                        <td><span class="badge-minor">2 Min.</span> <span class="badge-major">5 Min.</span></td>
+                                        <td><code>48.2-48.3</code></td>
+                                        <td><span class="cat-badge">Körperkontakt</span></td>
+                                    </tr>
+                                    <tr data-category="gameplay">
+                                        <td><strong>Zu viele Spieler</strong></td>
+                                        <td>Too Many Players</td>
+                                        <td><span class="badge-bench">2 Min. Bench</span></td>
+                                        <td><code>74.1</code></td>
+                                        <td><span class="cat-badge">Spielweise</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <!-- Important Notes -->

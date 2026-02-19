@@ -1339,3 +1339,421 @@ html {
         text-align: center;
     }
 }
+
+/* ===========================
+   Penalty Matrix Section
+   =========================== */
+.penalty-matrix-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+}
+
+.penalty-matrix-section h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+}
+
+.matrix-intro {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.penalty-matrix {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-primary);
+    font-size: 0.9rem;
+}
+
+.penalty-matrix thead {
+    background: var(--bg-tertiary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.penalty-matrix th {
+    padding: 0.9rem 0.7rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+    font-size: 0.85rem;
+}
+
+.penalty-matrix td {
+    padding: 0.9rem 0.7rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.penalty-matrix tbody tr {
+    transition: background-color 0.2s;
+}
+
+.penalty-matrix tbody tr:hover {
+    background: var(--bg-tertiary);
+}
+
+.penalty-matrix tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.penalty-matrix code {
+    background: var(--bg-tertiary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-family: 'Courier New', monospace;
+}
+
+.penalty-matrix small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+}
+
+/* Penalty row colors */
+.penalty-row-minor {
+    border-left: 4px solid #ffc107;
+}
+
+.penalty-row-bench {
+    border-left: 4px solid #ff9800;
+}
+
+.penalty-row-double {
+    border-left: 4px solid #ff5722;
+}
+
+.penalty-row-major {
+    border-left: 4px solid #dc3545;
+}
+
+.penalty-row-misconduct {
+    border-left: 4px solid #9c27b0;
+}
+
+.penalty-row-game-misconduct {
+    border-left: 4px solid #c62828;
+}
+
+.penalty-row-match {
+    border-left: 4px solid #8b0000;
+}
+
+.penalty-row-penalty-shot {
+    border-left: 4px solid #2196f3;
+}
+
+.penalty-row-awarded {
+    border-left: 4px solid #4caf50;
+}
+
+/* Duration badges */
+.duration-badge {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.duration-major {
+    background: #dc3545;
+}
+
+.duration-misconduct {
+    background: #9c27b0;
+}
+
+.duration-game {
+    background: #c62828;
+}
+
+.duration-match {
+    background: #8b0000;
+}
+
+.duration-shot {
+    background: #2196f3;
+}
+
+.duration-goal {
+    background: #4caf50;
+}
+
+/* Cell styling */
+.cell-yes {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.cell-no {
+    color: var(--error-color);
+    font-weight: 600;
+}
+
+.cell-partial {
+    color: var(--warning-color);
+    font-weight: 600;
+}
+
+.cell-na {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.matrix-legend {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bg-primary);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.matrix-legend p {
+    margin: 0.3rem 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ===========================
+   Infractions Section
+   =========================== */
+.infractions-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+}
+
+.infractions-section h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+}
+
+.infractions-filter {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-color);
+}
+
+.filter-btn.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.infractions-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-primary);
+    font-size: 0.9rem;
+}
+
+.infractions-table thead {
+    background: var(--bg-tertiary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.infractions-table th {
+    padding: 1rem 0.8rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.infractions-table td {
+    padding: 0.9rem 0.8rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.infractions-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.infractions-table tbody tr:hover {
+    background: var(--bg-tertiary);
+}
+
+.infractions-table tbody tr.hidden {
+    display: none;
+}
+
+.infractions-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.infractions-table code {
+    background: var(--bg-tertiary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-family: 'Courier New', monospace;
+}
+
+/* Badge styles for penalties */
+.badge-minor,
+.badge-bench,
+.badge-double,
+.badge-major,
+.badge-misconduct,
+.badge-game,
+.badge-match {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 0.3rem;
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+}
+
+.badge-minor {
+    background: #ffc107;
+    color: #000;
+}
+
+.badge-bench {
+    background: #ff9800;
+    color: #000;
+}
+
+.badge-double {
+    background: #ff5722;
+    color: white;
+}
+
+.badge-major {
+    background: #dc3545;
+    color: white;
+}
+
+.badge-misconduct {
+    background: #9c27b0;
+    color: white;
+}
+
+.badge-game {
+    background: #c62828;
+    color: white;
+}
+
+.badge-match {
+    background: #8b0000;
+    color: white;
+}
+
+.cat-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Mobile responsiveness for tables */
+@media (max-width: 768px) {
+    .penalty-matrix,
+    .infractions-table {
+        font-size: 0.8rem;
+    }
+    
+    .penalty-matrix th,
+    .penalty-matrix td,
+    .infractions-table th,
+    .infractions-table td {
+        padding: 0.6rem 0.4rem;
+    }
+    
+    .penalty-matrix th:nth-child(4),
+    .penalty-matrix td:nth-child(4),
+    .penalty-matrix th:nth-child(7),
+    .penalty-matrix td:nth-child(7) {
+        display: none;
+    }
+    
+    .infractions-filter {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+    }
+    
+    .duration-badge,
+    .badge-minor,
+    .badge-bench,
+    .badge-double,
+    .badge-major,
+    .badge-misconduct,
+    .badge-game,
+    .badge-match {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .penalty-matrix-section,
+    .infractions-section {
+        padding: 1rem;
+    }
+    
+    .table-responsive {
+        margin: 0.5rem -1rem;
+        border-radius: 0;
+    }
+    
+    .infractions-table th:nth-child(5),
+    .infractions-table td:nth-child(5) {
+        display: none;
+    }
+}
