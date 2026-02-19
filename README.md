@@ -7,7 +7,7 @@ Eine interaktive Webapp zur Darstellung der aktuellen IIHF-Regeln nach dem DEB-R
 - 📖 **Regeldarstellung**: Übersichtliche, strukturierte Anzeige aller Regeln
 - 🔍 **Suche**: Volltextsuche durch alle Regelinhalte
 - 🎯 **Filter**: Filterung nach Regelkategorien
-- 🧠 **Quiz-Modus**: Interaktiver Test zum Regelwissen
+- ⚠️ **Strafen-Übersicht**: Umfassende Darstellung aller Strafarten und Vergehen
 - 📱 **Responsive**: Optimiert für Desktop, Tablet und Mobile
 - 🌓 **Dark/Light Mode**: Umschaltbarer Anzeigemodus
 
@@ -43,11 +43,11 @@ Eine interaktive Webapp zur Darstellung der aktuellen IIHF-Regeln nach dem DEB-R
 - Kombiniere Filter mit der Suche
 - Setze Filter mit "Reset" zurück
 
-### Quiz-Modus
-- Starte das Quiz über den "Quiz" Button
-- Beantworte Multiple-Choice-Fragen
-- Erhalte sofortiges Feedback
-- Siehe deine Punktzahl am Ende
+### Strafen-Übersicht
+- Übersicht über alle Strafarten im Eishockey
+- Detaillierte Informationen zu Strafmaßen
+- Filterbare Liste aller Vergehen
+- Interaktive Darstellung
 
 ## Projektstruktur
 
@@ -59,10 +59,10 @@ hockeyrules/
 ├── js/
 │   ├── app.js          # Hauptlogik
 │   ├── search.js       # Suchfunktion
-│   ├── filter.js       # Filterfunktion
-│   └── quiz.js         # Quiz-Logik
+│   └── filter.js       # Filterfunktion
 ├── data/
-│   ├── rules.json      # Regeldaten
-│   └── quiz.json       # Quiz-Fragen
+│   ├── rules.json              # Regeldaten
+│   ├── penalties_reference.json # Strafendaten
+│   └── quiz.json               # Quiz-Fragen (veraltet)
 └── README.md
 ```
