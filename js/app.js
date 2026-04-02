@@ -7,6 +7,7 @@
 const appState = {
     rules: null,
     penalties: null,
+    quiz: null,
     currentView: 'rules',
     theme: 'light',
     bookmarks: new Set(),
@@ -18,6 +19,7 @@ const elements = {
     rulesView: null,
     bookmarksView: null,
     penaltiesView: null,
+    learnView: null,
     rulesContent: null,
     bookmarksContent: null,
     penaltiesContent: null,
@@ -57,6 +59,7 @@ function cacheElements() {
     elements.rulesView = document.getElementById('rulesView');
     elements.bookmarksView = document.getElementById('bookmarksView');
     elements.penaltiesView = document.getElementById('penaltiesView');
+    elements.learnView = document.getElementById('learnView');
     elements.rulesContent = document.getElementById('rulesContent');
     elements.bookmarksContent = document.getElementById('bookmarksContent');
     elements.penaltiesContent = document.getElementById('penaltiesContent');
@@ -71,14 +74,14 @@ function cacheElements() {
  */
 async function loadData() {
     try {
-        // Load rules
-        const rulesResponse = await fetch('data/rules.json');
-        appState.rules = await rulesResponse.json();
-        
-        // Load penalties data
-        const penaltiesResponse = await fetch('data/penalties_reference.json');
-        appState.penalties = await penaltiesResponse.json();
-        
+        const [rulesRes, penaltiesRes, quizRes] = await Promise.all([
+            fetch('data/rules.json'),
+            fetch('data/penalties_reference.json'),
+            fetch('data/quiz.json')
+        ]);
+        appState.rules = await rulesRes.json();
+        appState.penalties = await penaltiesRes.json();
+        appState.quiz = await quizRes.json();
         console.log('Data loaded successfully');
     } catch (error) {
         console.error('Error loading data:', error);
@@ -233,6 +236,10 @@ function switchView(viewName) {
             elements.penaltiesView.classList.add('active');
             renderPenaltiesView();
             break;
+        case 'learn':
+            elements.learnView.classList.add('active');
+            if (window.onLearnViewOpen) onLearnViewOpen();
+            break;
         case 'bookmarks':
             elements.bookmarksView.classList.add('active');
             renderBookmarks();
@@ -304,6 +311,23 @@ function createCategoryElement(category) {
         });
     });
     
+    // Add event listeners for related-rule jump tags
+    div.querySelectorAll('.related-rule-tag[data-jump]').forEach(tag => {
+        const handler = (e) => {
+            e.stopPropagation();
+            const target = document.querySelector(`.rule-item[data-rule="${tag.dataset.jump}"]`);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                target.classList.add('rule-highlight');
+                setTimeout(() => target.classList.remove('rule-highlight'), 2500);
+            } else {
+                showToast(`Regel ${tag.dataset.jump} nicht gefunden`);
+            }
+        };
+        tag.addEventListener('click', handler);
+        tag.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') handler(e); });
+    });
+
     // Add event listeners for expand buttons
     div.querySelectorAll('.btn-expand').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -405,7 +429,7 @@ function createRuleElement(rule) {
                     <div class="detail-section detail-related">
                         <h4>🔗 Verwandte Regeln</h4>
                         <div class="related-rules">
-                            ${rule.relatedRules.map(ruleNum => `<span class="related-rule-tag">Regel ${ruleNum}</span>`).join('')}
+                            ${rule.relatedRules.map(ruleNum => `<span class="related-rule-tag" data-jump="${ruleNum}" role="button" tabindex="0" title="Zur Regel ${ruleNum} springen">Regel ${ruleNum}</span>`).join('')}
                         </div>
                     </div>
                 ` : ''}

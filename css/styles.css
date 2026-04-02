@@ -1757,3 +1757,458 @@ html {
         display: none;
     }
 }
+
+/* ===========================
+   Rule Lookup Widget
+   =========================== */
+.rule-lookup-container {
+    margin-bottom: 1rem;
+}
+
+.rule-lookup-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+}
+
+.rule-lookup-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.rule-lookup-input {
+    flex: 1;
+    min-width: 120px;
+    max-width: 180px;
+    padding: 0.5rem 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: border-color 0.2s;
+}
+
+.rule-lookup-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.btn-lookup {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-lookup:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Highlight animation for jump-to-rule */
+.rule-highlight {
+    animation: ruleHighlight 2.5s ease forwards;
+}
+
+@keyframes ruleHighlight {
+    0%   { box-shadow: 0 0 0 3px var(--accent-color); border-color: var(--accent-color); }
+    60%  { box-shadow: 0 0 0 3px var(--accent-color); border-color: var(--accent-color); }
+    100% { box-shadow: none; }
+}
+
+/* ===========================
+   Learn Tool View
+   =========================== */
+.learn-container {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.learn-container h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.learn-intro {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Mode tabs */
+.learn-mode-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0;
+}
+
+.learn-tab {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+    margin-bottom: -2px;
+}
+
+.learn-tab:hover {
+    color: var(--accent-color);
+}
+
+.learn-tab.active {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.learn-section {
+    animation: fadeIn 0.3s ease;
+}
+
+/* ===========================
+   Quiz Stats Panel
+   =========================== */
+.quiz-stats-panel {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-tertiary);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.quiz-stats-panel h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.quiz-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+}
+
+.stats-card {
+    background: var(--bg-primary);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    border: 1px solid var(--border-color);
+}
+
+.stats-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.stats-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Quiz progress bar */
+.quiz-progress-bar {
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    width: 0%;
+}
+
+/* ===========================
+   Flashcards
+   =========================== */
+.flashcard-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.flashcard-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.card-counter {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.learned-counter {
+    font-size: 0.9rem;
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.flashcard-controls-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.select-input {
+    padding: 0.5rem 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.select-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* The card itself */
+.flashcard {
+    perspective: 1200px;
+    cursor: pointer;
+    margin: 0 auto 1.5rem;
+    max-width: 700px;
+    min-height: 280px;
+    user-select: none;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flashcard-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    inset: 0;
+    min-height: 280px;
+    border-radius: 16px;
+    padding: 2rem;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 16px var(--shadow);
+}
+
+.flashcard-front {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+}
+
+.flashcard-back {
+    background: var(--bg-secondary);
+    transform: rotateY(180deg);
+    align-items: flex-start;
+    gap: 0.75rem;
+    overflow-y: auto;
+    max-height: 420px;
+}
+
+.flashcard.is-learned .flashcard-front {
+    border-color: var(--success-color);
+    box-shadow: 0 4px 16px rgba(40, 167, 69, 0.2);
+}
+
+.flashcard-category-badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    background: var(--accent-color);
+    padding: 0.3rem 0.9rem;
+    border-radius: 12px;
+}
+
+.flashcard-rule-number {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.flashcard-rule-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.flashcard-flip-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.flashcard-back-description {
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.flashcard-back-details {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-style: italic;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.5rem;
+}
+
+.flashcard-back-examples {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.flashcard-back-examples ul {
+    padding-left: 1.2rem;
+    margin: 0.25rem 0 0;
+}
+
+.flashcard-back-examples li {
+    margin-bottom: 0.25rem;
+}
+
+.flashcard-empty {
+    color: var(--text-muted);
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Flashcard navigation */
+.flashcard-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-learned {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 2px solid var(--success-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-learned:hover,
+.btn-learned.is-learned {
+    background-color: var(--success-color);
+    color: white;
+    border-color: var(--success-color);
+}
+
+/* Flashcard progress bar */
+.flashcard-progress-bar-wrap {
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+}
+
+.flashcard-progress-fill {
+    height: 100%;
+    background: var(--success-color);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+    width: 0%;
+}
+
+.flashcard-progress-label {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Responsive learn tool */
+@media (max-width: 768px) {
+    .learn-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .flashcard-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .flashcard-rule-title {
+        font-size: 1.2rem;
+    }
+
+    .flashcard-front,
+    .flashcard-back {
+        padding: 1.25rem;
+    }
+
+    .rule-lookup-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rule-lookup-input {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .flashcard-nav {
+        gap: 0.5rem;
+    }
+
+    .btn-learned {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}

@@ -80,12 +80,17 @@ function startQuiz(difficulty) {
  */
 function displayQuestion() {
     const question = quizState.questions[quizState.currentQuestionIndex];
-    
+
     // Update progress
-    document.getElementById('questionCounter').textContent = 
+    document.getElementById('questionCounter').textContent =
         `Frage ${quizState.currentQuestionIndex + 1}/${quizState.questions.length}`;
-    document.getElementById('scoreCounter').textContent = 
+    document.getElementById('scoreCounter').textContent =
         `Punkte: ${quizState.score}`;
+
+    // Update progress bar
+    const pct = Math.round((quizState.currentQuestionIndex / quizState.questions.length) * 100);
+    const bar = document.getElementById('quizProgressFill');
+    if (bar) bar.style.width = pct + '%';
     
     // Display question text
     document.getElementById('questionText').textContent = question.question;
@@ -211,9 +216,16 @@ function showResults() {
     
     document.getElementById('resultMessage').textContent = `${emoji} ${message}`;
     
+    // Update progress bar to 100%
+    const bar = document.getElementById('quizProgressFill');
+    if (bar) bar.style.width = '100%';
+
     // Save quiz statistics
     saveQuizStatistics();
-    
+
+    // Refresh stats panel if available
+    if (window.renderQuizStats) renderQuizStats();
+
     showScreen('results');
 }
 
