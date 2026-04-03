@@ -1,11 +1,32 @@
 /**
  * Hockey Rules - Search Functionality
- * Handles full-text search with live results and highlighting
+ * Handles advanced full-text search with keyword matching, normalization and highlighting
  */
 
 let searchInput;
 let clearSearchBtn;
 let searchTimeout = null;
+let searchChips = [];
+
+const SEARCH_SYNONYMS = {
+    'abseits': ['offside', 'off-side', 'off side'],
+    'offside': ['abseits'],
+    'icing': ['unerlaubter weitschuss'],
+    'unerlaubter': ['icing'],
+    'haken': ['hooking'],
+    'hooking': ['haken'],
+    'beinstellen': ['tripping'],
+    'tripping': ['beinstellen'],
+    'check': ['checking'],
+    'checking': ['check'],
+    'penalty': ['strafe'],
+    'strafe': ['penalty', 'minor', 'major', 'misconduct'],
+    'torhueter': ['goalkeeper'],
+    'goalkeeper': ['torhueter'],
+    'bully': ['face-off', 'faceoff'],
+    'faceoff': ['bully', 'face-off'],
+    'face-off': ['bully', 'faceoff']
+};
 
 /**
  * Initialize search functionality
@@ -13,6 +34,7 @@ let searchTimeout = null;
 function initSearch() {
     searchInput = document.getElementById('searchInput');
     clearSearchBtn = document.getElementById('clearSearch');
+    searchChips = Array.from(document.querySelectorAll('.search-chip'));
     
     if (!searchInput) return;
     
@@ -29,6 +51,24 @@ function initSearch() {
         if (e.key === 'Enter') {
             performSearch(searchInput.value);
         }
+    });
+
+    // Keyboard shortcut: "/" focuses search
+    document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== searchInput) {
+            e.preventDefault();
+            searchInput.focus();
+        }
+    });
+
+    // Quick search chips
+    searchChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const value = chip.dataset.search || chip.textContent.trim();
+            searchInput.value = value;
+            performSearch(value);
+            searchInput.focus();
+        });
     });
 }
 
@@ -55,7 +95,7 @@ function handleSearchInput(e) {
 function performSearch(query) {
     if (!window.appState || !window.appState.rules) return;
     
-    const trimmedQuery = query.trim().toLowerCase();
+    const trimmedQuery = query.trim();
     
     // If query is empty, show all rules
     if (trimmedQuery === '') {
@@ -75,6 +115,9 @@ function performSearch(query) {
  */
 function searchRules(query) {
     const results = [];
+    const normalizedQuery = normalizeText(query);
+    const queryTokens = tokenize(normalizedQuery);
+    const expandedTokens = expandTokens(queryTokens);
     
     window.appState.rules.categories.forEach(category => {
         // Skip if category is filtered out
@@ -83,24 +126,23 @@ function searchRules(query) {
         }
         
         category.rules.forEach(rule => {
-            // Search in rule number, title, description, and details
-            const searchText = [
-                rule.number,
-                rule.title,
-                rule.description,
-                rule.details || ''
-            ].join(' ').toLowerCase();
-            
-            if (searchText.includes(query)) {
+            const scoring = scoreRule(rule, category, normalizedQuery, expandedTokens);
+            if (scoring.score > 0) {
                 results.push({
                     rule: rule,
-                    category: category
+                    category: category,
+                    score: scoring.score,
+                    matchedTerms: scoring.matchedTerms,
+                    matchedKeywords: scoring.matchedKeywords
                 });
             }
         });
     });
     
-    return results;
+    return results.sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        return parseFloat(a.rule.number) - parseFloat(b.rule.number);
+    });
 }
 
 /**
@@ -113,7 +155,7 @@ function renderSearchResults(results, query) {
         rulesContent.innerHTML = `
             <p class="empty-state">
                 Keine Regeln gefunden für "${escapeHtml(query)}". 
-                <br>Versuche es mit anderen Suchbegriffen.
+                <br>Versuche Stichwörter wie <strong>Haken</strong>, <strong>Abseits</strong>, <strong>Regel 55</strong> oder <strong>Penalty</strong>.
             </p>
         `;
         return;
@@ -124,6 +166,9 @@ function renderSearchResults(results, query) {
             <p style="color: var(--text-secondary); margin: 0;">
                 <strong>${results.length}</strong> ${results.length === 1 ? 'Regel gefunden' : 'Regeln gefunden'} für 
                 "<strong>${escapeHtml(query)}</strong>"
+            </p>
+            <p style="color: var(--text-muted); margin: 0.5rem 0 0 0; font-size: 0.9rem;">
+                Suche in Titel, Beschreibung, Kategorie, Regelnummer und hinterlegten Stichwörtern.
             </p>
         </div>
     `;
@@ -152,8 +197,8 @@ function renderSearchResults(results, query) {
             </div>
         `;
         
-        const rulesList = group.rules.map(rule => 
-            createHighlightedRuleElement(rule, query, group.category)
+        const rulesList = group.rules.map(result => 
+            createHighlightedRuleElement(result.rule, query, group.category, result)
         ).join('');
         
         categoryEl.innerHTML = `
@@ -173,13 +218,14 @@ function renderSearchResults(results, query) {
 /**
  * Create rule element with highlighted search terms
  */
-function createHighlightedRuleElement(rule, query, category) {
+function createHighlightedRuleElement(rule, query, category, searchMeta = {}) {
     const isBookmarked = window.appState.bookmarks.has(rule.number);
     
     // Highlight search terms in text
     const highlightedTitle = highlightText(rule.title, query);
     const highlightedDescription = highlightText(rule.description, query);
     const highlightedDetails = rule.details ? highlightText(rule.details, query) : '';
+    const matchedKeywords = searchMeta.matchedKeywords || [];
     
     return `
         <div class="rule-item" data-rule="${rule.number}">
@@ -203,6 +249,11 @@ function createHighlightedRuleElement(rule, query, category) {
             <h3 class="rule-title">${highlightedTitle}</h3>
             <p class="rule-description">${highlightedDescription}</p>
             ${rule.details ? `<p class="rule-details">${highlightedDetails}</p>` : ''}
+            ${matchedKeywords.length > 0 ? `
+                <div class="search-keyword-hits">
+                    ${matchedKeywords.slice(0, 6).map(keyword => `<span class="search-keyword-tag">${escapeHtml(keyword)}</span>`).join('')}
+                </div>
+            ` : ''}
         </div>
     `;
 }
@@ -213,12 +264,16 @@ function createHighlightedRuleElement(rule, query, category) {
 function highlightText(text, query) {
     if (!query || !text) return escapeHtml(text);
     
-    const escapedText = escapeHtml(text);
-    const escapedQuery = escapeRegex(query);
+    let escapedText = escapeHtml(text);
+    const terms = getHighlightTerms(query);
     
-    // Case-insensitive highlighting
-    const regex = new RegExp(`(${escapedQuery})`, 'gi');
-    return escapedText.replace(regex, '<span class="highlight">$1</span>');
+    terms.forEach(term => {
+        const escapedQuery = escapeRegex(term);
+        const regex = new RegExp(`(${escapedQuery})`, 'gi');
+        escapedText = escapedText.replace(regex, '<span class="highlight">$1</span>');
+    });
+    
+    return escapedText;
 }
 
 /**
@@ -235,6 +290,145 @@ function escapeHtml(text) {
  */
 function escapeRegex(text) {
     return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Normalize text for robust search (case, umlauts, punctuation)
+ */
+function normalizeText(text) {
+    return (text || '')
+        .toLowerCase()
+        .replace(/ä/g, 'ae')
+        .replace(/ö/g, 'oe')
+        .replace(/ü/g, 'ue')
+        .replace(/ß/g, 'ss')
+        .replace(/[^a-z0-9.\s-]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+/**
+ * Tokenize normalized text
+ */
+function tokenize(text) {
+    if (!text) return [];
+    return text.split(' ').filter(token => token.length >= 2);
+}
+
+/**
+ * Expand tokens with known synonyms
+ */
+function expandTokens(tokens) {
+    const expanded = new Set(tokens);
+    tokens.forEach(token => {
+        (SEARCH_SYNONYMS[token] || []).forEach(syn => expanded.add(normalizeText(syn)));
+    });
+    return Array.from(expanded);
+}
+
+/**
+ * Build term list for visual highlights
+ */
+function getHighlightTerms(query) {
+    return Array.from(new Set(
+        query
+            .toLowerCase()
+            .replace(/[^\p{L}\p{N}.\s-]/gu, ' ')
+            .split(/\s+/)
+            .filter(term => term.length >= 2)
+    )).sort((a, b) => b.length - a.length);
+}
+
+/**
+ * Score one rule for ranking
+ */
+function scoreRule(rule, category, normalizedQuery, expandedTokens) {
+    const normalizedNumber = normalizeText(rule.number || '');
+    const normalizedTitle = normalizeText(rule.title || '');
+    const normalizedDescription = normalizeText(rule.description || '');
+    const normalizedDetails = normalizeText(rule.details || '');
+    const normalizedCategory = normalizeText(category.name || '');
+    const normalizedCategoryDescription = normalizeText(category.description || '');
+    const normalizedKeywords = (rule.keywords || []).map(k => normalizeText(k));
+    const keywordSet = new Set(normalizedKeywords);
+    const allText = [
+        normalizedNumber,
+        normalizedTitle,
+        normalizedDescription,
+        normalizedDetails,
+        normalizedCategory,
+        normalizedCategoryDescription,
+        ...normalizedKeywords
+    ].join(' ');
+    
+    let score = 0;
+    const matchedTerms = new Set();
+    const matchedKeywords = new Set();
+    
+    // Phrase bonus
+    if (normalizedQuery && allText.includes(normalizedQuery)) {
+        score += 40;
+    }
+    
+    // Rule number exact shortcuts (e.g., "55", "regel 55")
+    const plainNumber = normalizedQuery.replace(/^regel\s+/, '');
+    if (plainNumber === normalizedNumber || normalizedQuery === `regel ${normalizedNumber}` || normalizedQuery === `rule ${normalizedNumber}`) {
+        score += 120;
+        matchedTerms.add(normalizedNumber);
+    }
+    
+    expandedTokens.forEach(token => {
+        let tokenMatched = false;
+        
+        if (normalizedTitle.includes(token)) {
+            score += 22;
+            tokenMatched = true;
+        }
+        if (keywordSet.has(token)) {
+            score += 20;
+            tokenMatched = true;
+            matchedKeywords.add(token);
+        } else {
+            normalizedKeywords.forEach(keyword => {
+                if (keyword.includes(token)) {
+                    score += 14;
+                    tokenMatched = true;
+                    matchedKeywords.add(keyword);
+                }
+            });
+        }
+        if (normalizedDescription.includes(token)) {
+            score += 10;
+            tokenMatched = true;
+        }
+        if (normalizedDetails.includes(token)) {
+            score += 8;
+            tokenMatched = true;
+        }
+        if (normalizedCategory.includes(token) || normalizedCategoryDescription.includes(token)) {
+            score += 6;
+            tokenMatched = true;
+        }
+        if (normalizedNumber === token || normalizedNumber.startsWith(token)) {
+            score += 30;
+            tokenMatched = true;
+        }
+        
+        if (tokenMatched) {
+            matchedTerms.add(token);
+        }
+    });
+    
+    // Require at least one token match for non-empty query
+    if (expandedTokens.length > 0 && matchedTerms.size === 0 && score < 40) {
+        return { score: 0, matchedTerms: [], matchedKeywords: [] };
+    }
+    
+    return {
+        score,
+        matchedTerms: Array.from(matchedTerms),
+        matchedKeywords: Array.from(matchedKeywords)
+    };
 }
 
 /**

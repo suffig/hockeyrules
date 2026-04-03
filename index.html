@@ -45,6 +45,9 @@
         <main class="main-content">
             <!-- Rules View -->
             <div id="rulesView" class="view active">
+                <div class="rules-meta" id="rulesMeta">
+                    <p id="rulesCoverageInfo">📚 Lade Regelabdeckung…</p>
+                </div>
                 <!-- Rule Lookup -->
                 <div class="rule-lookup-container">
                     <div class="rule-lookup-inner">
@@ -53,7 +56,7 @@
                             type="text"
                             id="ruleLookupInput"
                             class="rule-lookup-input"
-                            placeholder="Regel-Nr. (z.B. 1.4)"
+                            placeholder="Regel-Nr. (z.B. 55)"
                             aria-label="Regelnummer eingeben"
                             maxlength="10"
                         >
@@ -67,10 +70,18 @@
                         type="text"
                         id="searchInput"
                         class="search-input"
-                        placeholder="🔍 Regeln durchsuchen..."
+                        placeholder="🔍 Regeln, Stichwörter, Begriffe und Regelnummern durchsuchen…"
                         aria-label="Regeln durchsuchen"
                     >
                     <button id="clearSearch" class="btn-clear" aria-label="Suche löschen">✕</button>
+                </div>
+                <div class="search-helpers" aria-label="Schnellsuche">
+                    <button type="button" class="search-chip" data-search="Regel 55">Regel 55</button>
+                    <button type="button" class="search-chip" data-search="Haken">Haken</button>
+                    <button type="button" class="search-chip" data-search="Abseits">Abseits</button>
+                    <button type="button" class="search-chip" data-search="Penalty">Penalty</button>
+                    <button type="button" class="search-chip" data-search="Goalkeeper">Goalkeeper</button>
+                    <button type="button" class="search-chip" data-search="Video Review">Video Review</button>
                 </div>
 
                 <!-- Filter Section -->

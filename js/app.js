@@ -83,6 +83,7 @@ async function loadData() {
         appState.penalties = await penaltiesRes.json();
         appState.quiz = await quizRes.json();
         console.log('Data loaded successfully');
+        updateRulesCoverageInfo();
     } catch (error) {
         console.error('Error loading data:', error);
         showToast('Fehler beim Laden der Daten. Bitte Seite neu laden.', 'error');
@@ -269,6 +270,18 @@ function renderRules() {
     if (elements.rulesContent.children.length === 0) {
         elements.rulesContent.innerHTML = '<p class="empty-state">Keine Regeln gefunden. Versuche es mit anderen Filtern.</p>';
     }
+}
+
+/**
+ * Update visible rule coverage info in the UI
+ */
+function updateRulesCoverageInfo() {
+    const coverageEl = document.getElementById('rulesCoverageInfo');
+    if (!coverageEl || !appState.rules || !appState.rules.metadata) return;
+    const meta = appState.rules.metadata;
+    const total = meta.totalRules || appState.rules.categories.reduce((sum, cat) => sum + cat.rules.length, 0);
+    const version = meta.version || 'unbekannt';
+    coverageEl.textContent = `📚 ${total} gelistete Regeln · Version ${version} · Quelle: offizielles IIHF-Regelbuch`;
 }
 
 /**
@@ -765,4 +778,3 @@ function initInfractionsFilter() {
         });
     });
 }
-
