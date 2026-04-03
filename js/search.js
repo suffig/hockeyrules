@@ -28,6 +28,8 @@ const SEARCH_SYNONYMS = {
     'face-off': ['bully', 'faceoff']
 };
 
+const NORMALIZED_SYNONYMS = buildNormalizedSynonyms(SEARCH_SYNONYMS);
+
 /**
  * Initialize search functionality
  */
@@ -321,7 +323,7 @@ function tokenize(text) {
 function expandTokens(tokens) {
     const expanded = new Set(tokens);
     tokens.forEach(token => {
-        (SEARCH_SYNONYMS[token] || []).forEach(syn => expanded.add(normalizeText(syn)));
+        (NORMALIZED_SYNONYMS[token] || []).forEach(syn => expanded.add(syn));
     });
     return Array.from(expanded);
 }
@@ -333,10 +335,21 @@ function getHighlightTerms(query) {
     return Array.from(new Set(
         query
             .toLowerCase()
-            .replace(/[^\p{L}\p{N}.\s-]/gu, ' ')
+            .replace(/[^a-z0-9äöüß.\s-]/gi, ' ')
             .split(/\s+/)
             .filter(term => term.length >= 2)
     )).sort((a, b) => b.length - a.length);
+}
+
+/**
+ * Normalize synonym dictionary once for better runtime performance
+ */
+function buildNormalizedSynonyms(map) {
+    const normalized = {};
+    Object.entries(map).forEach(([key, values]) => {
+        normalized[normalizeText(key)] = values.map(value => normalizeText(value));
+    });
+    return normalized;
 }
 
 /**
