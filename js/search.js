@@ -8,6 +8,18 @@ let clearSearchBtn;
 let searchTimeout = null;
 let searchChips = [];
 
+const MAX_VISIBLE_KEYWORD_TAGS = 6;
+const SCORE_PHRASE_MATCH = 40;
+const SCORE_EXACT_RULE_NUMBER = 120;
+const SCORE_TITLE_MATCH = 22;
+const SCORE_KEYWORD_EXACT = 20;
+const SCORE_KEYWORD_PARTIAL = 14;
+const SCORE_DESCRIPTION_MATCH = 10;
+const SCORE_DETAILS_MATCH = 8;
+const SCORE_CATEGORY_MATCH = 6;
+const SCORE_RULE_NUMBER_TOKEN_MATCH = 30;
+const NON_SEARCH_CHARS_REGEX = /[^a-z0-9äöüß.\s-]/g;
+
 const SEARCH_SYNONYMS = {
     'abseits': ['offside', 'off-side', 'off side'],
     'offside': ['abseits'],
@@ -27,8 +39,7 @@ const SEARCH_SYNONYMS = {
     'faceoff': ['bully', 'face-off'],
     'face-off': ['bully', 'faceoff']
 };
-
-const NORMALIZED_SYNONYMS = buildNormalizedSynonyms(SEARCH_SYNONYMS);
+let normalizedSynonyms = null;
 
 /**
  * Initialize search functionality
@@ -37,6 +48,7 @@ function initSearch() {
     searchInput = document.getElementById('searchInput');
     clearSearchBtn = document.getElementById('clearSearch');
     searchChips = Array.from(document.querySelectorAll('.search-chip'));
+    normalizedSynonyms = buildNormalizedSynonyms(SEARCH_SYNONYMS);
     
     if (!searchInput) return;
     
@@ -143,7 +155,7 @@ function searchRules(query) {
     
     return results.sort((a, b) => {
         if (b.score !== a.score) return b.score - a.score;
-        return parseFloat(a.rule.number) - parseFloat(b.rule.number);
+        return compareRuleNumbers(a.rule.number, b.rule.number);
     });
 }
 
@@ -253,7 +265,7 @@ function createHighlightedRuleElement(rule, query, category, searchMeta = {}) {
             ${rule.details ? `<p class="rule-details">${highlightedDetails}</p>` : ''}
             ${matchedKeywords.length > 0 ? `
                 <div class="search-keyword-hits">
-                    ${matchedKeywords.slice(0, 6).map(keyword => `<span class="search-keyword-tag">${escapeHtml(keyword)}</span>`).join('')}
+                    ${matchedKeywords.slice(0, MAX_VISIBLE_KEYWORD_TAGS).map(keyword => `<span class="search-keyword-tag">${escapeHtml(keyword)}</span>`).join('')}
                 </div>
             ` : ''}
         </div>
@@ -304,7 +316,7 @@ function normalizeText(text) {
         .replace(/ö/g, 'oe')
         .replace(/ü/g, 'ue')
         .replace(/ß/g, 'ss')
-        .replace(/[^a-z0-9.\s-]/g, ' ')
+        .replace(NON_SEARCH_CHARS_REGEX, ' ')
         .replace(/\s+/g, ' ')
         .trim();
 }
@@ -321,9 +333,12 @@ function tokenize(text) {
  * Expand tokens with known synonyms
  */
 function expandTokens(tokens) {
+    if (!normalizedSynonyms) {
+        normalizedSynonyms = buildNormalizedSynonyms(SEARCH_SYNONYMS);
+    }
     const expanded = new Set(tokens);
     tokens.forEach(token => {
-        (NORMALIZED_SYNONYMS[token] || []).forEach(syn => expanded.add(syn));
+        (normalizedSynonyms[token] || []).forEach(syn => expanded.add(syn));
     });
     return Array.from(expanded);
 }
@@ -335,7 +350,7 @@ function getHighlightTerms(query) {
     return Array.from(new Set(
         query
             .toLowerCase()
-            .replace(/[^a-z0-9äöüß.\s-]/gi, ' ')
+            .replace(NON_SEARCH_CHARS_REGEX, ' ')
             .split(/\s+/)
             .filter(term => term.length >= 2)
     )).sort((a, b) => b.length - a.length);
@@ -350,6 +365,18 @@ function buildNormalizedSynonyms(map) {
         normalized[normalizeText(key)] = values.map(value => normalizeText(value));
     });
     return normalized;
+}
+
+/**
+ * Natural comparison for rule numbers (numeric first, fallback locale compare)
+ */
+function compareRuleNumbers(a, b) {
+    const aNum = Number(a);
+    const bNum = Number(b);
+    const aIsNum = Number.isFinite(aNum);
+    const bIsNum = Number.isFinite(bNum);
+    if (aIsNum && bIsNum) return aNum - bNum;
+    return String(a).localeCompare(String(b), undefined, { numeric: true, sensitivity: 'base' });
 }
 
 /**
@@ -380,13 +407,13 @@ function scoreRule(rule, category, normalizedQuery, expandedTokens) {
     
     // Phrase bonus
     if (normalizedQuery && allText.includes(normalizedQuery)) {
-        score += 40;
+        score += SCORE_PHRASE_MATCH;
     }
     
     // Rule number exact shortcuts (e.g., "55", "regel 55")
-    const plainNumber = normalizedQuery.replace(/^regel\s+/, '');
+    const plainNumber = normalizedQuery.replace(/^(regel|rule)\s+/, '');
     if (plainNumber === normalizedNumber || normalizedQuery === `regel ${normalizedNumber}` || normalizedQuery === `rule ${normalizedNumber}`) {
-        score += 120;
+        score += SCORE_EXACT_RULE_NUMBER;
         matchedTerms.add(normalizedNumber);
     }
     
@@ -394,36 +421,36 @@ function scoreRule(rule, category, normalizedQuery, expandedTokens) {
         let tokenMatched = false;
         
         if (normalizedTitle.includes(token)) {
-            score += 22;
+            score += SCORE_TITLE_MATCH;
             tokenMatched = true;
         }
         if (keywordSet.has(token)) {
-            score += 20;
+            score += SCORE_KEYWORD_EXACT;
             tokenMatched = true;
             matchedKeywords.add(token);
         } else {
             normalizedKeywords.forEach(keyword => {
                 if (keyword.includes(token)) {
-                    score += 14;
+                    score += SCORE_KEYWORD_PARTIAL;
                     tokenMatched = true;
                     matchedKeywords.add(keyword);
                 }
             });
         }
         if (normalizedDescription.includes(token)) {
-            score += 10;
+            score += SCORE_DESCRIPTION_MATCH;
             tokenMatched = true;
         }
         if (normalizedDetails.includes(token)) {
-            score += 8;
+            score += SCORE_DETAILS_MATCH;
             tokenMatched = true;
         }
         if (normalizedCategory.includes(token) || normalizedCategoryDescription.includes(token)) {
-            score += 6;
+            score += SCORE_CATEGORY_MATCH;
             tokenMatched = true;
         }
         if (normalizedNumber === token || normalizedNumber.startsWith(token)) {
-            score += 30;
+            score += SCORE_RULE_NUMBER_TOKEN_MATCH;
             tokenMatched = true;
         }
         
@@ -433,7 +460,7 @@ function scoreRule(rule, category, normalizedQuery, expandedTokens) {
     });
     
     // Require at least one token match for non-empty query
-    if (expandedTokens.length > 0 && matchedTerms.size === 0 && score < 40) {
+    if (expandedTokens.length > 0 && matchedTerms.size === 0 && score < SCORE_PHRASE_MATCH) {
         return { score: 0, matchedTerms: [], matchedKeywords: [] };
     }
     
