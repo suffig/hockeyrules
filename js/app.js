@@ -285,6 +285,36 @@ function updateRulesCoverageInfo() {
 }
 
 /**
+ * Escape text for safe HTML rendering
+ */
+function escapeHtml(text) {
+    if (text === null || text === undefined) return '';
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+/**
+ * Toggle a rule details block
+ */
+function toggleRuleDetails(ruleItem, btn) {
+    if (!ruleItem) return;
+    const detailsContent = ruleItem.querySelector('.rule-detailed-content');
+    if (!detailsContent) return;
+    const isExpanded = detailsContent.style.display !== 'none';
+    detailsContent.style.display = isExpanded ? 'none' : 'block';
+    if (btn) {
+        btn.textContent = isExpanded ? '▼' : '▲';
+        btn.setAttribute('aria-label', isExpanded ? 'Details anzeigen' : 'Details ausblenden');
+        btn.setAttribute('title', isExpanded ? 'Details anzeigen' : 'Details ausblenden');
+    }
+    ruleItem.classList.toggle('expanded', !isExpanded);
+}
+
+/**
  * Create HTML element for a category
  */
 function createCategoryElement(category) {
@@ -347,16 +377,22 @@ function createCategoryElement(category) {
             e.stopPropagation();
             const ruleNumber = btn.dataset.rule;
             const ruleItem = div.querySelector(`.rule-item[data-rule="${ruleNumber}"]`);
-            const detailsContent = ruleItem.querySelector('.rule-detailed-content');
-            
-            if (detailsContent) {
-                const isExpanded = detailsContent.style.display !== 'none';
-                detailsContent.style.display = isExpanded ? 'none' : 'block';
-                btn.textContent = isExpanded ? '▼' : '▲';
-                btn.setAttribute('aria-label', isExpanded ? 'Details anzeigen' : 'Details ausblenden');
-                btn.setAttribute('title', isExpanded ? 'Details anzeigen' : 'Details ausblenden');
-                ruleItem.classList.toggle('expanded', !isExpanded);
+            toggleRuleDetails(ruleItem, btn);
+        });
+    });
+
+    // Allow opening details by clicking the full rule card
+    div.querySelectorAll('.rule-item-expandable').forEach(ruleItem => {
+        ruleItem.addEventListener('click', (e) => {
+            if (
+                e.target.closest('.rule-actions') ||
+                e.target.closest('.related-rule-tag') ||
+                e.target.closest('.rule-detailed-content')
+            ) {
+                return;
             }
+            const btn = ruleItem.querySelector('.btn-expand');
+            toggleRuleDetails(ruleItem, btn);
         });
     });
     
@@ -368,7 +404,8 @@ function createCategoryElement(category) {
  */
 function createRuleElement(rule) {
     const isBookmarked = appState.bookmarks.has(rule.number);
-    const hasDetailedContent = rule.detailedExplanation || rule.examples || rule.whatToWatchFor || rule.relatedRules;
+    const hasDetailedContent = rule.detailedExplanation || rule.examples || rule.whatToWatchFor || rule.relatedRules || rule.exactContent || rule.penaltyMeasures || rule.officialWordingEn;
+    const penaltyMeasures = rule.penaltyMeasures || null;
     
     let html = `
         <div class="rule-item ${hasDetailedContent ? 'rule-item-expandable' : ''}" data-rule="${rule.number}">
@@ -402,7 +439,14 @@ function createRuleElement(rule) {
                 ${rule.detailedExplanation ? `
                     <div class="detail-section">
                         <h4>📋 Detaillierte Erklärung</h4>
-                        <p>${rule.detailedExplanation}</p>
+                        <p>${escapeHtml(rule.detailedExplanation)}</p>
+                    </div>
+                ` : ''}
+
+                ${rule.exactContent ? `
+                    <div class="detail-section detail-exact-content">
+                        <h4>🎯 Exakter Regelinhalt (kompakt)</h4>
+                        <p>${escapeHtml(rule.exactContent)}</p>
                     </div>
                 ` : ''}
                 
@@ -410,7 +454,7 @@ function createRuleElement(rule) {
                     <div class="detail-section">
                         <h4>💡 Beispiele</h4>
                         <ul class="examples-list">
-                            ${rule.examples.map(ex => `<li>${ex}</li>`).join('')}
+                            ${rule.examples.map(ex => `<li>${escapeHtml(ex)}</li>`).join('')}
                         </ul>
                     </div>
                 ` : ''}
@@ -419,22 +463,35 @@ function createRuleElement(rule) {
                     <div class="detail-section detail-watch">
                         <h4>👁️ Worauf achten?</h4>
                         <ul class="watch-list">
-                            ${rule.whatToWatchFor.map(item => `<li>${item}</li>`).join('')}
+                            ${rule.whatToWatchFor.map(item => `<li>${escapeHtml(item)}</li>`).join('')}
                         </ul>
+                    </div>
+                ` : ''}
+
+                ${penaltyMeasures ? `
+                    <div class="detail-section detail-penalty-measures">
+                        <h4>⚖️ Strafmaß-Übersicht</h4>
+                        <div class="penalty-measures-grid">
+                            <div><strong>Typ:</strong> ${escapeHtml(penaltyMeasures.type || '—')}</div>
+                            <div><strong>Dauer:</strong> ${escapeHtml(penaltyMeasures.duration || '—')}</div>
+                            <div><strong>Unterzahl:</strong> ${penaltyMeasures.shortHanded === true ? 'Ja' : penaltyMeasures.shortHanded === false ? 'Nein' : 'Abhängig von Situation'}</div>
+                            <div><strong>Ersatzspieler erlaubt:</strong> ${penaltyMeasures.substitutionAllowed === true ? 'Ja' : penaltyMeasures.substitutionAllowed === false ? 'Nein' : 'Abhängig von Situation'}</div>
+                        </div>
+                        ${penaltyMeasures.description ? `<p class="penalty-measures-note">${escapeHtml(penaltyMeasures.description)}</p>` : ''}
                     </div>
                 ` : ''}
                 
                 ${rule.exceptions ? `
                     <div class="detail-section detail-exceptions">
                         <h4>⚠️ Ausnahmen</h4>
-                        <p>${rule.exceptions}</p>
+                        <p>${escapeHtml(rule.exceptions)}</p>
                     </div>
                 ` : ''}
                 
                 ${rule.procedureDetails ? `
                     <div class="detail-section">
                         <h4>📝 Ablauf</h4>
-                        <p>${rule.procedureDetails}</p>
+                        <p>${escapeHtml(rule.procedureDetails)}</p>
                     </div>
                 ` : ''}
                 
@@ -444,6 +501,16 @@ function createRuleElement(rule) {
                         <div class="related-rules">
                             ${rule.relatedRules.map(ruleNum => `<span class="related-rule-tag" data-jump="${ruleNum}" role="button" tabindex="0" title="Zur Regel ${ruleNum} springen">Regel ${ruleNum}</span>`).join('')}
                         </div>
+                    </div>
+                ` : ''}
+
+                ${rule.officialWordingEn ? `
+                    <div class="detail-section detail-official-wording">
+                        <h4>📖 Kompletter Wortlaut (IIHF Original, Englisch)</h4>
+                        <details>
+                            <summary>Volltext anzeigen / ausblenden</summary>
+                            <pre class="official-wording-text">${escapeHtml(rule.officialWordingEn)}</pre>
+                        </details>
                     </div>
                 ` : ''}
             </div>

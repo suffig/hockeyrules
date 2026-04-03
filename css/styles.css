@@ -354,9 +354,17 @@ body {
     transition: all 0.3s ease;
 }
 
+.rule-item.rule-item-expandable {
+    cursor: pointer;
+}
+
 .rule-item:hover {
     border-color: var(--accent-color);
     box-shadow: 0 2px 8px var(--shadow);
+}
+
+.rule-item.expanded {
+    border-color: var(--accent-color);
 }
 
 .rule-header {
@@ -395,6 +403,83 @@ body {
     font-size: 0.9rem;
     color: var(--text-muted);
     font-style: italic;
+}
+
+.rule-detailed-content {
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.detail-section {
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+}
+
+.detail-section h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.98rem;
+}
+
+.detail-section p,
+.detail-section li {
+    color: var(--text-secondary);
+}
+
+.detail-section ul {
+    padding-left: 1.2rem;
+}
+
+.detail-section li + li {
+    margin-top: 0.35rem;
+}
+
+.detail-exact-content {
+    border-left: 4px solid var(--accent-color);
+}
+
+.detail-penalty-measures {
+    border-left: 4px solid var(--error-color);
+}
+
+.penalty-measures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.55rem 1rem;
+}
+
+.penalty-measures-note {
+    margin-top: 0.6rem;
+    font-size: 0.92rem;
+}
+
+.detail-official-wording details {
+    margin-top: 0.4rem;
+}
+
+.detail-official-wording summary {
+    cursor: pointer;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.official-wording-text {
+    margin-top: 0.7rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 24rem;
+    overflow: auto;
+    padding: 0.85rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.5;
 }
 
 .rule-subrules {
